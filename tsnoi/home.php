@@ -25,55 +25,64 @@ get_header();
             />
             <div class="blue-bg-main-text">
               <h1 class="h1-text">
-                Центр непрерывного <br />
-                образования и инноваций
+              <?php the_field('title-home') ?>
               </h1>
-              <p class="h1-subtext">Образовательный холдинг</p>
+              <p class="h1-subtext"><?php the_field('subtitle-home') ?></p>
             </div>
           </div>
         </div>
       </section>
       <section class="standart-margin-section second-section-home">
-        <div class="why-choise-box">
-          <h2 class="second-section-home_title why-choise__element">
-            Почему нас выбирают
-          </h2>
-          <div class="advantages-block why-choise__element">
-            <div class="advantage">
-              <h3 class="advantage__title">20 000+</h3>
-              <p class="advantage__subtitle">пользователей прошли обучение</p>
-            </div>
-            <div class="advantage">
-              <h3 class="advantage__title">№1</h3>
-              <p class="advantage__subtitle">
-                по качеству обучения среди конкурентов
-              </p>
-            </div>
-            <div class="advantage">
-              <h3 class="advantage__title">90%</h3>
-              <p class="advantage__subtitle">
-                окончили курс и выполнили свои цели
-              </p>
-            </div>
-            <div class="advantage">
-              <div class="advantage__customers">
+      <div class="why-choise-box">
+    <?php
+    // Получаем данные из ACF поля группы
+    $section_2_group = get_field('section_2_group');
+
+    // Проверяем, что данные успешно получены и содержат необходимое поле
+    if ( $section_2_group && isset($section_2_group['section-2-title']) ) {
+        $section_2_title = $section_2_group['section-2-title'];
+    } else {
+        $section_2_title = ''; // Значение по умолчанию, если поле не найдено или пусто
+    }
+    ?>
+
+    <h2 class="second-section-home_title why-choise__element">
+        <?php echo esc_html($section_2_title); ?>
+    </h2>
+
+    <div class="advantages-block why-choise__element">
+        <div class="advantage">
+            <h3 class="advantage__title"><?php echo esc_html($section_2_group['section-2-card-title-1']); ?></h3>
+            <p class="advantage__subtitle"><?php echo esc_html($section_2_group['section-2-card-disc-1']); ?></p>
+        </div>
+        <div class="advantage">
+            <h3 class="advantage__title"><?php echo esc_html($section_2_group['section-2-card-title-2']); ?></h3>
+            <p class="advantage__subtitle"><?php echo esc_html($section_2_group['section-2-card-disc-2']); ?></p>
+        </div>
+        <div class="advantage">
+            <h3 class="advantage__title"><?php echo esc_html($section_2_group['section-2-card-title-3']); ?></h3>
+            <p class="advantage__subtitle"><?php echo esc_html($section_2_group['section-2-card-disc-3']); ?></p>
+        </div>
+        <div class="advantage">
+            <div class="advantage__customers">
                 <div class="advantage__customers_customer">
-                  <img src="<?php echo bloginfo('template_url'); ?>/assets/content/advantage-customer-1.png" alt="" />
+                    <img src="<?php echo esc_url($section_2_group['section-2-card-4-photo-1']); ?>" alt="" />
                 </div>
                 <div class="advantage__customers_customer customer-get-left-2">
-                  <img src="<?php echo bloginfo('template_url'); ?>/assets/content/advantage-customer-2.png" alt="" />
+                    <img src="<?php echo esc_url($section_2_group['section-2-card-4-photo-2']); ?>" alt="" />
                 </div>
                 <div class="advantage__customers_customer customer-get-left-3">
-                  <img src="<?php echo bloginfo('template_url'); ?>/assets/content/advantage-customer-3.png" alt="" />
+                    <img src="<?php echo esc_url($section_2_group['section-2-card-4-photo-3']); ?>" alt="" />
                 </div>
                 <div class="advantage__customers_more customer-get-left-4">
-                  100+
+                    100+
                 </div>
-              </div>
-              <p class="advantage__subtitle">окончили успешно обучение</p>
             </div>
-          </div>
+            <p class="advantage__subtitle"><?php echo esc_html($section_2_group['section-2-card-title-4']); ?></p>
         </div>
+    </div>
+</div>
+
         <div class="advantages-cards-container">
           <div class="advantages__big-blue-card">
             <h4 class="big-blue-card__title">
