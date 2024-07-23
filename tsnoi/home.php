@@ -118,85 +118,48 @@ get_header();
       </section>
       <section class="standart-margin-section third-section-home">
         <div class="third-s-title-box">
-          <h2 class="standart_title">Календарь событий</h2>
-          <div class="third-s-title-box__mounth">Март</div>
+          <h2 class="standart_title"><?php the_field('section-3-title') ?></h2>
+          <div class="third-s-title-box__mounth"><?php the_field('section-3-mounth') ?></div>
         </div>
 
         <div class="white-zone-calendar-home">
-          <div class="white-calendar__left">
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">03.03</div>
-                <p class="white-calendar__text">
-                  Вебинар «Тренды дошкольного образования»
-                </p>
-              </li>
-            </ul>
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">05.03</div>
-                <p class="white-calendar__text">
-                  Вебинар «Гос. закупки в 2024 году»
-                </p>
-              </li>
-            </ul>
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">07.03</div>
-                <p class="white-calendar__text">
-                  Открытый мастер-класс по найму сотрудников
-                </p>
-              </li>
-            </ul>
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">23.03</div>
-                <p class="white-calendar__text">
-                  Вебинар «Менеджмент в сфере IT»
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="white-calendar__mid"></div>
-          <div class="white-calendar__right">
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">03.03</div>
-                <p class="white-calendar__text">
-                  Вебинар «Тренды дошкольного образования»
-                </p>
-              </li>
-            </ul>
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">05.03</div>
-                <p class="white-calendar__text">
-                  Вебинар «Гос. закупки в 2024 году»
-                </p>
-              </li>
-            </ul>
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">07.03</div>
-                <p class="white-calendar__text">
-                  Открытый мастер-класс по найму сотрудников
-                </p>
-              </li>
-            </ul>
-            <ul>
-              <li class="white-calendar__list">
-                <div class="white-calendar__date">23.03</div>
-                <p class="white-calendar__text">
-                  Вебинар «Менеджмент в сфере IT»
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="white-calendar__left">
+        <?php if ( have_rows('left_calendar_events') ) : ?>
+            <?php while ( have_rows('left_calendar_events') ) : the_row(); 
+                $event_date = get_sub_field('event_date');
+                $event_text = get_sub_field('event_text');
+            ?>
+                <li class="white-calendar__list">
+                    <div class="white-calendar__date"><?php echo esc_html($event_date); ?></div>
+                    <p class="white-calendar__text">
+                        <?php echo wp_kses_post($event_text); ?>
+                    </p>
+                </li>
+            <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+    <div class="white-calendar__mid"></div>
+    <div class="white-calendar__right">
+        <?php if ( have_rows('right_calendar_events') ) : ?>
+            <?php while ( have_rows('right_calendar_events') ) : the_row(); 
+                $event_date = get_sub_field('event_date');
+                $event_text = get_sub_field('event_text');
+            ?>
+                <li class="white-calendar__list">
+                    <div class="white-calendar__date"><?php echo esc_html($event_date); ?></div>
+                    <p class="white-calendar__text">
+                        <?php echo wp_kses_post($event_text); ?>
+                    </p>
+                </li>
+            <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+</div>
+
       </section>
       <section class="standart-margin-section four-section-home">
         <div class="four-s-title-box">
-          <h2 class="standart_title">Новости и статьи</h2>
+          <h2 class="standart_title"><?php the_field('section-4-title') ?></h2>
           <div class="four-s-title-box__mounth">
             <a class="four-s-title-box__mounth_link" href=""
               >Все статьи
@@ -222,17 +185,17 @@ get_header();
           <div
             class="articles-prewiew-box__article-1 articles-prewiew-box__article"
           >
-            <div class="article-preview__text">Новость</div>
+            <div class="article-preview__text"><?php the_field('article-bg-text-1') ?></div>
           </div>
           <div
             class="articles-prewiew-box__article-2 articles-prewiew-box__article"
           >
-            <div class="article-preview__text">Вебинар</div>
+            <div class="article-preview__text"><?php the_field('article-bg-text-2') ?></div>
           </div>
           <div
             class="articles-prewiew-box__article-3 articles-prewiew-box__article"
           >
-            <div class="article-preview__text">Событие</div>
+            <div class="article-preview__text"><?php the_field('article-bg-text-3') ?></div>
           </div>
         </div>
       </section>
