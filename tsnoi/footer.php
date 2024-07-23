@@ -6,7 +6,7 @@
 
 <footer>
       <div class="footer-column logo-and-s-w-footer">
-        <img src="./assets/content/logo-tsnoi.png" alt="" />
+        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" />
         <div class="social-webs-footer">
           <a href="">
             <div class="social-webs-footer__square">
@@ -238,24 +238,24 @@
 
       <ul class="dottet-list-footer">
         <li class="dottet__text"><a href="">Сведения об организации</a></li>
-        <li class="dottet__dot"><img src="./assets/icon/dot.svg" alt="" /></li>
+        <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
         <li class="dottet__text">
           <a href="">Пользовательское соглашение </a>
         </li>
-        <li class="dottet__dot"><img src="./assets/icon/dot.svg" alt="" /></li>
+        <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
         <li class="dottet__text">
           <a href="">Политика обработки персональных данных </a>
         </li>
-        <li class="dottet__dot"><img src="./assets/icon/dot.svg" alt="" /></li>
+        <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
         <li class="dottet__text">
           <a href="">Описание возврата товара или услуги</a>
         </li>
-        <li class="dottet__dot"><img src="./assets/icon/dot.svg" alt="" /></li>
+        <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
         <li class="dottet__text"><a href="">Онлайн оплата</a></li>
       </ul>
     </footer>
   </body>
-  <!-- <script src="./JS/index.js"></script> -->
+  <!-- <script src="<?php echo bloginfo('template_url'); ?>/JS/index.js"></script> -->
 </html>
 
 

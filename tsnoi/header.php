@@ -22,7 +22,7 @@
    </head>
    <body>
     <header class="header-main">
-      <img class="logo-header" src="./assets/content/logo-tsnoi.png" alt="" />
+      <img class="logo-header" src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" />
       <div class="burger-menu-main" id="burger-menu-main">
         <nav>
           <ul class="nav-list">
@@ -31,7 +31,7 @@
             <li class="shrink"><a href="">Новости и статьи</a></li>
             <li class="shrink"><a href="">Оплата</a></li>
             <li class="shrink search-nav-btn">
-              <img src="./assets/icon/user-icon.svg" alt="" /><a href=""
+              <img src="<?php echo bloginfo('template_url'); ?>/assets/icon/user-icon.svg" alt="" /><a href=""
                 >Поиск</a
               >
             </li>
@@ -46,13 +46,13 @@
           </div>
           <div class="header-right-white shrink">
             <div class="header-right__whatsapp-logo">
-              <img src="./assets/icon/whatsupp-icon.svg" alt="" />
+              <img src="<?php echo bloginfo('template_url'); ?>/assets/icon/whatsupp-icon.svg" alt="" />
             </div>
             <div class="header-right__whatsapp-text">Написать в WhatsApp</div>
           </div>
           <div class="header-right-white shrink">
             <div class="header-right__cabinet-logo">
-              <img src="./assets/icon/user-icon.svg" alt="" />
+              <img src="<?php echo bloginfo('template_url'); ?>/assets/icon/user-icon.svg" alt="" />
             </div>
             <div class="header-right__cabinet-text">Вход в СДО</div>
           </div>
