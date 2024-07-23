@@ -255,7 +255,7 @@
       </ul>
     </footer>
   </body>
-  <script src="./JS/index.js"></script>
+  <!-- <script src="./JS/index.js"></script> -->
 </html>
 
 
