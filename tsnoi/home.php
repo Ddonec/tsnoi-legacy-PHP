@@ -83,149 +83,38 @@ get_header();
     </div>
 </div>
 
-        <div class="advantages-cards-container">
-          <div class="advantages__big-blue-card">
-            <h4 class="big-blue-card__title">
-              Повышение квалификации и переподготовка
-            </h4>
-            <div class="big-blue-card__button">Образование</div>
-            <img
-              class="big-blue-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-2.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-white-card">
-            <h4 class="big-white-card__title">Инновационные площадки</h4>
-            <div class="big-white-card__button">Технологии</div>
-            <img
-              class="big-white-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-3.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-blue-card">
-            <h4 class="big-blue-card__title">Онлайн-колледж</h4>
-            <div class="big-blue-card__button">Технологии</div>
-            <img
-              class="big-blue-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-4.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-white-card">
-            <h4 class="big-white-card__title">Онлайн-магазин</h4>
-            <div class="big-white-card__button">Образование</div>
-            <img
-              class="big-white-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-5.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-white-card">
-            <h4 class="big-white-card__title">
-              Наши мероприятия <br />в Санкт-Петербурге
-            </h4>
-            <div class="big-white-card__button">События</div>
-            <img
-              class="big-white-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-6.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-blue-card">
-            <h4 class="big-blue-card__title">Вебинары</h4>
-            <div class="big-blue-card__button">Образование</div>
-            <img
-              class="big-blue-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-7.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-white-card">
-            <h4 class="big-white-card__title">
-              Профессиональное объединение Невская Ассамблея
-            </h4>
-            <div class="big-white-card__button">События</div>
-            <img
-              class="big-white-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-8.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-blue-card">
-            <h4 class="big-blue-card__title">Курсы. PRO</h4>
-            <div class="big-blue-card__button">Образование</div>
-            <img
-              class="big-blue-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-2.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-blue-card">
-            <h4 class="big-blue-card__title">Студия создания видео-контента</h4>
-            <div class="big-blue-card__button">Технологии</div>
-            <img
-              class="big-blue-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-9.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-white-card">
-            <h4 class="big-white-card__title">Выездные школы</h4>
-            <div class="big-white-card__button">События</div>
-            <img
-              class="big-white-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-10.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-blue-card">
-            <h4 class="big-blue-card__title">Стажировка</h4>
-            <div class="big-blue-card__button">События</div>
-            <img
-              class="big-blue-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-11.png"
-              alt=""
-            />
-          </div>
-          <div class="advantages__big-white-card">
-            <h4 class="big-white-card__title">
-              Портал методических материалов
-            </h4>
-            <div class="big-white-card__button">Образование</div>
-            <img
-              class="big-white-card__image"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/starter-choise-image-5.png"
-              alt=""
-            />
-          </div>
-          <button class="show-more-btn-home">
-            Посмотреть ещё
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 12H19"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M13 6L19 12L13 18"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
+<div class="advantages-cards-container">
+    <?php if ( have_rows('advantages_cards') ) : ?>
+        <?php while ( have_rows('advantages_cards') ) : the_row(); 
+            $card_title = get_sub_field('card_title');
+            $card_button_text = get_sub_field('card_button_text');
+            $card_image = get_sub_field('card_image');
+            $card_class = get_sub_field('card_class');
+        ?>
+            <div class="advantages__<?php echo esc_attr($card_class); ?>">
+                <h4 class="<?php echo esc_attr($card_class); ?>__title">
+                    <?php echo wp_kses_post($card_title); ?>
+                </h4>
+                <div class="<?php echo esc_attr($card_class); ?>__button">
+                    <?php echo esc_html($card_button_text); ?>
+                </div>
+                <?php if ( $card_image ) : ?>
+                    <img class="<?php echo esc_attr($card_class); ?>__image" src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
+                <?php endif; ?>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+
+    <button class="show-more-btn-home">
+        Посмотреть ещё
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M13 6L19 12L13 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+</div>
+
+
       </section>
       <section class="standart-margin-section third-section-home">
         <div class="third-s-title-box">
