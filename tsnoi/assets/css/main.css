@@ -510,15 +510,7 @@ footer {
   width: calc(25% - 20px);
   position: relative;
 }
-.articles-prewiew-box__article-1 {
-  background-image: url(../assets/content/article-preview-1.png);
-}
-.articles-prewiew-box__article-2 {
-  background-image: url(../assets/content/article-preview-2.png);
-}
-.articles-prewiew-box__article-3 {
-  background-image: url(../assets/content/article-preview-3.png);
-}
+
 
 .social-webs-footer {
   display: flex;
@@ -3401,7 +3393,6 @@ footer {
   border: none;
   background: #003acb;
   display: none;
-  display: flex;
   align-items: center;
   justify-content: center;
 }

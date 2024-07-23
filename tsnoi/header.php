@@ -20,6 +20,17 @@
 
       <title><?php echo wp_get_document_title() ?></title>
    </head>
+   <style>
+.articles-prewiew-box__article-1 {
+  background-image: url('<?php the_field('article-bg-1'); ?>');
+}
+.articles-prewiew-box__article-2 {
+  background-image: url('<?php the_field('article-bg-2'); ?>');
+}
+.articles-prewiew-box__article-3 {
+  background-image: url('<?php the_field('article-bg-3'); ?>');
+}
+   </style>
    <body>
     <header class="header-main">
       <img class="logo-header" src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" />
