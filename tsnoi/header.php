@@ -10,50 +10,58 @@
  */
 
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'tsnoi' ); ?></a>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$tsnoi_description = get_bloginfo( 'description', 'display' );
-			if ( $tsnoi_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $tsnoi_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'tsnoi' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/normalise.css" />
+    <link rel="stylesheet" href="./css/media.css" />
+    <title>Home-page TSNOI</title>
+  </head>
+  <body>
+    <header class="header-main">
+      <img class="logo-header" src="./assets/content/logo-tsnoi.png" alt="" />
+      <div class="burger-menu-main" id="burger-menu-main">
+        <nav>
+          <ul class="nav-list">
+            <li class="shrink"><a href="">Направления деятельности</a></li>
+            <li class="shrink"><a href="">О компании</a></li>
+            <li class="shrink"><a href="">Новости и статьи</a></li>
+            <li class="shrink"><a href="">Оплата</a></li>
+            <li class="shrink search-nav-btn">
+              <img src="./assets/icon/user-icon.svg" alt="" /><a href=""
+                >Поиск</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="header-right-container">
+          <div class="header-right shrink">
+            <div class="header-right__city">Санкт-Петербург</div>
+            <a class="link-format" href="tel:+78126779724">
+              <div class="header-right__phone">+7 (812) 677-97-24</div>
+            </a>
+          </div>
+          <div class="header-right-white shrink">
+            <div class="header-right__whatsapp-logo">
+              <img src="./assets/icon/whatsupp-icon.svg" alt="" />
+            </div>
+            <div class="header-right__whatsapp-text">Написать в WhatsApp</div>
+          </div>
+          <div class="header-right-white shrink">
+            <div class="header-right__cabinet-logo">
+              <img src="./assets/icon/user-icon.svg" alt="" />
+            </div>
+            <div class="header-right__cabinet-text">Вход в СДО</div>
+          </div>
+        </div>
+      </div>
+      <div class="burger-menu" id="burger-menu">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </header>
