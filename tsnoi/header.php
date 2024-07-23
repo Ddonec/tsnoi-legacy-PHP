@@ -1,15 +1,6 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package tsnoi
- */
 
-?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +12,15 @@
     <link rel="stylesheet" href="./css/media.css" />
     <title>Home-page TSNOI</title>
   </head>
-  <body>
+      <?php
+    wp_head()
+    ?>
+
+
+
+      <title><?php echo wp_get_document_title() ?></title>
+   </head>
+   <body>
     <header class="header-main">
       <img class="logo-header" src="./assets/content/logo-tsnoi.png" alt="" />
       <div class="burger-menu-main" id="burger-menu-main">
