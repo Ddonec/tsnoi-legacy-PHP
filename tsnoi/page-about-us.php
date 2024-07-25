@@ -53,146 +53,86 @@ get_header();
 
       <!-- claim  -->
       <section class="second section-ways">
-        <h2 class="standart_title">
-          Мы — площадка для обучения <br />
-          профессионалов
-        </h2>
-        <div
-          class="ways-second-overflow-container about-container-second-overflow"
-        >
-          <div class="ways-second-container ways-second-container-about">
-            <div class="ways-second-card about-card">
-              <div class="ways-card__img about__img">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-1.png" alt="" />
-              </div>
-              <div class="ways-card__title about-copied-title">
-                Множество форматов
-              </div>
-              <div class="ways-card__subtitle about-copied-subtitle">
-                Мастер-классы, вебинары, курсы, конференции, трансляции
-              </div>
-            </div>
-            <div class="ways-second-card about-card">
-              <div class="ways-card__img about__img">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-2.png" alt="" />
-              </div>
-              <div class="ways-card__title about-copied-title">
-                Комфортное обучение
-              </div>
-              <div class="ways-card__subtitle about-copied-subtitle">
-                Куратор всегда на связи, удобный личный кабинет. Сдача «домашки»
-                — в удобное для вас время
-              </div>
-            </div>
-            <div class="ways-second-card about-card">
-              <div class="ways-card__img about__img">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-3.png" alt="" />
-              </div>
-              <div class="ways-card__title about-copied-title">
-                Открытая база знаний
-              </div>
-              <div class="ways-card__subtitle about-copied-subtitle">
-                Более 4 000 обучающих роликов в открытом доступе
-              </div>
-            </div>
-            <div class="ways-second-card about-card">
-              <div class="ways-card__img about__img">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-4.png" alt="" />
-              </div>
-              <div class="ways-card__title about-copied-title">
-                Организуем всеросиийские мероприятия
-              </div>
-              <div class="ways-card__subtitle about-copied-subtitle">
-                Конгрессы, съезды, конкурсы
-              </div>
-            </div>
-          </div>
+    <h2 class="standart_title">
+    <?php the_field('about-us-second-title') ?>
+    </h2>
+    <div class="ways-second-overflow-container about-container-second-overflow">
+        <div class="ways-second-container ways-second-container-about">
+            <?php if( have_rows('ways_card_repeater') ): ?>
+                <?php while( have_rows('ways_card_repeater') ): the_row(); 
+                    $card_image = get_sub_field('card_image');
+                    $card_title = get_sub_field('card_title');
+                    $card_subtitle = get_sub_field('card_subtitle');
+                ?>
+                <div class="ways-second-card about-card">
+                    <div class="ways-card__img about__img">
+                        <img src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
+                    </div>
+                    <div class="ways-card__title about-copied-title">
+                        <?php echo esc_html($card_title); ?>
+                    </div>
+                    <div class="ways-card__subtitle about-copied-subtitle">
+                        <?php echo esc_html($card_subtitle); ?>
+                    </div>
+                </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
-        <div class="arrows-for-ways-second-container arrows-lvl-up-mobile">
-          <div class="arrows-for-ways__left">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4648 19.6033L8.46484 12.6033L15.4648 5.60327"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+    </div>
+    <div class="arrows-for-ways-second-container arrows-lvl-up-mobile">
+        <div class="arrows-for-ways__left">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.4648 19.6033L8.46484 12.6033L15.4648 5.60327" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </div>
-          <div class="arrows-for-ways__right">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.46484 5.60327L16.4648 12.6033L9.46484 19.6033"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
         </div>
-        <script>
-          const overflowContainerLVL = document.querySelector(
-            ".ways-second-overflow-container"
-          );
-          const leftScrollButton = document.querySelector(
-            ".arrows-for-ways__left"
-          );
-          const rightScrollButton = document.querySelector(
-            ".arrows-for-ways__right"
-          );
+        <div class="arrows-for-ways__right">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.46484 5.60327L16.4648 12.6033L9.46484 19.6033" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </div>
+    <script>
+        const overflowContainerLVL = document.querySelector(".ways-second-overflow-container");
+        const leftScrollButton = document.querySelector(".arrows-for-ways__left");
+        const rightScrollButton = document.querySelector(".arrows-for-ways__right");
 
-          let defaultCardWidth = 458; // ширина карточки
-          let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
+        let defaultCardWidth = 458; // ширина карточки
+        let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
 
-          window.addEventListener("resize", updateOffset);
+        window.addEventListener("resize", updateOffset);
 
-          leftScrollButton.addEventListener("click", function () {
+        leftScrollButton.addEventListener("click", function () {
             scrollLeft();
-          });
+        });
 
-          rightScrollButton.addEventListener("click", function () {
+        rightScrollButton.addEventListener("click", function () {
             scrollRight();
-          });
+        });
 
-          function updateOffset() {
+        function updateOffset() {
             smallScreenOffset = window.innerWidth - 10;
-          }
+        }
 
-          function calculateOffset() {
-            return window.innerWidth < 500
-              ? smallScreenOffset
-              : defaultCardWidth;
-          }
+        function calculateOffset() {
+            return window.innerWidth < 500 ? smallScreenOffset : defaultCardWidth;
+        }
 
-          function scrollLeft() {
+        function scrollLeft() {
             overflowContainerLVL.scrollBy({
-              left: -calculateOffset(),
-              behavior: "smooth",
+                left: -calculateOffset(),
+                behavior: "smooth",
             });
-          }
+        }
 
-          function scrollRight() {
+        function scrollRight() {
             overflowContainerLVL.scrollBy({
-              left: calculateOffset(),
-              behavior: "smooth",
+                left: calculateOffset(),
+                behavior: "smooth",
             });
-          }
-        </script>
-      </section>
+        }
+    </script>
+</section>
+
 
       <section class="standart-margin-section grove-section">
         <h2 class="standart_title">
