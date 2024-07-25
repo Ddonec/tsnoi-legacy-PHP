@@ -36,17 +36,17 @@ get_header();
 
       <section class="about-second-section">
         <h2 class="second-section-about-title">
-        <?php the_field('') ?>
+        <?php the_field('about-us-middle-text') ?>
         </h2>
         <div class="ovner-card">
           <img
             class="ovner-avatar"
-            src="<?php echo bloginfo('template_url'); ?>/assets/content/ovner-avatar.png"
+            src="<?php the_field('about-us-owner-avatar') ?>"
             alt=""
           />
           <div class="ovner-name-box">
-            <p class="ovner__name"><?php the_field('') ?></p>
-            <p class="ovner__priority"><?php the_field('') ?></p>
+            <p class="ovner__name"><?php the_field('about-us-name-surname-owner') ?></p>
+            <p class="ovner__priority"><?php the_field('about-us-name-surname-status') ?></p>
           </div>
         </div>
       </section>
