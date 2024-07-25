@@ -11,17 +11,17 @@ get_header();
       <section class="small-margin-section">
         <div class="first-block-blue-bg first-block-blue-bg-lvl-up">
           <img
-            src="./assets/content/about-su-absolute-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-su-absolute-1.png"
             class="fly-element about-img-1"
           />
 
           <div class="first-block-blue-bg-overflow ways-overflow">
             <img
-              src="./assets/content/about-su-absolute-2.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/about-su-absolute-2.png"
               class="fly-element about-img-2"
             />
             <img
-              src="./assets/content/about-us-peoples.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/about-us-peoples.png"
               class="ways-img-bg about-bg-img"
             />
             <div class="blue-bg-courses-text-ways">
@@ -42,7 +42,7 @@ get_header();
         <div class="ovner-card">
           <img
             class="ovner-avatar"
-            src="./assets/content/ovner-avatar.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/ovner-avatar.png"
             alt=""
           />
           <div class="ovner-name-box">
@@ -64,7 +64,7 @@ get_header();
           <div class="ways-second-container ways-second-container-about">
             <div class="ways-second-card about-card">
               <div class="ways-card__img about__img">
-                <img src="./assets/content/about-crystall-1.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-1.png" alt="" />
               </div>
               <div class="ways-card__title about-copied-title">
                 Множество форматов
@@ -75,7 +75,7 @@ get_header();
             </div>
             <div class="ways-second-card about-card">
               <div class="ways-card__img about__img">
-                <img src="./assets/content/about-crystall-2.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-2.png" alt="" />
               </div>
               <div class="ways-card__title about-copied-title">
                 Комфортное обучение
@@ -87,7 +87,7 @@ get_header();
             </div>
             <div class="ways-second-card about-card">
               <div class="ways-card__img about__img">
-                <img src="./assets/content/about-crystall-3.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-3.png" alt="" />
               </div>
               <div class="ways-card__title about-copied-title">
                 Открытая база знаний
@@ -98,7 +98,7 @@ get_header();
             </div>
             <div class="ways-second-card about-card">
               <div class="ways-card__img about__img">
-                <img src="./assets/content/about-crystall-4.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/about-crystall-4.png" alt="" />
               </div>
               <div class="ways-card__title about-copied-title">
                 Организуем всеросиийские мероприятия
@@ -333,7 +333,7 @@ get_header();
         <div class="white-way-block">
           <img
             class="white-way-block__image"
-            src="./assets/content/about-big-img-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-big-img-1.png"
             alt=""
           />
           <div class="white-way-block__info">
@@ -367,14 +367,14 @@ get_header();
           </div>
           <img
             class="white-way-block__image order-mob"
-            src="./assets/content/about-big-img-2.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-big-img-2.png"
             alt=""
           />
         </div>
         <div class="white-way-block">
           <img
             class="white-way-block__image"
-            src="./assets/content/about-big-img-3.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-big-img-3.png"
             alt=""
           />
           <div class="white-way-block__info">
@@ -404,7 +404,7 @@ get_header();
                 <div class="sertificates__card_white about-sertificate-bg">
                   <img
                     class="sertificates__card__img sertificates__card__img_about"
-                    src="./assets/content/sertificate-about-1.png"
+                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-1.png"
                     alt=""
                   />
                 </div>
@@ -418,7 +418,7 @@ get_header();
                 <div class="sertificates__card_white about-sertificate-bg">
                   <img
                     class="sertificates__card__img sertificates__card__img_about"
-                    src="./assets/content/sertificate-about-2.png"
+                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-2.png"
                     alt=""
                   />
                 </div>
@@ -433,7 +433,7 @@ get_header();
                 <div class="sertificates__card_white about-sertificate-bg">
                   <img
                     class="sertificates__card__img sertificates__card__img_about"
-                    src="./assets/content/sertificate-about-3.png"
+                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-3.png"
                     alt=""
                   />
                 </div>
@@ -448,7 +448,7 @@ get_header();
                 <div class="sertificates__card_white about-sertificate-bg">
                   <img
                     class="sertificates__card__img sertificates__card__img_about"
-                    src="./assets/content/sertificate-about-4.png"
+                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-4.png"
                     alt=""
                   />
                 </div>
@@ -559,7 +559,7 @@ get_header();
           <div class="team-container">
             <div class="team-card">
               <div class="teat__avatar">
-                <img src="./assets/content/team-1.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-1.png" alt="" />
               </div>
               <div class="team__name">Толмачева Елена Г.</div>
               <ul class="team__ul">
@@ -572,7 +572,7 @@ get_header();
             </div>
             <div class="team-card">
               <div class="teat__avatar">
-                <img src="./assets/content/team-2.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-2.png" alt="" />
               </div>
               <div class="team__name">Иванов Алексей С.</div>
               <ul class="team__ul">
@@ -585,7 +585,7 @@ get_header();
             </div>
             <div class="team-card">
               <div class="teat__avatar">
-                <img src="./assets/content/team-3.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-3.png" alt="" />
               </div>
               <div class="team__name">Скворцова Александра О.</div>
               <ul class="team__ul">
@@ -598,7 +598,7 @@ get_header();
             </div>
             <div class="team-card">
               <div class="teat__avatar">
-                <img src="./assets/content/team-4.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-4.png" alt="" />
               </div>
               <div class="team__name">Мишутин Владислав В.</div>
               <ul class="team__ul">
@@ -720,11 +720,11 @@ get_header();
               <div class="text-top-block__icon"></div>
               <div class="text-top-block__right-list">
                 <div class="text-top-block__right-list_stars">
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
                 </div>
                 <p class="text-top-block__right-list_name">Власова Е.И</p>
                 <p class="text-top-block__right-list_job-title">
@@ -747,11 +747,11 @@ get_header();
               <div class="text-top-block__icon"></div>
               <div class="text-top-block__right-list">
                 <div class="text-top-block__right-list_stars">
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
                 </div>
                 <p class="text-top-block__right-list_name">Власова Е.И</p>
                 <p class="text-top-block__right-list_job-title">
@@ -774,11 +774,11 @@ get_header();
               <div class="text-top-block__icon"></div>
               <div class="text-top-block__right-list">
                 <div class="text-top-block__right-list_stars">
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
                 </div>
                 <p class="text-top-block__right-list_name">Власова Е.И</p>
                 <p class="text-top-block__right-list_job-title">
@@ -803,11 +803,11 @@ get_header();
               <div class="text-top-block__icon"></div>
               <div class="text-top-block__right-list">
                 <div class="text-top-block__right-list_stars">
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
-                  <img src=".//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                  <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
                 </div>
                 <p class="text-top-block__right-list_name">Власова Е.И</p>
                 <p class="text-top-block__right-list_job-title">
