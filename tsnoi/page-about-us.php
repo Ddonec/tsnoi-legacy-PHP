@@ -26,9 +26,9 @@ get_header();
             />
             <div class="blue-bg-courses-text-ways">
               <div class="blue-bg-courses__button">
-                Центр непрерывного образования и инноваций
+              <?php the_field('about-us-grey-tab-title') ?>
               </div>
-              <h1 class="h1-text">О компании</h1>
+              <h1 class="h1-text"><?php the_field('about-page-title') ?></h1>
             </div>
           </div>
         </div>
@@ -36,8 +36,7 @@ get_header();
 
       <section class="about-second-section">
         <h2 class="second-section-about-title">
-          Центр инноваций — это место, где любой специалист может стать сильнее
-          и научиться у лучших
+        <?php the_field('') ?>
         </h2>
         <div class="ovner-card">
           <img
@@ -46,8 +45,8 @@ get_header();
             alt=""
           />
           <div class="ovner-name-box">
-            <p class="ovner__name">Завражин Владимир Викторович</p>
-            <p class="ovner__priority">Директор Центра Инноваций</p>
+            <p class="ovner__name"><?php the_field('') ?></p>
+            <p class="ovner__priority"><?php the_field('') ?></p>
           </div>
         </div>
       </section>
