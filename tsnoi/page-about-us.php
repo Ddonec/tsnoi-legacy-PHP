@@ -324,12 +324,14 @@ get_header();
     </div>
 
     <script>
-        const tabs = document.querySelectorAll(".tab-last-vebinar");
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll(".tab-last-vebinar");
 
-        tabs.forEach((tab) => {
-            tab.addEventListener("click", function () {
-                tabs.forEach((t) => t.classList.remove("active"));
-                this.classList.add("active");
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", function () {
+                    tabs.forEach((t) => t.classList.remove("active"));
+                    this.classList.add("active");
+                });
             });
         });
     </script>
@@ -360,7 +362,7 @@ get_header();
     </div>
 
     <div class="sertificates-arrows">
-        <div class="sertificates-arrows__prew team_prew">
+        <div class="sertificates-arrows__prew team_prew_team">
             <svg
                 width="24"
                 height="24"
@@ -377,7 +379,7 @@ get_header();
                 />
             </svg>
         </div>
-        <div class="sertificates-arrows__next team_next">
+        <div class="sertificates-arrows__next team_next_team">
             <svg
                 width="24"
                 height="24"
@@ -396,32 +398,34 @@ get_header();
         </div>
     </div>
     <script>
-        const overflowContainer = document.querySelector(".team-container-owerflow");
-        const container = document.querySelector(".team-container");
-        const leftArrow = document.querySelector(".team_prew");
-        const rightArrow = document.querySelector(".team_next");
+        document.addEventListener("DOMContentLoaded", function() {
+            const overflowContainer = document.querySelector(".team-container-owerflow");
+            const leftArrow = document.querySelector(".team_prew_team");
+            const rightArrow = document.querySelector(".team_next_team");
 
-        let scrollAmount = window.innerWidth - 30;
+            let scrollAmount = window.innerWidth - 30;
 
-        leftArrow.addEventListener("click", function () {
-            overflowContainer.scrollBy({
-                left: -scrollAmount,
-                behavior: "smooth",
+            leftArrow.addEventListener("click", function () {
+                overflowContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: "smooth",
+                });
             });
-        });
 
-        rightArrow.addEventListener("click", function () {
-            overflowContainer.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth",
+            rightArrow.addEventListener("click", function () {
+                overflowContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: "smooth",
+                });
             });
-        });
 
-        window.addEventListener("resize", function () {
-            scrollAmount = window.innerWidth - 30;
+            window.addEventListener("resize", function () {
+                scrollAmount = window.innerWidth - 30;
+            });
         });
     </script>
 </section>
+
 
 
       <section class="reviews-of-students-section">
