@@ -209,144 +209,104 @@ get_header();
 </section>
 
 
-      <section class="sertificates-section standart-margin-section">
-        <div class="white-bg-about">
-          <h2 class="standart_title">Выдаем государственные сертификаты</h2>
-          <p class="sertificates__subtitle">И вносим сведения в ФИС ФРДО</p>
-          <div
-            class="sertificates-overflow-container about-owerflow-sertificate"
-          >
+<section class="sertificates-section standart-margin-section">
+    <div class="white-bg-about">
+        <h2 class="standart_title"><?php the_field('about-us-title-four'); ?></h2>
+        <p class="sertificates__subtitle"><?php the_field('about-us-subtitle-four'); ?></p>
+        <div class="sertificates-overflow-container about-owerflow-sertificate">
             <div class="sertificates-container sertificates-container-about">
-              <div class="sertificates__card sertificates__card_about">
-                <div class="sertificates__card_white about-sertificate-bg">
-                  <img
-                    class="sertificates__card__img sertificates__card__img_about"
-                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-1.png"
-                    alt=""
-                  />
-                </div>
-                <div
-                  class="sertificates__card_discription sertificates__card_discription_about"
-                >
-                  Удостоверение о повышении квалификации 
-                </div>
-              </div>
-              <div class="sertificates__card sertificates__card_about">
-                <div class="sertificates__card_white about-sertificate-bg">
-                  <img
-                    class="sertificates__card__img sertificates__card__img_about"
-                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-2.png"
-                    alt=""
-                  />
-                </div>
-                <div
-                  class="sertificates__card_discription sertificates__card_discription_about"
-                >
-                  Диплом о профессиональной переподготовке  (на право ведения
-                  нового вида деятельности)
-                </div>
-              </div>
-              <div class="sertificates__card sertificates__card_about">
-                <div class="sertificates__card_white about-sertificate-bg">
-                  <img
-                    class="sertificates__card__img sertificates__card__img_about"
-                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-3.png"
-                    alt=""
-                  />
-                </div>
-                <div
-                  class="sertificates__card_discription sertificates__card_discription_about"
-                >
-                  Диплом о профессиональной переподготовке  (с присвоением
-                  квалификации)
-                </div>
-              </div>
-              <div class="sertificates__card sertificates__card_about">
-                <div class="sertificates__card_white about-sertificate-bg">
-                  <img
-                    class="sertificates__card__img sertificates__card__img_about"
-                    src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificate-about-4.png"
-                    alt=""
-                  />
-                </div>
-                <div
-                  class="sertificates__card_discription sertificates__card_discription_about"
-                >
-                  Свидетельство рабочего служащего
-                </div>
-              </div>
+                <?php if( have_rows('sertificates_cards') ): ?>
+                    <?php while( have_rows('sertificates_cards') ): the_row(); 
+                        $image = get_sub_field('image');
+                        $description = get_sub_field('description');
+                    ?>
+                    <div class="sertificates__card sertificates__card_about">
+                        <div class="sertificates__card_white about-sertificate-bg">
+                            <img
+                                class="sertificates__card__img sertificates__card__img_about"
+                                src="<?php echo esc_url($image['url']); ?>"
+                                alt="<?php echo esc_attr($image['alt']); ?>"
+                            />
+                        </div>
+                        <div class="sertificates__card_discription sertificates__card_discription_about">
+                            <?php echo nl2br(esc_html($description)); ?>
+                        </div>
+                    </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
-          </div>
         </div>
-        <div class="sertificates-arrows">
-          <div class="sertificates-arrows__prew">
+    </div>
+    <div class="sertificates-arrows">
+        <div class="sertificates-arrows__prew">
             <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M15 19L8 12L15 5"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+                <path
+                    d="M15 19L8 12L15 5"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
             </svg>
-          </div>
-          <div class="sertificates-arrows__next">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5L16 12L9 19"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
         </div>
-        <script>
-          const overflowContainer = document.querySelector(
+        <div class="sertificates-arrows__next">
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M9 5L16 12L9 19"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+        </div>
+    </div>
+    <script>
+        const overflowContainer = document.querySelector(
             ".sertificates-overflow-container"
-          );
-          const container = document.querySelector(".sertificates-container");
-          const leftArrow = document.querySelector(
+        );
+        const container = document.querySelector(".sertificates-container");
+        const leftArrow = document.querySelector(
             ".sertificates-arrows__prew"
-          );
-          const rightArrow = document.querySelector(
+        );
+        const rightArrow = document.querySelector(
             ".sertificates-arrows__next"
-          );
+        );
 
-          let scrollAmount = window.innerWidth - 30;
+        let scrollAmount = window.innerWidth - 30;
 
-          leftArrow.addEventListener("click", function () {
+        leftArrow.addEventListener("click", function () {
             overflowContainer.scrollBy({
-              left: -scrollAmount,
-              behavior: "smooth",
+                left: -scrollAmount,
+                behavior: "smooth",
             });
-          });
+        });
 
-          rightArrow.addEventListener("click", function () {
+        rightArrow.addEventListener("click", function () {
             overflowContainer.scrollBy({
-              left: scrollAmount,
-              behavior: "smooth",
+                left: scrollAmount,
+                behavior: "smooth",
             });
-          });
+        });
 
-          window.addEventListener("resize", function () {
+        window.addEventListener("resize", function () {
             scrollAmount = window.innerWidth - 30;
-          });
-        </script>
-      </section>
+        });
+    </script>
+</section>
+
 
       <section class="standart-margin-section team-secton">
         <h2 class="standart_title">Наша команда</h2>
