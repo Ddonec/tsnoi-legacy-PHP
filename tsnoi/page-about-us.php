@@ -308,152 +308,121 @@ get_header();
 </section>
 
 
-      <section class="standart-margin-section team-secton">
-        <h2 class="standart_title">Наша команда</h2>
-        <div class="tabs-last-vebinars-overflow">
-          <div class="tabs-last-vebinars">
-            <div class="tab-last-vebinar active">Все сотрудники</div>
-            <div class="tab-last-vebinar">Учебный отдел</div>
-            <div class="tab-last-vebinar">Общее образование</div>
-            <div class="tab-last-vebinar">Почтовый отдел</div>
-            <div class="tab-last-vebinar">Архивная служба</div>
-            <div class="tab-last-vebinar">Руководители</div>
-          </div>
+<section class="standart-margin-section team-section">
+    <h2 class="standart_title"><?php the_field('title'); ?></h2>
+    <div class="tabs-last-vebinars-overflow">
+        <div class="tabs-last-vebinars">
+            <?php if( have_rows('tabs') ): ?>
+                <?php $first = true; ?>
+                <?php while( have_rows('tabs') ): the_row(); ?>
+                    <div class="tab-last-vebinar <?php if($first) { echo 'active'; $first = false; } ?>">
+                        <?php the_sub_field('tab_name'); ?>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
+    </div>
 
-        <script>
-          const tabs = document.querySelectorAll(".tab-last-vebinar");
+    <script>
+        const tabs = document.querySelectorAll(".tab-last-vebinar");
 
-          tabs.forEach((tab) => {
+        tabs.forEach((tab) => {
             tab.addEventListener("click", function () {
-              tabs.forEach((t) => t.classList.remove("active"));
-              this.classList.add("active");
+                tabs.forEach((t) => t.classList.remove("active"));
+                this.classList.add("active");
             });
-          });
-        </script>
+        });
+    </script>
 
-        <div class="team-container-owerflow">
-          <div class="team-container">
-            <div class="team-card">
-              <div class="teat__avatar">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-1.png" alt="" />
-              </div>
-              <div class="team__name">Толмачева Елена Г.</div>
-              <ul class="team__ul">
-                <li class="team__li">Педагог со стажем 20 лет</li>
-                <li class="team__li">Автор курса «Бухгалтерия от А до Я».</li>
-                <li class="team__li">
-                  4 награды всероссийских конкурсов педагогов
-                </li>
-              </ul>
-            </div>
-            <div class="team-card">
-              <div class="teat__avatar">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-2.png" alt="" />
-              </div>
-              <div class="team__name">Иванов Алексей С.</div>
-              <ul class="team__ul">
-                <li class="team__li">Педагог со стажем 20 лет</li>
-                <li class="team__li">Автор курса «Бухгалтерия от А до Я».</li>
-                <li class="team__li">
-                  4 награды всероссийских конкурсов педагогов
-                </li>
-              </ul>
-            </div>
-            <div class="team-card">
-              <div class="teat__avatar">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-3.png" alt="" />
-              </div>
-              <div class="team__name">Скворцова Александра О.</div>
-              <ul class="team__ul">
-                <li class="team__li">Педагог со стажем 20 лет</li>
-                <li class="team__li">Автор курса «Бухгалтерия от А до Я».</li>
-                <li class="team__li">
-                  4 награды всероссийских конкурсов педагогов
-                </li>
-              </ul>
-            </div>
-            <div class="team-card">
-              <div class="teat__avatar">
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/team-4.png" alt="" />
-              </div>
-              <div class="team__name">Мишутин Владислав В.</div>
-              <ul class="team__ul">
-                <li class="team__li">Педагог со стажем 20 лет</li>
-                <li class="team__li">Автор курса «Бухгалтерия от А до Я».</li>
-                <li class="team__li">
-                  4 награды всероссийских конкурсов педагогов
-                </li>
-              </ul>
-            </div>
-          </div>
+    <div class="team-container-owerflow">
+        <div class="team-container">
+            <?php if( have_rows('team_members') ): ?>
+                <?php while( have_rows('team_members') ): the_row(); 
+                    $avatar = get_sub_field('avatar');
+                    $name = get_sub_field('name');
+                ?>
+                <div class="team-card">
+                    <div class="team__avatar">
+                        <img src="<?php echo esc_url($avatar['url']); ?>" alt="<?php echo esc_attr($avatar['alt']); ?>" />
+                    </div>
+                    <div class="team__name"><?php echo esc_html($name); ?></div>
+                    <ul class="team__ul">
+                        <?php if( have_rows('description') ): ?>
+                            <?php while( have_rows('description') ): the_row(); ?>
+                                <li class="team__li"><?php the_sub_field('item'); ?></li>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
+    </div>
 
-        <div class="sertificates-arrows">
-          <div class="sertificates-arrows__prew team_prew">
+    <div class="sertificates-arrows">
+        <div class="sertificates-arrows__prew team_prew">
             <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M15 19L8 12L15 5"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+                <path
+                    d="M15 19L8 12L15 5"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
             </svg>
-          </div>
-          <div class="sertificates-arrows__next team_next">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5L16 12L9 19"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
         </div>
-        <script>
-          const overflowContaine = document.querySelector(
-            ".team-container-owerflow"
-          );
-          const containe = document.querySelector(".team-container");
-          const leftArro = document.querySelector(".team_prew");
-          const rightArro = document.querySelector(".team_next");
+        <div class="sertificates-arrows__next team_next">
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M9 5L16 12L9 19"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+        </div>
+    </div>
+    <script>
+        const overflowContainer = document.querySelector(".team-container-owerflow");
+        const container = document.querySelector(".team-container");
+        const leftArrow = document.querySelector(".team_prew");
+        const rightArrow = document.querySelector(".team_next");
 
-          let scrollAmoun = window.innerWidth - 30;
+        let scrollAmount = window.innerWidth - 30;
 
-          leftArro.addEventListener("click", function () {
-            overflowContaine.scrollBy({
-              left: -scrollAmount,
-              behavior: "smooth",
+        leftArrow.addEventListener("click", function () {
+            overflowContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: "smooth",
             });
-          });
+        });
 
-          rightArro.addEventListener("click", function () {
-            overflowContaine.scrollBy({
-              left: scrollAmount,
-              behavior: "smooth",
+        rightArrow.addEventListener("click", function () {
+            overflowContainer.scrollBy({
+                left: scrollAmount,
+                behavior: "smooth",
             });
-          });
+        });
 
-          window.addEventListener("resize", function () {
+        window.addEventListener("resize", function () {
             scrollAmount = window.innerWidth - 30;
-          });
-        </script>
-      </section>
+        });
+    </script>
+</section>
+
 
       <section class="reviews-of-students-section">
         <h2 class="standart_title">Отзывы учеников</h2>
