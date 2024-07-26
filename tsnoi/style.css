@@ -2118,18 +2118,7 @@ Theme Name: Tsnoi
  
    background-size: cover;
  }
- .review-video-1 {
-   background-image: url(../assets/content/review-bg-1.png);
- }
- .review-video-2 {
-   background-image: url(../assets/content/review-bg-2.png);
- }
- .review-video-7 {
-   background-image: url(../assets/content/review-bg-3.png);
- }
- .review-video-8 {
-   background-image: url(../assets/content/review-bg-4.png);
- }
+
  .review-card__play-btn {
    width: 70px;
    height: 70px;
