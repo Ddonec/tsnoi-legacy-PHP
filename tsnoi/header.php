@@ -30,6 +30,8 @@
 .articles-prewiew-box__article-3 {
   background-image: url('<?php the_field('article-bg-3'); ?>');
 }
+
+
    </style>
    <body>
     <header class="header-main">
