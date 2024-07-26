@@ -437,8 +437,10 @@ get_header();
                 $name = get_sub_field('name');
                 if($review_type == 'video') {
                     $video_url = get_sub_field('video_url');
+                    $video_prev = get_sub_field('video_prev');
+
                     ?>
-                    <div class="review-card video">
+                    <div class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
                         <div class="review-card__play-btn">
                             <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black"/>
@@ -450,10 +452,11 @@ get_header();
                     $job_title = get_sub_field('job_title');
                     $review_text = get_sub_field('review_text');
                     $rating = get_sub_field('rating');
+                    $video_prev = get_sub_field('video_prev');
                     ?>
                     <div class="review-card text">
                         <div class="review-card__top-block">
-                            <div class="text-top-block__icon"></div>
+                            <div class="text-top-block__icon" style="background-image: url('<?php echo esc_html($video_prev); ?>')"></div>
                             <div class="text-top-block__right-list">
                                 <div class="text-top-block__right-list_stars">
                                     <?php for($i = 0; $i < $rating; $i++): ?>
