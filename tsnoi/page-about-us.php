@@ -173,68 +173,41 @@ get_header();
 
 
 
-      <section class="section-standart-100 four-section-about">
-        <div class="white-way-block">
-          <img
-            class="white-way-block__image"
-            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-big-img-1.png"
-            alt=""
-          />
-          <div class="white-way-block__info">
-            <h2 class="white-way-block__title">
-              Получайте реальные знания с лучшими преподавателями
-              Санкт-Петербурга
-            </h2>
-            <p class="white-way-block__subtitle">
-              Значимость этих проблем настолько очевидна, что базовый вектор
-              развития позволяет оценить значение экспериментов, поражающих по
-              своей масштабности и грандиозности.
-              <br /><br />
-              Лишь представители современных социальных резервов объединены в
-              целые кластеры себе подобных.
-            </p>
-          </div>
+<section class="section-standart-100 four-section-about">
+    <?php if( have_rows('white_way_blocks') ): ?>
+        <?php while( have_rows('white_way_blocks') ): the_row(); 
+            $image = get_sub_field('image');
+            $title = get_sub_field('title');
+            $subtitle = get_sub_field('subtitle');
+            $block_class = get_sub_field('block_class');
+        ?>
+        <div class="white-way-block <?php echo esc_attr($block_class); ?>">
+            <?php if ($block_class === 'about-grey-block') : ?>
+                <div class="white-way-block__info">
+                    <h2 class="white-way-block__title"><?php echo esc_html($title); ?></h2>
+                    <p class="white-way-block__subtitle"><?php echo nl2br(esc_html($subtitle)); ?></p>
+                </div>
+                <img
+                    class="white-way-block__image order-mob"
+                    src="<?php echo esc_url($image['url']); ?>"
+                    alt="<?php echo esc_attr($image['alt']); ?>"
+                />
+            <?php else : ?>
+                <img
+                    class="white-way-block__image"
+                    src="<?php echo esc_url($image['url']); ?>"
+                    alt="<?php echo esc_attr($image['alt']); ?>"
+                />
+                <div class="white-way-block__info">
+                    <h2 class="white-way-block__title"><?php echo esc_html($title); ?></h2>
+                    <p class="white-way-block__subtitle"><?php echo nl2br(esc_html($subtitle)); ?></p>
+                </div>
+            <?php endif; ?>
         </div>
-        <div class="white-way-block about-grey-block">
-          <div class="white-way-block__info">
-            <h2 class="white-way-block__title">
-              Проводим лекции, семинары, мастер-классы, тренинги с выдачей
-              сертификатов
-            </h2>
-            <p class="white-way-block__subtitle">
-              Значимость этих проблем настолько очевидна, что базовый вектор
-              развития позволяет оценить значение экспериментов, поражающих по
-              своей масштабности и грандиозности. <br /><br />Лишь представители
-              современных социальных резервов объединены в целые кластеры себе
-              подобных.
-            </p>
-          </div>
-          <img
-            class="white-way-block__image order-mob"
-            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-big-img-2.png"
-            alt=""
-          />
-        </div>
-        <div class="white-way-block">
-          <img
-            class="white-way-block__image"
-            src="<?php echo bloginfo('template_url'); ?>/assets/content/about-big-img-3.png"
-            alt=""
-          />
-          <div class="white-way-block__info">
-            <h2 class="white-way-block__title">
-              Имеем официальную лицензию на обучение
-            </h2>
-            <p class="white-way-block__subtitle">
-              Значимость этих проблем настолько очевидна, что базовый вектор
-              развития позволяет оценить значение экспериментов, поражающих по
-              своей масштабности и грандиозности. <br /><br />
-              Лишь представители современных социальных резервов объединены в
-              целые кластеры себе подобных.
-            </p>
-          </div>
-        </div>
-      </section>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</section>
+
 
       <section class="sertificates-section standart-margin-section">
         <div class="white-bg-about">
