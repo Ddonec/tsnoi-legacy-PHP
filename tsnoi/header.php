@@ -30,21 +30,7 @@
 .articles-prewiew-box__article-3 {
   background-image: url('<?php the_field('article-bg-3'); ?>');
 }
-.review-video-1 {
-   background-image: url(../assets/content/review-bg-1.png);
- }
- .review-video-2 {
-   background-image: url(../assets/content/review-bg-2.png);
- }
- .review-video-7 {
-   background-image: url(../assets/content/review-bg-3.png);
- }
- .review-video-8 {
-   background-image: url(../assets/content/review-bg-4.png);
- }
- .text-top-block__icon {
-   background-image: url(../assets/content/review-circle.png);
- }
+
 
    </style>
    <body>
