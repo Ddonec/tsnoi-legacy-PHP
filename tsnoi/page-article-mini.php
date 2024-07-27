@@ -27,7 +27,7 @@ get_header();
             />
             <div class="blue-bg-courses-text-ways">
               <h1 class="h1-text h1-m-w-900">
-                VI Всероссийский педагогический съезд «Моя страна»
+                <?php the_field('article-mini-main-title') ?>
               </h1>
               <p class="h1-subtext ways-first-discription"></p>
             </div>
