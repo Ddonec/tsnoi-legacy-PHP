@@ -515,7 +515,6 @@ footer {
   position: relative;
 }
 
-
 .social-webs-footer {
   display: flex;
   gap: 10px;
@@ -3028,6 +3027,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin-top: 55px;
+  cursor: pointer;
 }
 
 .text-page-first-section {
