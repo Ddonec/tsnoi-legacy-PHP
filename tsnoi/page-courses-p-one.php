@@ -246,50 +246,31 @@ get_header();
         />
       </section>
       <section class="sertificates-section">
-        <h2 class="standart_title">Выдаем государственные сертификаты</h2>
-        <p class="sertificates__subtitle">И вносим сведения в ФИС ФРДО</p>
+        <h2 class="standart_title"><?php the_field('certificates-title') ?></h2>
+        <p class="sertificates__subtitle"><?php the_field('sertificates-subtitle') ?></p>
         <div class="sertificates-overflow-container">
-          <div class="sertificates-container">
-            <div class="sertificates__card">
-              <div class="sertificates__card_white">
-                <img
-                  class="sertificates__card__img"
-                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-1.png"
-                  alt=""
-                />
-              </div>
-              <div class="sertificates__card_discription">
-                Удостоверение о повышении квалификации 
-              </div>
-            </div>
-            <div class="sertificates__card">
-              <div class="sertificates__card_white">
-                <img
-                  class="sertificates__card__img"
-                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-2.png"
-                  alt=""
-                />
-              </div>
-              <div class="sertificates__card_discription">
-                Диплом о профессиональной переподготовке  (на право ведения
-                нового вида деятельности)
-              </div>
-            </div>
-            <div class="sertificates__card">
-              <div class="sertificates__card_white">
-                <img
-                  class="sertificates__card__img"
-                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-3.png"
-                  alt=""
-                />
-              </div>
-              <div class="sertificates__card_discription">
-                Диплом о профессиональной переподготовке  (с присвоением
-                квалификации)
-              </div>
-            </div>
+    <div class="sertificates-container">
+      <?php if( have_rows('certificates') ): ?>
+        <?php while( have_rows('certificates') ): the_row(); 
+          $certificate_image = get_sub_field('certificate_image');
+          $certificate_description = get_sub_field('certificate_description');
+        ?>
+        <div class="sertificates__card">
+          <div class="sertificates__card_white">
+            <img
+              class="sertificates__card__img"
+              src="<?php echo esc_url($certificate_image['url']); ?>"
+              alt="<?php echo esc_attr($certificate_image['alt']); ?>"
+            />
+          </div>
+          <div class="sertificates__card_discription">
+            <?php echo esc_html($certificate_description); ?>
           </div>
         </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+    </div>
+  </div>
         <div class="sertificates-arrows">
           <div class="sertificates-arrows__prew">
             <svg
