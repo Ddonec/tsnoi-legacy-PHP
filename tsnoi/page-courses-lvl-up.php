@@ -38,193 +38,83 @@ get_header();
         </div>
       </section>
       <section class="second section-ways">
-        <div class="ways-second-overflow-container">
-          <div class="ways-second-container">
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-1.png" alt="" />
-              </div>
-              <div class="ways-card__title">
-                Повышайте свой уровень и статус с помощью курсов
-              </div>
-              <div class="ways-card__subtitle">
-                Съезд — это профессиональная площадка лидеров современного
-                образования для обмена опытом и мнениями, где обсуждаются
-                концептуальные вопросы развития образования как в регионах
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-2.png" alt="" />
-              </div>
-              <div class="ways-card__title">
-                Получайте знания с лучшими преподавателями
-              </div>
-              <div class="ways-card__subtitle">
-                Съезд — это профессиональная площадка лидеров современного
-                образования для обмена опытом и мнениями, где обсуждаются
-                концептуальные вопросы развития образования как в регионах
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-3.png" alt="" />
-              </div>
-              <div class="ways-card__title">
-                Реальные знания и современный подход
-              </div>
-              <div class="ways-card__subtitle">
-                Съезд — это профессиональная площадка лидеров современного
-                образования для обмена опытом и мнениями, где обсуждаются
-                концептуальные вопросы развития образования как в регионах
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-4.png" alt="" />
-              </div>
-              <div class="ways-card__title">Имеем государственную лицензию</div>
-              <div class="ways-card__subtitle">
-                Лицензия на осуществление образовательной деятельности  (серия
-                78Л02 № 0001408 рег. № 2462, выдана 07 декабря 2016 г.)
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-5.png" alt="" />
-              </div>
-              <div class="ways-card__title">
-                Повышаем квалификацию с сертификацией
-              </div>
-              <div class="ways-card__subtitle">
-                Лицензия на осуществление образовательной деятельности  (серия
-                78Л02 № 0001408 рег. № 2462, выдана 07 декабря 2016 г.)
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-6.png" alt="" />
-              </div>
-              <div class="ways-card__title">
-                Проводим лекции, семинары, мастер-классы, тренинги
-              </div>
-              <div class="ways-card__subtitle">
-                Съезд — это профессиональная площадка лидеров современного
-                образования для обмена опытом и мнениями, где обсуждаются
-                концептуальные вопросы развития образования как в регионах
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-7.png" alt="" />
-              </div>
-              <div class="ways-card__title">Организуем конференции</div>
-              <div class="ways-card__subtitle">
-                Съезд — это профессиональная площадка лидеров современного
-                образования для обмена опытом и мнениями, где обсуждаются
-                концептуальные вопросы развития образования как в регионах
-              </div>
-            </div>
-            <div class="ways-second-card mt-0">
-              <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-8.png" alt="" />
-              </div>
-              <div class="ways-card__title">
-                Сертифицируем сертификатами гос. образца
-              </div>
-              <div class="ways-card__subtitle">
-                Съезд — это профессиональная площадка лидеров современного
-                образования для обмена опытом и мнениями, где обсуждаются
-                концептуальные вопросы развития образования как в регионах
-              </div>
-            </div>
+  <div class="ways-second-overflow-container">
+    <div class="ways-second-container">
+      <?php if( have_rows('ways_cards') ): ?>
+        <?php while ( have_rows('ways_cards') ) : the_row(); 
+          $image = get_sub_field('ways_card_image');
+          $title = get_sub_field('ways_card_title');
+          $subtitle = get_sub_field('ways_card_subtitle');
+        ?>
+        <div class="ways-second-card mt-0">
+          <div class="ways-card__img">
+            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($title); ?>" />
+          </div>
+          <div class="ways-card__title">
+            <?php echo esc_html($title); ?>
+          </div>
+          <div class="ways-card__subtitle">
+            <?php echo esc_html($subtitle); ?>
           </div>
         </div>
-        <div class="arrows-for-ways-second-container arrows-lvl-up-mobile">
-          <div class="arrows-for-ways__left">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4648 19.6033L8.46484 12.6033L15.4648 5.60327"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <div class="arrows-for-ways__right">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.46484 5.60327L16.4648 12.6033L9.46484 19.6033"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
-        <script>
-          const overflowContainerLVL = document.querySelector(
-            ".ways-second-overflow-container"
-          );
-          const leftScrollButton = document.querySelector(
-            ".arrows-for-ways__left"
-          );
-          const rightScrollButton = document.querySelector(
-            ".arrows-for-ways__right"
-          );
+        <?php endwhile; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+  <div class="arrows-for-ways-second-container arrows-lvl-up-mobile">
+    <div class="arrows-for-ways__left">
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.4648 19.6033L8.46484 12.6033L15.4648 5.60327" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="arrows-for-ways__right">
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.46484 5.60327L16.4648 12.6033L9.46484 19.6033" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+  <script>
+    const overflowContainerLVL = document.querySelector(".ways-second-overflow-container");
+    const leftScrollButton = document.querySelector(".arrows-for-ways__left");
+    const rightScrollButton = document.querySelector(".arrows-for-ways__right");
 
-          let defaultCardWidth = 458; // ширина карточки
-          let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
+    let defaultCardWidth = 458; // ширина карточки
+    let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
 
-          window.addEventListener("resize", updateOffset);
+    window.addEventListener("resize", updateOffset);
 
-          leftScrollButton.addEventListener("click", function () {
-            scrollLeft();
-          });
+    leftScrollButton.addEventListener("click", function () {
+      scrollLeft();
+    });
 
-          rightScrollButton.addEventListener("click", function () {
-            scrollRight();
-          });
+    rightScrollButton.addEventListener("click", function () {
+      scrollRight();
+    });
 
-          function updateOffset() {
-            smallScreenOffset = window.innerWidth - 10;
-          }
+    function updateOffset() {
+      smallScreenOffset = window.innerWidth - 10;
+    }
 
-          function calculateOffset() {
-            return window.innerWidth < 500
-              ? smallScreenOffset
-              : defaultCardWidth;
-          }
+    function calculateOffset() {
+      return window.innerWidth < 500 ? smallScreenOffset : defaultCardWidth;
+    }
 
-          function scrollLeft() {
-            overflowContainerLVL.scrollBy({
-              left: -calculateOffset(),
-              behavior: "smooth",
-            });
-          }
+    function scrollLeft() {
+      overflowContainerLVL.scrollBy({
+        left: -calculateOffset(),
+        behavior: "smooth",
+      });
+    }
 
-          function scrollRight() {
-            overflowContainerLVL.scrollBy({
-              left: calculateOffset(),
-              behavior: "smooth",
-            });
-          }
-        </script>
-      </section>
+    function scrollRight() {
+      overflowContainerLVL.scrollBy({
+        left: calculateOffset(),
+        behavior: "smooth",
+      });
+    }
+  </script>
+</section>
+
       <section class="section-standart-100 gap30-section">
         <h2 class="standart_title">Наши направления</h2>
         <div class="course-ways-box course-lvl-up-box">
