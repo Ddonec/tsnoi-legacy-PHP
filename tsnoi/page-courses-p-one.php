@@ -23,19 +23,16 @@ get_header();
           />
           <div class="first-block-blue-bg-overflow ways-overflow">
             <img
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/courses-blue-absolut-1.png"
+              src="<?php the_field('p-one-main-human-image') ?>"
               class="ways-img-bg"
             />
             <div class="blue-bg-main-text-ways">
-              <div class="blue-bg-courses__button">Направление</div>
+              <div class="blue-bg-courses__button"><?php the_field('p-one-main-grey') ?></div>
               <h1 class="h1-text">
-                Курсы профессиональной <br />
-                переподготовки
+              <?php the_field('p-one-main-title') ?>
               </h1>
               <p class="h1-subtext ways-first-discription">
-                Составьте план на год через стратегию и обратную связь от нас:
-                научим определять цели, находить работающую маркетинговую
-                воронку, медиаплан и рекламные каналы
+              <?php the_field('p-one-main-subtitle') ?>
               </p>
             </div>
           </div>
