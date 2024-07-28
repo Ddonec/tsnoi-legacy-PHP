@@ -54,23 +54,24 @@ get_header();
           </p>
         </div>
         <div class="article-avtar-container">
-          <div class="article-avtar__box article-avtar__box_1">
-            <div class="article-avtar__photo article-box-1" style="background-image: url(<?php the_field('article-image-1') ?>);"></div>
+    <?php if (have_rows('article_avatar_repeater')): ?>
+        <?php while (have_rows('article_avatar_repeater')): the_row(); 
+            $article_image = get_sub_field('article_image');
+            $article_link_text = get_sub_field('article_link_text');
+            $article_link_url = get_sub_field('article_link_url');
+        ?>
+        <div class="article-avtar__box" style="background-image: url(<?php echo esc_url($article_image['url']); ?>);">
+            <div class="article-avtar__photo"></div>
             <div class="article-avtar__link-box">
-              <a class="article-avtar__link" href=""
-                >Курс аттестации педагогов</a
-              >
+                <a class="article-avtar__link" href="<?php echo esc_url($article_link_url); ?>">
+                    <?php echo esc_html($article_link_text); ?>
+                </a>
             </div>
-          </div>
-          <div class="article-avtar__box article-avtar__box_2" style="background-image: url(<?php the_field('article-image-2') ?>);">
-            <div class="article-avtar__photo article-box-2"></div>
-            <div class="article-avtar__link-box">
-              <a class="article-avtar__link" href=""
-                >План очных <br />мероприятий <br />на 2024 год</a
-              >
-            </div>
-          </div>
         </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</div>
+
       </section>
     </main>
 
