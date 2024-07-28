@@ -27,7 +27,7 @@ get_header();
             />
             <div class="blue-bg-courses-text-ways">
               <h1 class="h1-text h1-m-w-900">
-                VI Всероссийский педагогический съезд «Моя страна»
+              <?php the_field('title-article-page') ?>
               </h1>
               <p class="h1-subtext ways-first-discription"></p>
             </div>
@@ -36,7 +36,7 @@ get_header();
       </section>
       <section class="second-section-article">
         <div class="article-page-article-container">
-          <div class="article-container__image article-image-1"></div>
+          <div class="article-container__image article-image-1" style="background-image: url(<?php the_field('article-page-main-photo') ?>);"></div>
           <div class="article-container__main-text">
             <h2 class="article-container__title">
               VI Всероссийский педагогический съезд «Моя страна»
