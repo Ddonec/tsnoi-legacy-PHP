@@ -14,16 +14,16 @@ get_header();
           class="first-block-blue-bg first-block-blue-bg-ways first-block-blue-bg-lvl-up"
         >
           <img
-            src="./assets/content/p-one-img-asolute-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/p-one-img-asolute-1.png"
             class="fly-element p-one-img-1"
           />
           <img
-            src="./assets/content/p-one-img-asolute-2.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/p-one-img-asolute-2.png"
             class="fly-element p-one-img-2"
           />
           <div class="first-block-blue-bg-overflow ways-overflow">
             <img
-              src="./assets/content/courses-blue-absolut-1.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/courses-blue-absolut-1.png"
               class="ways-img-bg"
             />
             <div class="blue-bg-main-text-ways">
@@ -140,7 +140,7 @@ get_header();
           <div class="course-ways__card small course-ways__card-3">
             <img
               class="course-ways__card-3-img-absolute"
-              src="./assets/content/course-ways__card-3-img-absolute.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/course-ways__card-3-img-absolute.png"
               alt=""
             />
             <div class="course-ways__top-black">Психология</div>
@@ -159,7 +159,7 @@ get_header();
           <div class="course-ways__card big course-ways__card-5">
             <img
               class="course-ways__card-5-img-absolute"
-              src="./assets/content/course-ways__card-5-img-absolute.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/course-ways__card-5-img-absolute.png"
               alt=""
             />
             <div class="course-ways__top-black">Дополнительное образование</div>
@@ -177,7 +177,7 @@ get_header();
           <div class="course-ways__card small course-ways__card-7">
             <img
               class="course-ways__card-7-img-absolute"
-              src="./assets/content/course-ways__card-7-img-absolute.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/course-ways__card-7-img-absolute.png"
               alt=""
             />
             <div class="course-ways__top-black">Культура</div>
@@ -296,12 +296,12 @@ get_header();
         </div>
         <img
           class="fos-fly-1"
-          src="./assets/content/fos-fly-art-1.png"
+          src="<?php echo bloginfo('template_url'); ?>/assets/content/fos-fly-art-1.png"
           alt=""
         />
         <img
           class="fos-fly-2"
-          src="./assets/content/fos-fly-art-2.png"
+          src="<?php echo bloginfo('template_url'); ?>/assets/content/fos-fly-art-2.png"
           alt=""
         />
       </section>
@@ -314,7 +314,7 @@ get_header();
               <div class="sertificates__card_white">
                 <img
                   class="sertificates__card__img"
-                  src="./assets/content/sertificates__card-1.png"
+                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-1.png"
                   alt=""
                 />
               </div>
@@ -326,7 +326,7 @@ get_header();
               <div class="sertificates__card_white">
                 <img
                   class="sertificates__card__img"
-                  src="./assets/content/sertificates__card-2.png"
+                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-2.png"
                   alt=""
                 />
               </div>
@@ -339,7 +339,7 @@ get_header();
               <div class="sertificates__card_white">
                 <img
                   class="sertificates__card__img"
-                  src="./assets/content/sertificates__card-3.png"
+                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-3.png"
                   alt=""
                 />
               </div>
