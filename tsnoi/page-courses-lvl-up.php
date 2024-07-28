@@ -37,7 +37,7 @@ get_header();
           </div>
         </div>
       </section>
-      <section class="second section-ways">
+<section class="second section-ways">
   <div class="ways-second-overflow-container">
     <div class="ways-second-container">
       <?php if( have_rows('ways_cards') ): ?>

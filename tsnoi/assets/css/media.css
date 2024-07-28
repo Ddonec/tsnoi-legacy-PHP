@@ -1195,4 +1195,7 @@
     height: 164px;
     width: 116px;
   }
+  .ways-card__img {
+    height: unset;
+  }
 }

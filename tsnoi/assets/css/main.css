@@ -1073,12 +1073,18 @@ footer {
   width: 438px;
   height: 718px;
   background: #fff;
+  flex-shrink: 0;
 }
 .ways-card__img {
   background-image: url();
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  display: flex;
+  height: 364px;
+}
+.ways-card__img img {
+  margin: auto;
 }
 .ways-card__title {
   font-family: var(--second-family);
