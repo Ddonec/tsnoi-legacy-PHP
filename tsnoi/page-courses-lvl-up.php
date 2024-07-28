@@ -26,15 +26,12 @@ get_header();
               class="ways-img-bg"
             />
             <div class="blue-bg-courses-text-ways">
-              <div class="blue-bg-courses__button">Направление</div>
+              <div class="blue-bg-courses__button"><?php the_field('courses-lvl-grey-tab-text') ?></div>
               <h1 class="h1-text">
-                Курсы повышения <br />
-                квалификации
+              <?php the_field('courses-lvl-main-title') ?>
               </h1>
               <p class="h1-subtext ways-first-discription">
-                Составьте план на год через стратегию и обратную связь от нас:
-                научим определять цели, находить работающую маркетинговую
-                воронку, медиаплан и рекламные каналы
+              <?php the_field('courses-lvl-main-subtitle') ?>
               </p>
             </div>
           </div>
