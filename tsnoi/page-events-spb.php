@@ -22,11 +22,11 @@ get_header();
           />
           <div class="first-block-blue-bg-overflow">
             <img
-              src="./assets/content/starter-choise-image-5.png"
+              src="<?php the_field('absolut-image') ?>"
               class="shop-img-bg"
             />
             <div class="blue-bg-main-text">
-              <h1 class="h1-text">Онлайн-магазин</h1>
+              <h1 class="h1-text"><?php the_field('main-title') ?></h1>
             </div>
           </div>
         </div>
