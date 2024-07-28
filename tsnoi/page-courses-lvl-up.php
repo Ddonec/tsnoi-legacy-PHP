@@ -116,7 +116,7 @@ get_header();
 </section>
 
 <section class="section-standart-100 gap30-section">
-  <h2 class="standart_title">Наши направления</h2>
+  <h2 class="standart_title"><?php the_field('lvl-up_cards_title') ?></h2>
   <div class="course-ways-box course-lvl-up-box">
     <?php if( have_rows('course_ways') ): ?>
       <?php while( have_rows('course_ways') ): the_row(); 
@@ -141,9 +141,8 @@ get_header();
       </div>
       <?php endwhile; ?>
     <?php endif; ?>
-    <!-- Добавляем блок "еще курсы →" -->
     <div class="course-ways__card lvl-up-card small course-lvl-up-card-12">
-      еще курсы →
+    <?php the_field('lvl-up_cards_show_more') ?>
     </div>
   </div>
 </section>
