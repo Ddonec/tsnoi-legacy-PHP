@@ -115,102 +115,47 @@ get_header();
     }
   </script>
 </section>
-      <section class="section-standart-100 gap30-section">
-        <h2 class="standart_title">Наши направления</h2>
-        <div class="course-ways-box">
-          <div class="course-ways__card big course-ways__card-1">
-            <div class="course-ways__top-black">Общее образование</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Учитель начальных классов</div>
-              <div class="course-ways-bot-white">Учитель предметник</div>
-            </div>
-          </div>
-          <div class="course-ways__card small course-ways__card-2">
-            <div class="course-ways__top-black">
-              Профессиональное образование
-            </div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Учитель</div>
-              <div class="course-ways-bot-white">Учитель предметник</div>
-            </div>
-          </div>
-          <div class="course-ways__card small course-ways__card-3">
-            <img
-              class="course-ways__card-3-img-absolute"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/course-ways__card-3-img-absolute.png"
-              alt=""
-            />
-            <div class="course-ways__top-black">Психология</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Дефектология</div>
-              <div class="course-ways-bot-white">Логопедия</div>
-            </div>
-          </div>
-
-          <div class="course-ways__card small course-ways__card-4">
-            <div class="course-ways__top-black">Менеджмент</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Управление системами</div>
-            </div>
-          </div>
-          <div class="course-ways__card big course-ways__card-5">
-            <img
-              class="course-ways__card-5-img-absolute"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/course-ways__card-5-img-absolute.png"
-              alt=""
-            />
-            <div class="course-ways__top-black">Дополнительное образование</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Для детей</div>
-              <div class="course-ways-bot-white">Для взрослых</div>
-            </div>
-          </div>
-          <div class="course-ways__card small course-ways__card-6">
-            <div class="course-ways__top-black">Государственные закупки</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Управление системами</div>
-            </div>
-          </div>
-          <div class="course-ways__card small course-ways__card-7">
-            <img
-              class="course-ways__card-7-img-absolute"
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/course-ways__card-7-img-absolute.png"
-              alt=""
-            />
-            <div class="course-ways__top-black">Культура</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Музеи</div>
-              <div class="course-ways-bot-white">Экскурсионное дело</div>
-            </div>
-          </div>
-          <div class="course-ways__card small course-ways__card-8">
-            <div class="course-ways__top-black">Социальная работа</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Музеи</div>
-              <div class="course-ways-bot-white">Экскурсионное дело</div>
-            </div>
-          </div>
-          <div class="course-ways__card big course-ways__card-9">
-            <div class="course-ways__top-black">
-              HR-технологии. Кадровое делопроизводство
-            </div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Документоведение</div>
-              <div class="course-ways-bot-white">Архивное дело</div>
-            </div>
-          </div>
-          <div class="course-ways__card big course-ways__card-10">
-            <div class="course-ways__top-black">Бухгалтерский учет</div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white">Налогообложение</div>
-              <div class="course-ways-bot-white">Торговое дело</div>
-            </div>
-          </div>
-          <div class="course-ways__card big course-ways__card-11">
-            еще 345 курсов →
-          </div>
+<section class="section-standart-100 gap30-section">
+  <h2 class="standart_title">Наши направления</h2>
+  <div class="course-ways-box">
+    <?php if( have_rows('course_ways') ): $card_index = 1; ?>
+      <?php while( have_rows('course_ways') ): the_row(); 
+        $top_black = get_sub_field('course_top_black');
+        $bot_white_repeater = get_sub_field('course_bot_whites');
+        $course_size = get_sub_field('course_size'); 
+        $background_image = get_sub_field('background_image'); 
+        $absolute_image = get_sub_field('absolute_image'); 
+      ?>
+      <div class="course-ways__card <?php echo esc_attr($course_size); ?> course-ways__card-<?php echo $card_index; ?>" style="background-image: url(<?php echo esc_url($background_image); ?>);">
+        <?php if( $absolute_image ): ?>
+          <img
+            class="course-ways__card-<?php echo $card_index; ?>-img-absolute"
+            src="<?php echo esc_url($absolute_image['url']); ?>"
+            alt="<?php echo esc_attr($absolute_image['alt']); ?>"
+          />
+        <?php endif; ?>
+        <div class="course-ways__top-black"><?php echo esc_html($top_black); ?></div>
+        <div class="course-ways__bot-white-container">
+          <?php if( have_rows('course_bot_whites') ): ?>
+            <?php while( have_rows('course_bot_whites') ): the_row(); 
+              $bot_white = get_sub_field('course_bot_white');
+              $bot_white_class = get_sub_field('course_bot_white_class');
+            ?>
+            <div class="course-ways-bot-white <?php echo esc_attr($bot_white_class); ?>"><?php echo esc_html($bot_white); ?></div>
+            <?php endwhile; ?>
+          <?php endif; ?>
         </div>
-      </section>
+      </div>
+      <?php $card_index++; // Increment index ?>
+      <?php endwhile; ?>
+    <?php endif; ?>
+    <div class="course-ways__card big course-ways__card-11">
+      еще 345 курсов →
+    </div>
+  </div>
+</section>
+
+
 
       <section class="fly-bottom-section-ways-page">
         <div class="blue-bg-container-for-fos">
