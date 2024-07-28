@@ -47,7 +47,7 @@ get_header();
                     $title = get_sub_field('title');
                     $subtitle = get_sub_field('subtitle');
                     $image = get_sub_field('image');
-                    $has_plus = get_sub_field('has_plus'); 
+                    $has_plus = get_sub_field('has_plus');
                 ?>
                     <div class="white-block">
                         <?php if ($image) : ?>
@@ -67,39 +67,12 @@ get_header();
         </div>
         <div class="programm-info-block">
             <div class="programm-info__left">
-                <h2 class="standart_title">Информация о программе</h2>
+                <h2 class="standart_title"><?php the_field('info-title') ?></h2>
                 <p class="programm-info__text">
-                    Уникальность программы в том, что слушатель по результатам
-                    освоения программы получит две квалификации: «Музыкальный
-                    руководитель дошкольной образовательной организации», «Учитель
-                    музыки» Базовый раздел направлен на формирование у педагога
-                    теоретических знаний в области педагогики, психологии, теории и
-                    методики воспитания, развитие профессионально-педагогических и
-                    общекультурных компетенций, которые необходимы музыкальному
-                    руководителю, учителю музыки для выполнения профессиональной
-                    деятельности в условиях реализации ФГОС. Второй раздел программы
-                    профессиональной переподготовки направлен на формирование и
-                    развитие профессиональных компетенций музыкального руководителя
-                    дошкольной образовательной организации и поможет в освоении
-                    методики музыкального воспитания, а также практических навыков,
-                    необходимых музыкальному руководителю для проектирования и
-                    организации эффективного целостного образовательного процесса в
-                    рамках музыкального направления развития детей в соответствии с
-                    ФГОС ДО и ФОП ДО. Содержание третьего раздела составляют вопросы
-                    организации образовательного процесса в соответствии с ФГОС НОО и
-                    ФОП НОО, создания условий реализации программ по предмету «Музыка»
-                    в начальной школе. Слушатели познакомятся с методиками организации
-                    детских праздников и концертов, научатся правильно выстраивать
-                    работу с родителями детей. Программа поможет развить творческий
-                    потенциал педагога, вооружить его инновационными технологиями,
-                    методами и приемами художественно-эстетического развития и
-                    образования детей дошкольного и младшего школьного возраста. Курс
-                    необходим слушателям, желающим освоить специальность музыкального
-                    руководителя ДОО и учителя музыки для работы в образовательных
-                    организациях.
+                    <?php the_field('info-description') ?>
                 </p>
                 <a class="programm-info__link" href="#">
-                    <div class="programm-info__btn">Читать полностью</div>
+                    <div class="programm-info__btn"><?php the_field('programm-btn') ?></div>
                 </a>
             </div>
             <div class="programm-info__right"></div>
@@ -110,32 +83,21 @@ get_header();
         <p class="sertificates__subtitle">И вносим сведения в ФИС ФРДО</p>
         <div class="sertificates-overflow-container">
             <div class="sertificates-container">
-                <div class="sertificates__card sertificates__card-three">
-                    <div class="sertificates__card_white">
-                        <img class="sertificates__card__img" src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-1.png" alt="" />
-                    </div>
-                    <div class="sertificates__card_discription">
-                        Удостоверение о повышении квалификации 
-                    </div>
-                </div>
-                <div class="sertificates__card sertificates__card-three">
-                    <div class="sertificates__card_white">
-                        <img class="sertificates__card__img" src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-2.png" alt="" />
-                    </div>
-                    <div class="sertificates__card_discription">
-                        Диплом о профессиональной переподготовке  (на право ведения
-                        нового вида деятельности)
-                    </div>
-                </div>
-                <div class="sertificates__card sertificates__card-three">
-                    <div class="sertificates__card_white">
-                        <img class="sertificates__card__img" src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-3.png" alt="" />
-                    </div>
-                    <div class="sertificates__card_discription">
-                        Диплом о профессиональной переподготовке  (с присвоением
-                        квалификации)
-                    </div>
-                </div>
+                <?php if (have_rows('sertificates')) : ?>
+                    <?php while (have_rows('sertificates')) : the_row();
+                        $image = get_sub_field('image');
+                        $description = get_sub_field('description');
+                    ?>
+                        <div class="sertificates__card">
+                            <div class="sertificates__card_white">
+                                <img class="sertificates__card__img" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            </div>
+                            <div class="sertificates__card_discription">
+                                <?php echo esc_html($description); ?>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
         <div class="sertificates-arrows">
@@ -151,6 +113,7 @@ get_header();
             </div>
         </div>
     </section>
+
 
     <section class="fly-bottom-section-ways-page">
         <div class="blue-bg-container-for-fos">
