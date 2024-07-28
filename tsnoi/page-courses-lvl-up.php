@@ -155,15 +155,14 @@ get_header();
         <div class="blue-bg-container-for-fos">
           <div class="blue-bg-container-left">
             <h3 class="blue-bg-container__header">
-              Оставьте заявку, чтобы начать обучение
+            <?php the_field('fos-title') ?>
             </h3>
           </div>
           <div class="blue-bg-container-right">
             <form class="blue-bg-container__fos-box">
-              <h4 class="fos-box_title">Заполните форму ниже</h4>
+              <h4 class="fos-box_title"><?php the_field('fos-first-text') ?></h4>
               <p class="fos-box_subtitle">
-                Оставьте свои данные и менеджер свяжется с вами в ближайшее
-                время
+              <?php the_field('fos-subtitle') ?>
               </p>
               <input
                 class="fos-box_name-input"
@@ -185,11 +184,11 @@ get_header();
                 <label class="checkbox-agree-container__label" for="agree">
                   <div class="checkbox"></div>
                   <p class="checkbox-agree-container__text">
-                    Я соглашаюсь с политикой конфиденциальности
+                  <?php the_field('fos-agree') ?>
                   </p>
                 </label>
               </div>
-              <button class="fos-box_btn-agree">Записаться</button>
+              <button class="fos-box_btn-agree"><?php the_field('fos-btn') ?></button>
             </form>
             <div class="messenger-feedback-box">
               <div class="messenger-feedback-box__icon-box">
@@ -224,8 +223,7 @@ get_header();
               </div>
 
               <p class="messenger-feedback-box__text">
-                Так же для расчета, вы можете связаться в любом удобном для вас
-                месенджере
+              <?php the_field('fos-feedback') ?>
               </p>
             </div>
           </div>
