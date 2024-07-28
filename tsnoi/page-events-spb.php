@@ -13,11 +13,11 @@ get_header();
       <section class="standart-margin-section first-section-home">
         <div class="first-block-blue-bg first-block-blue-bg-shop">
           <img
-            src="./assets/content/way-template-absolute-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-template-absolute-1.png"
             class="fly-element shop-img-2"
           />
           <img
-            src="./assets/content/way-template-absolute-2.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-template-absolute-2.png"
             class="fly-element shop-img-3"
           />
           <div class="first-block-blue-bg-overflow">
