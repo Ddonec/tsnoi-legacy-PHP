@@ -115,193 +115,42 @@ get_header();
   </script>
 </section>
 
-      <section class="section-standart-100 gap30-section">
-        <h2 class="standart_title">Наши направления</h2>
-        <div class="course-ways-box course-lvl-up-box">
-          <div class="course-ways__card lvl-up-card big course-lvl-up-card-1">
-            <div class="course-ways__top-black">Дошкольное образование</div>
-            <div
-              class="course-ways__bot-white-container course-lvl-white-comtainer"
-            >
-              <div class="course-ways-bot-white">Воспитатель</div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Помощник воспитателя. Младший воспитатель
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Музыкальное воспитание
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Развитие профессиональных компетенций
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Старший воспитатель. Методист
-              </div>
-              <div class="course-ways-bot-white">Социальный педагог</div>
-              <div class="course-ways-bot-white">
-                Еще 9<svg
-                  width="9"
-                  height="15"
-                  viewBox="0 0 9 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.29688 1.875L7.29688 7.875L1.29688 13.875"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="course-ways__card lvl-up-card big course-lvl-up-card-2">
-            <div class="course-ways__top-black">Общее образование</div>
-            <div
-              class="course-ways__bot-white-container course-lvl-white-comtainer"
-            >
-              <div class="course-ways-bot-white">Воспитатель</div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Помощник воспитателя. Младший воспитатель
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Музыкальное воспитание
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Развитие профессиональных компетенций
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Старший воспитатель. Методист
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Социальный педагог
-              </div>
-              <div class="course-ways-bot-white">
-                Еще 9<svg
-                  width="9"
-                  height="15"
-                  viewBox="0 0 9 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.29688 1.875L7.29688 7.875L1.29688 13.875"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="course-ways__card lvl-up-card big course-lvl-up-card-3">
-            <div class="course-ways__top-black">
-              Доп. образование детей и взрослых
-            </div>
-            <div
-              class="course-ways__bot-white-container course-lvl-white-comtainer"
-            >
-              <div class="course-ways-bot-white">Воспитатель</div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Помощник воспитателя. Младший воспитатель
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Музыкальное воспитание
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Развитие профессиональных компетенций
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Старший воспитатель. Методист
-              </div>
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Социальный педагог
-              </div>
-              <div class="course-ways-bot-white">
-                Еще 9<svg
-                  width="9"
-                  height="15"
-                  viewBox="0 0 9 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.29688 1.875L7.29688 7.875L1.29688 13.875"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="course-ways__card lvl-up-card big course-lvl-up-card-4">
-            <div class="course-ways__top-black">
-              Психология. Дефектология. Логопедия
-            </div>
-            <div class="course-ways__bot-white-container">
-              <div class="course-ways-bot-white lvl-up-tab-mobile-hide">
-                Педагог-психолог
-              </div>
-              <div class="course-ways-bot-white">Педагог-психолог</div>
-              <div class="course-ways-bot-white">Учитель-логопед</div>
-            </div>
-          </div>
-          <div class="course-ways__card lvl-up-card small course-lvl-up-card-5">
-            <div class="course-ways__top-black">
-              Профессиональное образование
-            </div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
-          <div class="course-ways__card lvl-up-card small course-lvl-up-card-6">
-            <div class="course-ways__top-black">
-              Курсы повышения квалификации по менеджменту в образовании
-            </div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
-          <div class="course-ways__card lvl-up-card small course-lvl-up-card-7">
-            <div class="course-ways__top-black">Государственные закупки</div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
-          <div class="course-ways__card lvl-up-card small course-lvl-up-card-8">
-            <div class="course-ways__top-black">
-              HR-технологии. Архивное дело Кадровое делопроизводство.
-              Документоведение.
-            </div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
-          <div class="course-ways__card lvl-up-card small course-lvl-up-card-9">
-            <div class="course-ways__top-black">Социальная работа</div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
+<section class="section-standart-100 gap30-section">
+  <h2 class="standart_title">Наши направления</h2>
+  <div class="course-ways-box course-lvl-up-box">
+    <?php if( have_rows('course_ways') ): ?>
+      <?php while( have_rows('course_ways') ): the_row(); 
+        $top_black = get_sub_field('course_top_black');
+        $bot_white_repeater = get_sub_field('course_bot_whites');
+        $course_size = get_sub_field('course_size'); 
+        $bg_photo = get_sub_field('bg_photo'); 
 
-          <div
-            class="course-ways__card lvl-up-card small course-lvl-up-card-10"
-          >
-            <div class="course-ways__top-black">
-              Бухгалтерский учет налогообложение. Торговое дело
-            </div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
-          <div
-            class="course-ways__card lvl-up-card small course-lvl-up-card-11"
-          >
-            <div class="course-ways__top-black">
-              Культура. Музеи. Экскурсионное дело
-            </div>
-            <div class="course-ways__bot-white-container"></div>
-          </div>
-
-          <div
-            class="course-ways__card lvl-up-card small course-lvl-up-card-12"
-          >
-            еще курсы →
-          </div>
+      ?>
+      <div class="course-ways__card lvl-up-card <?php echo esc_attr($course_size); ?>" style="background-image: url(<?php echo esc_url($bg_photo); ?>);">
+        <div class="course-ways__top-black"><?php echo esc_html($top_black); ?></div>
+        <div class="course-ways__bot-white-container course-lvl-white-comtainer">
+          <?php if( have_rows('course_bot_whites') ): ?>
+            <?php while( have_rows('course_bot_whites') ): the_row(); 
+              $bot_white = get_sub_field('course_bot_white');
+              $bot_white_class = get_sub_field('course_bot_white_class');
+            ?>
+            <div class="course-ways-bot-white <?php echo esc_attr($bot_white_class); ?>"><?php echo esc_html($bot_white); ?></div>
+            <?php endwhile; ?>
+          <?php endif; ?>
         </div>
-      </section>
+      </div>
+      <?php endwhile; ?>
+    <?php endif; ?>
+    <!-- Добавляем блок "еще курсы →" -->
+    <div class="course-ways__card lvl-up-card small course-lvl-up-card-12">
+      еще курсы →
+    </div>
+  </div>
+</section>
+
+
+
+
 
       <section class="fly-bottom-section-ways-page">
         <div class="blue-bg-container-for-fos">
