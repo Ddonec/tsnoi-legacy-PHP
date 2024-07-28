@@ -34,12 +34,11 @@ get_header();
       <section class="shop-second-section">
       <div class="tabs-shop">
     <?php if( have_rows('tabs') ): ?>
-      <?php $first = true; // Устанавливаем флаг для активной вкладки ?>
+      <?php $first = true; ?>
       <?php while( have_rows('tabs') ): the_row(); 
         $tab_title = get_sub_field('tab_title'); 
-        // Если это первая вкладка, добавляем класс "active"
         $class = $first ? 'tab-shop active' : 'tab-shop';
-        $first = false; // После первой вкладки, сбрасываем флаг
+        $first = false;
       ?>
       <div class="<?php echo esc_attr($class); ?>"><?php echo esc_html($tab_title); ?></div>
       <?php endwhile; ?>
