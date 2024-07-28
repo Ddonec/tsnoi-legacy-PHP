@@ -1774,7 +1774,7 @@ footer {
 .sertificates__card {
   display: flex;
   flex-direction: column;
-  max-width: 594px;
+  width: 594px;
 }
 .sertificates__card_white {
   border-radius: 30px;

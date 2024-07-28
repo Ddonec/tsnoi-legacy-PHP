@@ -239,88 +239,73 @@ get_header();
           alt=""
         />
       </section>
-      <section class="sertificates-section">
-        <h2 class="standart_title">Выдаем государственные сертификаты</h2>
-        <p class="sertificates__subtitle">И вносим сведения в ФИС ФРДО</p>
-        <div class="sertificates-overflow-container">
-          <div class="sertificates-container">
-            <div class="sertificates__card">
-              <div class="sertificates__card_white">
-                <img
-                  class="sertificates__card__img"
-                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-1.png"
-                  alt=""
-                />
-              </div>
-              <div class="sertificates__card_discription">
-                Удостоверение о повышении квалификации 
-              </div>
-            </div>
-            <div class="sertificates__card">
-              <div class="sertificates__card_white">
-                <img
-                  class="sertificates__card__img"
-                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-2.png"
-                  alt=""
-                />
-              </div>
-              <div class="sertificates__card_discription">
-                Диплом о профессиональной переподготовке  (на право ведения
-                нового вида деятельности)
-              </div>
-            </div>
-            <div class="sertificates__card">
-              <div class="sertificates__card_white">
-                <img
-                  class="sertificates__card__img"
-                  src="<?php echo bloginfo('template_url'); ?>/assets/content/sertificates__card-3.png"
-                  alt=""
-                />
-              </div>
-              <div class="sertificates__card_discription">
-                Диплом о профессиональной переподготовке  (с присвоением
-                квалификации)
-              </div>
-            </div>
+
+
+
+<section class="sertificates-section">
+  <h2 class="standart_title"><?php the_field('certificates-title') ?></h2>
+  <p class="sertificates__subtitle"><?php the_field('certificates-subtitle') ?></p>
+  <div class="sertificates-overflow-container">
+    <div class="sertificates-container">
+      <?php if( have_rows('certificates') ): ?>
+        <?php while( have_rows('certificates') ): the_row(); 
+          $certificate_image = get_sub_field('certificate_image');
+          $certificate_description = get_sub_field('certificate_description');
+        ?>
+        <div class="sertificates__card">
+          <div class="sertificates__card_white">
+            <img
+              class="sertificates__card__img"
+              src="<?php echo esc_url($certificate_image['url']); ?>"
+              alt="<?php echo esc_attr($certificate_image['alt']); ?>"
+            />
+          </div>
+          <div class="sertificates__card_discription">
+            <?php echo esc_html($certificate_description); ?>
           </div>
         </div>
-        <div class="sertificates-arrows">
-          <div class="sertificates-arrows__prew">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 19L8 12L15 5"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <div class="sertificates-arrows__next">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5L16 12L9 19"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
-      </section>
+        <?php endwhile; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+  <div class="sertificates-arrows">
+    <div class="sertificates-arrows__prew">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 19L8 12L15 5"
+          stroke="black"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <div class="sertificates-arrows__next">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 5L16 12L9 19"
+          stroke="black"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  </div>
+</section>
+
       <script>
         const overflowContainer = document.querySelector(
           ".sertificates-overflow-container"
