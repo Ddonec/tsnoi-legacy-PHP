@@ -12,17 +12,17 @@ get_header();
       <section class="small-margin-section">
         <div class="first-block-blue-bg first-block-blue-bg-lvl-up">
           <img
-            src="./assets/content/article-absolut-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/article-absolut-1.png"
             class="fly-element preschool-img-1 article-absolute-1"
           />
 
           <div class="first-block-blue-bg-overflow ways-overflow">
             <img
-              src="./assets/content/article-absolut-2.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/article-absolut-2.png"
               class="fly-element article-absolute-2"
             />
             <img
-              src="./assets/content/women-article-page.png"
+              src="<?php echo bloginfo('template_url'); ?>/assets/content/women-article-page.png"
               class="ways-img-bg article-absolut"
             />
             <div class="blue-bg-courses-text-ways">
