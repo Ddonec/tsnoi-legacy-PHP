@@ -34,13 +34,23 @@ get_header();
 
     <section class="courses-cards-section">
         <div class="tabs-overflow">
-            <div class="tabs-shop">
-                <div class="tab-shop active">Все направления</div>
-                <div class="tab-shop">ТОП-30</div>
-                <div class="tab-shop">Педагогика</div>
-                <div class="tab-shop">Воспитание</div>
-                <div class="tab-shop">Психология</div>
-            </div>
+            <?php if (have_rows('tabs')) : 
+            ?>
+                <div class="tabs-shop">
+                    <?php
+                    $first = true; 
+                    while (have_rows('tabs')) : the_row();
+                        $tab_name = get_sub_field('tab_name');
+                    ?>
+                        <div class="tab-shop <?php echo $first ? 'active' : ''; ?>">
+                            <?php echo esc_html($tab_name); ?>
+                        </div>
+                        <?php $first = false; 
+                        ?>
+                    <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
+
         </div>
         <script>
             const tabs = document.querySelectorAll(".tab-shop");
