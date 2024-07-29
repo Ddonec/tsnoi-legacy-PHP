@@ -114,7 +114,8 @@ get_header();
                     $preview_text = get_sub_field('preview_text');
                     $price = get_sub_field('price');
                     $preview_image = get_sub_field('preview_image');
-                    $image_url = $preview_image['url']; 
+                    $image_url = $preview_image['url'];
+                    $btn = get_sub_field('btn-text');
                 ?>
                     <div class="last-vebinar-preview-card">
                         <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
@@ -129,7 +130,7 @@ get_header();
                         </p>
                         <div class="last-vebinar-preview-card__btn-area">
                             <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                                Получить сертификат
+                                <?php echo esc_html($btn); ?>
                             </div>
                             <div class="preview-card__btn-area_price">
                                 <?php echo esc_html($price); ?> ₽
