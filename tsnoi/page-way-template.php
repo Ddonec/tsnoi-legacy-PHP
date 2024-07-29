@@ -13,11 +13,11 @@ get_header();
       <section class="first-section-way">
         <div class="default-block-blue-bg default-block-blue-bg-way way-template-banner">
           <img
-            src="./assets/content/way-template-absolute-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-template-absolute-1.png"
             class="fly-element second-fly-element-way"
           />
           <img
-            src="./assets/content/way-template-absolute-2.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-template-absolute-2.png"
             class="fly-element third-fly-element-way"
           />
           <div class="first-block-blue-bg-overflow">
@@ -36,7 +36,7 @@ get_header();
         <div class="white-way-block">
           <img
             class="white-way-block__image"
-            src="./assets/content/way-photo-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-photo-1.png"
             alt=""
           />
           <div class="white-way-block__info">
@@ -119,14 +119,14 @@ get_header();
           </div>
           <img
             class="white-way-block__image"
-            src="./assets/content/way-photo-2.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-photo-2.png"
             alt=""
           />
         </div>
         <div class="white-way-block">
           <img
             class="white-way-block__image"
-            src="./assets/content/way-photo-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/way-photo-1.png"
             alt=""
           />
           <div class="white-way-block__info">
