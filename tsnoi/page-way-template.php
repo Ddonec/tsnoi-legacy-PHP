@@ -22,12 +22,12 @@ get_header();
           />
           <div class="first-block-blue-bg-overflow">
             <img
-              src="./assets/content/way-template-absolute-bg.png"
+              src="<?php the_field('absolute_img'); ?>"
               class="first-fly-element-way"
             />
             <div class="blue-bg-main-text blue-bg-main-text-way">
-              <div class="blue-bg-main__button">Направление</div>
-              <h1 class="h1-text">Наши мероприятия <br />в Санкт-Петербурге</h1>
+              <div class="blue-bg-main__button"><?php the_field('grey_tab'); ?></div>
+              <h1 class="h1-text"><?php the_field('page_title'); ?></h1>
             </div>
           </div>
         </div>
