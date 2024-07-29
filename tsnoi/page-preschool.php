@@ -104,155 +104,59 @@ get_header();
         <?php endif; ?>
 
         <div class="preschool__go-to-all-courses-btn">
-            Перейти ко всем курсам
+            <?php the_field('go_to_all_courses_btn'); ?>
         </div>
     </section>
 
     <section class="reviews-of-students-section">
         <h2 class="standart_title">Отзывы учеников</h2>
         <div class="reviews-container">
-            <div class="review-card video review-video-1">
-                <div class="review-card__play-btn">
-                    <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
-                    </svg>
-                </div>
-                <div class="review-card__white-bottom">Алена Ситникова</div>
-            </div>
-            <div class="review-card video review-video-2">
-                <div class="review-card__play-btn">
-                    <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
-                    </svg>
-                </div>
-                <div class="review-card__white-bottom">Иван Козлов</div>
-            </div>
-            <div class="review-card text review-text-3">
-                <div class="review-card__top-block">
-                    <div class="text-top-block__icon"></div>
-                    <div class="text-top-block__right-list">
-                        <div class="text-top-block__right-list_stars">
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+            <?php if (have_rows('reviews')) : ?>
+                <?php while (have_rows('reviews')) : the_row();
+                    $review_type = get_sub_field('review_type');
+                    $name = get_sub_field('name');
+                    if ($review_type == 'video') {
+                        $video_url = get_sub_field('video_url');
+                        $video_prev = get_sub_field('video_prev');
+
+                ?>
+                        <div class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
+                            <div class="review-card__play-btn">
+                                <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
+                                </svg>
+                            </div>
+                            <div class="review-card__white-bottom"><?php echo esc_html($name); ?></div>
                         </div>
-                        <p class="text-top-block__right-list_name">Власова Е.И</p>
-                        <p class="text-top-block__right-list_job-title">
-                            Директор школы МОУ СОШ Гимназия Салахова, г Сургут
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card__middle-text">
-                    Обращались в компанию весной, нужно было здание под офис. Ответили
-                    первыми, от остальных компаний предложения ждали неделю! В общем
-                    съездили на завод и на них и остановились, в итоге не пожалели!
-                    Вполне рекомендуем, во всяком случае все было оперативно и по
-                    качеству тоже вопросов не возникало. Молодцы ребята, процветания
-                    Вам! Менеджерам отдельное спасибо за понимание)
-                </div>
-                <div class="review-card__bottom-link">Читать полностью</div>
-            </div>
-            <div class="review-card text review-text-3">
-                <div class="review-card__top-block">
-                    <div class="text-top-block__icon"></div>
-                    <div class="text-top-block__right-list">
-                        <div class="text-top-block__right-list_stars">
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
+                    <?php } else {
+                        $job_title = get_sub_field('job_title');
+                        $review_text = get_sub_field('review_text');
+                        $rating = get_sub_field('rating');
+                        $video_prev = get_sub_field('video_prev');
+                    ?>
+                        <div class="review-card text">
+                            <div class="review-card__top-block">
+                                <div class="text-top-block__icon" style="background-image: url('<?php echo esc_html($video_prev); ?>')"></div>
+                                <div class="text-top-block__right-list">
+                                    <div class="text-top-block__right-list_stars">
+                                        <?php for ($i = 0; $i < $rating; $i++) : ?>
+                                            <img src="<?php echo bloginfo('template_url'); ?>/assets/content/review-star.svg" alt="" />
+                                        <?php endfor; ?>
+                                    </div>
+                                    <p class="text-top-block__right-list_name"><?php echo esc_html($name); ?></p>
+                                    <p class="text-top-block__right-list_job-title"><?php echo esc_html($job_title); ?></p>
+                                </div>
+                            </div>
+                            <div class="review-card__middle-text">
+                                <?php echo esc_html($review_text); ?>
+                            </div>
+                            <div class="review-card__bottom-link">
+                                <a href="#">Читать полностью</a>
+                            </div>
                         </div>
-                        <p class="text-top-block__right-list_name">Власова Е.И</p>
-                        <p class="text-top-block__right-list_job-title">
-                            Директор школы МОУ СОШ Гимназия Салахова, г Сургут
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card__middle-text">
-                    Обращались в компанию весной, нужно было здание под офис. Ответили
-                    первыми, от остальных компаний предложения ждали неделю! В общем
-                    съездили на завод и на них и остановились, в итоге не пожалели!
-                    Вполне рекомендуем, во всяком случае все было оперативно и по
-                    качеству тоже вопросов не возникало. Молодцы ребята, процветания
-                    Вам! Менеджерам отдельное спасибо за понимание)
-                </div>
-                <div class="review-card__bottom-link">Читать полностью</div>
-            </div>
-            <div class="review-card text review-text-3">
-                <div class="review-card__top-block">
-                    <div class="text-top-block__icon"></div>
-                    <div class="text-top-block__right-list">
-                        <div class="text-top-block__right-list_stars">
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                        </div>
-                        <p class="text-top-block__right-list_name">Власова Е.И</p>
-                        <p class="text-top-block__right-list_job-title">
-                            Директор школы МОУ СОШ Гимназия Салахова, г Сургут
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card__middle-text">
-                    Обращались в компанию весной, нужно было здание под офис. Ответили
-                    первыми, от остальных компаний предложения ждали неделю! В общем
-                    съездили на завод и на них и остановились, в итоге не пожалели!
-                    Вполне рекомендуем, во всяком случае все было оперативно и по
-                    качеству тоже вопросов не возникало. Молодцы ребята, процветания
-                    Вам! Менеджерам отдельное спасибо за понимание)
-                </div>
-                <div class="review-card__bottom-link">
-                    <a href="">Читать полностью</a>
-                </div>
-            </div>
-            <div class="review-card text review-text-3">
-                <div class="review-card__top-block">
-                    <div class="text-top-block__icon"></div>
-                    <div class="text-top-block__right-list">
-                        <div class="text-top-block__right-list_stars">
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                            <img src="<?php echo bloginfo('template_url'); ?>//assets/content/review-star.svg" alt="" />
-                        </div>
-                        <p class="text-top-block__right-list_name">Власова Е.И</p>
-                        <p class="text-top-block__right-list_job-title">
-                            Директор школы МОУ СОШ Гимназия Салахова, г Сургут
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card__middle-text">
-                    Обращались в компанию весной, нужно было здание под офис. Ответили
-                    первыми, от остальных компаний предложения ждали неделю! В общем
-                    съездили на завод и на них и остановились, в итоге не пожалели!
-                    Вполне рекомендуем, во всяком случае все было оперативно и по
-                    качеству тоже вопросов не возникало. Молодцы ребята, процветания
-                    Вам! Менеджерам отдельное спасибо за понимание)
-                </div>
-                <div class="review-card__bottom-link">Читать полностью</div>
-            </div>
-            <div class="review-card video review-video-7">
-                <div class="review-card__play-btn">
-                    <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
-                    </svg>
-                </div>
-                <div class="review-card__white-bottom">Дарья Коломецкая</div>
-            </div>
-            <div class="review-card video review-video-8">
-                <div class="review-card__play-btn">
-                    <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
-                    </svg>
-                </div>
-                <div class="review-card__white-bottom">Сергей Транин</div>
-            </div>
+                    <?php } ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
         <div class="view-all-reviews-btn">Все отзывы</div>
     </section>
