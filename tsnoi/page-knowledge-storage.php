@@ -12,11 +12,11 @@ get_header();
 <main>
     <section class="small-margin-section">
         <div class="first-block-blue-bg first-block-blue-bg-lvl-up">
-            <img src="./assets/content/preschool-fly-1.png" class="fly-element preschool-img-1 knowlege-fly-no-hide" />
+            <img src="<?php echo bloginfo('template_url'); ?>/assets/content/preschool-fly-1.png" class="fly-element preschool-img-1 knowlege-fly-no-hide" />
 
             <div class="first-block-blue-bg-overflow ways-overflow">
-                <img src="./assets/content/fly-elem-2.png" class="fly-element preschool-img-2" />
-                <img src="./assets/content/knowledge-absolut.png" class="ways-img-bg knowledge-absolut" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/fly-elem-2.png" class="fly-element preschool-img-2" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/knowledge-absolut.png" class="ways-img-bg knowledge-absolut" />
                 <div class="blue-bg-courses-text-ways">
                     <div class="blue-bg-courses__button">
                         Центр непрерывного образования и инноваций
@@ -50,7 +50,7 @@ get_header();
                         направленности
                     </div>
                     <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img" src="./assets/content/four-fly-art-1.png" alt="" />
+                    <img class="vebinar-card__absolute-img" src="<?php echo bloginfo('template_url'); ?>/assets/content/four-fly-art-1.png" alt="" />
                 </div>
                 <div class="vebinar-card">
                     <div class="vebinar-card__date">05.06.2024</div>
@@ -58,7 +58,7 @@ get_header();
                         Краеведческая и экологическая деятельность дошкольника - туриста
                     </div>
                     <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img" src="./assets/content/vebinar-icon-2.png" alt="" />
+                    <img class="vebinar-card__absolute-img" src="<?php echo bloginfo('template_url'); ?>/assets/content/vebinar-icon-2.png" alt="" />
                 </div>
                 <div class="vebinar-card">
                     <div class="vebinar-card__date">09.06.2024</div>
@@ -67,7 +67,7 @@ get_header();
                         возраста
                     </div>
                     <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img" src="./assets/content/vebinar-icon-3.png" alt="" />
+                    <img class="vebinar-card__absolute-img" src="<?php echo bloginfo('template_url'); ?>/assets/content/vebinar-icon-3.png" alt="" />
                 </div>
                 <div class="vebinar-card">
                     <div class="vebinar-card__date">10.06.2024</div>
@@ -76,7 +76,7 @@ get_header();
                         реализации туристической деятельности в ДОО
                     </div>
                     <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img vebinar-card__absolute-img-last" src="./assets/content/vebinar-icon-4.png" alt="" />
+                    <img class="vebinar-card__absolute-img vebinar-card__absolute-img-last" src="<?php echo bloginfo('template_url'); ?>/assets/content/vebinar-icon-4.png" alt="" />
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@ get_header();
         </div>
         <div class="youtube-right">
             <a href="https://www.youtube.com/">
-                <img class="youtube-logo-absolute" src="./assets/content/youtube-logo.png" alt="" />
+                <img class="youtube-logo-absolute" src="<?php echo bloginfo('template_url'); ?>/assets/content/youtube-logo.png" alt="" />
             </a>
         </div>
     </section>
