@@ -159,7 +159,7 @@ get_header();
     <section class="youtube-section-knowledge">
         <div class="youtube-left">
             <h3 class="youtube-title">
-            <?php the_field('youtube-title') ?>
+                <?php the_field('youtube-title') ?>
             </h3>
             <a class="yiotube-link-btn" target="_blank" href="<?php the_field('youtube-link') ?>">Перейти <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12.5L19 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -180,7 +180,7 @@ get_header();
                     <path d="M5 5L12 12L5 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            <div class="modal-preview">
+            <div class="modal-preview " style="background-image:url(<?php the_field('bg-modal-prewiev'); ?>)">
                 <div class="last-vebinar-preview-card__play-btn">
                     <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
@@ -188,53 +188,48 @@ get_header();
                 </div>
             </div>
             <h2 class="modal-title">
-                Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                образовательную практику. Художественно-эстетическое развитие»
+                <?php the_field('modal_title'); ?>
             </h2>
             <p class="modal-subtitle">
-                Значимость этих проблем настолько очевидна, что базовый вектор
-                развития позволяет оценить значение экспериментов, поражающих по
-                своей масштабности и грандиозности. Лишь представители современных
-                социальных резервов объединены в целые кластеры себе подобных.
+                <?php the_field('modal_subtitle'); ?>
             </p>
             <div class="modal-btns-box">
                 <div class="modal-buy-btn">Получить сертификат</div>
-                <p class="modal-price">500 ₽</p>
+                <p class="modal-price"><?php the_field('modal_price'); ?> ₽</p>
             </div>
             <div class="modal-white-box">
-                <div class="modal-sertificate sertificate-1"></div>
+                <?php $certificate_1_image = get_field('certificate_image_1'); ?>
+                <?php if ($certificate_1_image) : ?>
+                    <div class="modal-sertificate" style="background-image: url('<?php echo esc_url($certificate_1_image['url']); ?>');"></div>
+                <?php endif; ?>
                 <div class="modal-white__right">
                     <h4 class="modal-white__title">Как выглядит сертификат</h4>
                     <p class="modal-white__discription">
-                        Значимость этих проблем настолько очевидна, что базовый вектор
-                        развития позволяет оценить значение экспериментов, поражающих по
-                        своей масштабности и грандиозности. Лишь представители
-                        современных социальных резервов объединены в целые кластеры себе
-                        подобных.
+                        <?php the_field('certificate_description_1'); ?>
                     </p>
                 </div>
             </div>
             <div class="modal-white-box">
-                <div class="modal-sertificate sertificate-2"></div>
+                <?php $certificate_2_image = get_field('certificate_image_2'); ?>
+                <?php if ($certificate_2_image) : ?>
+                    <div class="modal-sertificate" style="background-image: url('<?php echo esc_url($certificate_2_image['url']); ?>');"></div>
+                <?php endif; ?>
                 <div class="modal-white__right">
                     <h4 class="modal-white__title">
                         Что входит в методические материалы
                     </h4>
                     <p class="modal-white__discription">
-                        Значимость этих проблем настолько очевидна, что базовый вектор
-                        развития позволяет оценить значение экспериментов, поражающих по
-                        своей масштабности и грандиозности. Лишь представители
-                        современных социальных резервов объединены в целые кластеры себе
-                        подобных.
+                        <?php the_field('certificate_description_2'); ?>
                     </p>
                 </div>
             </div>
             <div class="modal-btns-box">
                 <div class="modal-buy-btn">Получить сертификат</div>
-                <p class="modal-price">500 ₽</p>
+                <p class="modal-price"><?php the_field('modal_price'); ?> ₽</p>
             </div>
         </div>
     </section>
+
 </main>
 
 <script>
