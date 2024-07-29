@@ -401,9 +401,13 @@
 
   .article-avtar__box_2 {
     position: relative;
+    right: unset;
+    top: unset;
   }
   .article-avtar__box_1 {
     position: relative;
+    right: unset;
+    top: unset;
   }
   .text-page__title {
     font-size: 32px;
@@ -1190,5 +1194,8 @@
   .white-way-block__slider__overflow-zone {
     height: 164px;
     width: 116px;
+  }
+  .ways-card__img {
+    height: unset;
   }
 }
