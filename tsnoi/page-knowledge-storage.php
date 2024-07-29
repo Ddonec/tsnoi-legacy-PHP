@@ -16,12 +16,12 @@ get_header();
 
             <div class="first-block-blue-bg-overflow ways-overflow">
                 <img src="<?php echo bloginfo('template_url'); ?>/assets/content/fly-elem-2.png" class="fly-element preschool-img-2" />
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/knowledge-absolut.png" class="ways-img-bg knowledge-absolut" />
+                <img src="<?php the_field('blue-absolut-img') ?>" class="ways-img-bg knowledge-absolut" />
                 <div class="blue-bg-courses-text-ways">
                     <div class="blue-bg-courses__button">
-                        Центр непрерывного образования и инноваций
+                        <?php the_field('main-grey') ?>
                     </div>
-                    <h1 class="h1-text">База знаний</h1>
+                    <h1 class="h1-text"><?php the_field('main-title') ?></h1>
                     <p class="h1-subtext ways-first-discription"></p>
                 </div>
             </div>
