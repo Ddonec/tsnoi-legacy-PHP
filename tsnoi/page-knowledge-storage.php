@@ -159,15 +159,15 @@ get_header();
     <section class="youtube-section-knowledge">
         <div class="youtube-left">
             <h3 class="youtube-title">
-                Более 4 000 бесплатных вебинаров на нашем YouTube канале
+            <?php the_field('youtube-title') ?>
             </h3>
-            <a class="yiotube-link-btn" target="_blank" href="https://www.youtube.com/">Перейти <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="yiotube-link-btn" target="_blank" href="<?php the_field('youtube-link') ?>">Перейти <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12.5L19 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M13 6.5L19 12.5L13 18.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg></a>
         </div>
-        <div class="youtube-right">
-            <a href="https://www.youtube.com/">
+        <div class="youtube-right" style="background-image: url(<?php the_field('youtube-bg-img') ?>);">
+            <a href="<?php the_field('youtube-link') ?>">
                 <img class="youtube-logo-absolute" src="<?php echo bloginfo('template_url'); ?>/assets/content/youtube-logo.png" alt="" />
             </a>
         </div>
