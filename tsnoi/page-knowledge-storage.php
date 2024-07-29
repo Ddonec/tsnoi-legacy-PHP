@@ -28,7 +28,7 @@ get_header();
         </div>
     </section>
     <section class="vebinar-anonses-section">
-        <h2 class="standart_title">Анонсы вебинаров</h2>
+        <h2 class="standart_title"><?php the_field('second-title') ?></h2>
         <div class="knowledge-arrows-box">
             <div class="knowledge-arrow-prew">
                 <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,16 +92,21 @@ get_header();
         </script>
     </section>
     <section class="last-vebinars-section">
-        <h2 class="standart_title">Прошедшие вебинары</h2>
+        <h2 class="standart_title"><?php the_field('third-title') ?></h2>
         <div class="tabs-last-vebinars-overflow">
             <div class="tabs-last-vebinars">
-                <div class="tab-last-vebinar active">Все</div>
-                <div class="tab-last-vebinar">Дошкольное образование</div>
-                <div class="tab-last-vebinar">Общее образование</div>
-                <div class="tab-last-vebinar">
-                    Среднее профессиональное образование
-                </div>
+                <?php if (have_rows('tabs_last_vebinars')) : $tab_index = 0; ?>
+                    <?php while (have_rows('tabs_last_vebinars')) : the_row();
+                        $tab_name = get_sub_field('tab_name');
+                        $active_class = ($tab_index == 0) ? 'active' : '';
+                    ?>
+                        <div class="tab-last-vebinar <?php echo esc_attr($active_class); ?>"><?php echo esc_html($tab_name); ?></div>
+                        <?php $tab_index++; ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
+
+
         </div>
         <div class="last-vebinar-preview-box">
             <div class="last-vebinar-preview-card">
