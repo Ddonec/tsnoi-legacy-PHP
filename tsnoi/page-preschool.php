@@ -165,14 +165,14 @@ get_header();
         <div class="blue-bg-container-for-fos">
             <div class="blue-bg-container-left">
                 <h3 class="blue-bg-container__header">
-                <?php the_field('fos-title'); ?>
+                    <?php the_field('fos-title'); ?>
                 </h3>
             </div>
             <div class="blue-bg-container-right">
                 <form class="blue-bg-container__fos-box">
                     <h4 class="fos-box_title"><?php the_field('fos-text'); ?></h4>
                     <p class="fos-box_subtitle">
-                    <?php the_field('fos-subtitle'); ?>
+                        <?php the_field('fos-subtitle'); ?>
                     </p>
                     <input class="fos-box_name-input" placeholder="Ваше имя" type="text" />
                     <input placeholder="Номер телефона" class="fos-box_number-input" type="number" />
@@ -181,7 +181,7 @@ get_header();
                         <label class="checkbox-agree-container__label" for="agree">
                             <div class="checkbox"></div>
                             <p class="checkbox-agree-container__text">
-                            <?php the_field('fos-agree'); ?>
+                                <?php the_field('fos-agree'); ?>
                             </p>
                         </label>
                     </div>
@@ -203,7 +203,7 @@ get_header();
                     </div>
 
                     <p class="messenger-feedback-box__text">
-                    <?php the_field('fos-feedback'); ?>
+                        <?php the_field('fos-feedback'); ?>
                     </p>
                 </div>
             </div>
