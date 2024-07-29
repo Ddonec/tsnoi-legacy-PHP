@@ -43,43 +43,23 @@ get_header();
         </div>
         <div class="vebinar-cards-owerflow-container">
             <div class="vebinar-cards-container">
-                <div class="vebinar-card">
-                    <div class="vebinar-card__date">03.06.2024</div>
-                    <div class="vebinar-card__title">
-                        Организация и проведение активного отдыха туристской
-                        направленности
-                    </div>
-                    <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img" src="<?php echo bloginfo('template_url'); ?>/assets/content/four-fly-art-1.png" alt="" />
-                </div>
-                <div class="vebinar-card">
-                    <div class="vebinar-card__date">05.06.2024</div>
-                    <div class="vebinar-card__title">
-                        Краеведческая и экологическая деятельность дошкольника - туриста
-                    </div>
-                    <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img" src="<?php echo bloginfo('template_url'); ?>/assets/content/vebinar-icon-2.png" alt="" />
-                </div>
-                <div class="vebinar-card">
-                    <div class="vebinar-card__date">09.06.2024</div>
-                    <div class="vebinar-card__title">
-                        Tуризм в системе физического воспитания детей дошкольного
-                        возраста
-                    </div>
-                    <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img" src="<?php echo bloginfo('template_url'); ?>/assets/content/vebinar-icon-3.png" alt="" />
-                </div>
-                <div class="vebinar-card">
-                    <div class="vebinar-card__date">10.06.2024</div>
-                    <div class="vebinar-card__title">
-                        Организация развивающей предметно-пространственной среды для
-                        реализации туристической деятельности в ДОО
-                    </div>
-                    <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
-                    <img class="vebinar-card__absolute-img vebinar-card__absolute-img-last" src="<?php echo bloginfo('template_url'); ?>/assets/content/vebinar-icon-4.png" alt="" />
-                </div>
+                <?php if (have_rows('vebinars')) : ?>
+                    <?php while (have_rows('vebinars')) : the_row();
+                        $date = get_sub_field('date');
+                        $title = get_sub_field('title');
+                        $image = get_sub_field('image');
+                    ?>
+                        <div class="vebinar-card">
+                            <div class="vebinar-card__date"><?php echo esc_html($date); ?></div>
+                            <div class="vebinar-card__title"><?php echo esc_html($title); ?></div>
+                            <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
+                            <img class="vebinar-card__absolute-img" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
+
         <script>
             const vebinarContainer = document.querySelector(
                 ".vebinar-cards-owerflow-container"
