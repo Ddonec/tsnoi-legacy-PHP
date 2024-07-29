@@ -34,18 +34,18 @@ get_header();
 
     <section class="courses-cards-section">
         <div class="tabs-overflow">
-            <?php if (have_rows('tabs')) : 
+            <?php if (have_rows('tabs')) :
             ?>
                 <div class="tabs-shop">
                     <?php
-                    $first = true; 
+                    $first = true;
                     while (have_rows('tabs')) : the_row();
                         $tab_name = get_sub_field('tab_name');
                     ?>
                         <div class="tab-shop <?php echo $first ? 'active' : ''; ?>">
                             <?php echo esc_html($tab_name); ?>
                         </div>
-                        <?php $first = false; 
+                        <?php $first = false;
                         ?>
                     <?php endwhile; ?>
                 </div>
@@ -62,227 +62,47 @@ get_header();
                 });
             });
         </script>
-        <div class="courses-cards-container">
-            <div class="courses-card-preschool">
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
+        <?php if (have_rows('courses')) : ?>
+            <div class="courses-cards-container">
+                <?php while (have_rows('courses')) : the_row();
+                    $top_grey = get_sub_field('top_grey');
+                    $title = get_sub_field('title');
+                    $subtitle = get_sub_field('subtitle');
+                    $tabs = get_sub_field('tabs');
+                    $first_gray_text = get_sub_field('first_gray_text');
+                    $second_gray_text = get_sub_field('second_gray_text');
+                    $price = get_sub_field('price');
+                    $btn_info_text = get_sub_field('btn_info_text');
+                    $btn_order_text = get_sub_field('btn_order_text');
+                    $is_new = get_sub_field('is_new');
+                ?>
+                    <div class="courses-card-preschool">
+                        <?php if ($is_new) : ?>
+                            <div class="new-absolute">Новинка</div>
+                        <?php endif; ?>
+                        <div class="courses-card-preschool__top-grey"><?php echo esc_html($top_grey); ?></div>
+                        <h3 class="courses-card-preschool__title"><?php echo esc_html($title); ?></h3>
+                        <p class="courses-card-preschool__subtitle"><?php echo esc_html($subtitle); ?></p>
+                        <div class="courses-card-preschool__tabs">
+                            <?php if ($tabs) : ?>
+                                <?php foreach ($tabs as $tab) : ?>
+                                    <div class="courses-card-preschool__tabs_tab"><?php echo esc_html($tab['tab_text']); ?></div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                        <p class="courses-card-preschool__first-gray-text"><?php echo esc_html($first_gray_text); ?></p>
+                        <div class="courses-card-preschool__gray-line"></div>
+                        <p class="courses-card-preschool__second-gray-text"><?php echo esc_html($second_gray_text); ?></p>
+                        <div class="courses-card-preschool__price"><?php echo esc_html($price); ?></div>
+                        <div class="courses-card-preschool__btns-area">
+                            <div class="courses-card-preschool__btn-info"><?php echo esc_html($btn_info_text); ?></div>
+                            <div class="courses-card-preschool__btn-order"><?php echo esc_html($btn_order_text); ?></div>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
             </div>
-            <div class="courses-card-preschool">
-                <div class="new-absolute">Новинка</div>
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="new-absolute">Новинка</div>
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="new-absolute">Новинка</div>
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-            <div class="courses-card-preschool">
-                <div class="courses-card-preschool__top-grey">ПП - 101</div>
-                <h3 class="courses-card-preschool__title">Дошкольная педагогика</h3>
-                <p class="courses-card-preschool__subtitle">
-                    Старший воспитатель дошкольной образовательной организации
-                </p>
-                <div class="courses-card-preschool__tabs">
-                    <div class="courses-card-preschool__tabs_tab">Диплом</div>
-                    <div class="courses-card-preschool__tabs_tab">356 академ. ч</div>
-                    <div class="courses-card-preschool__tabs_tab">заочная форма</div>
-                </div>
-                <p class="courses-card-preschool__first-gray-text">
-                    Начало обучения 1 и 15 числа каждый месяц
-                </p>
-                <div class="courses-card-preschool__gray-line"></div>
-                <p class="courses-card-preschool__second-gray-text">
-                    За всю программу
-                </p>
-                <div class="courses-card-preschool__price">от 3 490 ₽</div>
-                <div class="courses-card-preschool__btns-area">
-                    <div class="courses-card-preschool__btn-info">Подробнее</div>
-                    <div class="courses-card-preschool__btn-order">Записаться</div>
-                </div>
-            </div>
-        </div>
+        <?php endif; ?>
+
         <div class="preschool__go-to-all-courses-btn">
             Перейти ко всем курсам
         </div>
