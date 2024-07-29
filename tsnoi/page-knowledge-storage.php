@@ -109,311 +109,37 @@ get_header();
 
         </div>
         <div class="last-vebinar-preview-box">
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-1">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
+            <?php if (have_rows('last_vebinar_previews')) : ?>
+                <?php while (have_rows('last_vebinar_previews')) : the_row();
+                    $preview_text = get_sub_field('preview_text');
+                    $price = get_sub_field('price');
+                    $preview_image = get_sub_field('preview_image');
+                    $image_url = $preview_image['url']; 
+                ?>
+                    <div class="last-vebinar-preview-card">
+                        <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
+                            <div class="last-vebinar-preview-card__play-btn">
+                                <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="last-vebinar-preview-card__text">
+                            <?php echo esc_html($preview_text); ?>
+                        </p>
+                        <div class="last-vebinar-preview-card__btn-area">
+                            <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
+                                Получить сертификат
+                            </div>
+                            <div class="preview-card__btn-area_price">
+                                <?php echo esc_html($price); ?> ₽
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-2">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-3">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-4">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-1">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-2">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-3">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-4">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-1">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-2">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-3">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-4">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-1">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-2">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-3">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
-            <div class="last-vebinar-preview-card">
-                <div class="last-vebinar-preview-card__preview video-preview-4">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="last-vebinar-preview-card__text">
-                    Всероссийская педагогическая конференция «Внедрение ФОП ДО в
-                    образовательную практику. Художественно-эстетическое развитие»
-                </p>
-                <div class="last-vebinar-preview-card__btn-area">
-                    <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
-                        Получить сертификат
-                    </div>
-                    <div class="preview-card__btn-area_price">500 ₽</div>
-                </div>
-            </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
+
         <div class="show-more-mobile-btn download-more-mobile-btn">
             Загрузить еще
         </div>
