@@ -13,19 +13,19 @@ get_header();
       <section class="small-margin-section">
         <div class="first-block-blue-bg first-block-blue-bg-ways">
           <img
-            src="./assets/content/ways-fly-1.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-fly-1.png"
             class="fly-element ways-img-1"
           />
           <img
-            src="./assets/content/ways-fly-2.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-fly-2.png"
             class="fly-element ways-img-2"
           />
           <img
-            src="./assets/content/ways-fly-3.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-fly-3.png"
             class="fly-element ways-img-3"
           />
           <div class="first-block-blue-bg-overflow ways-overflow">
-            <img src="./assets/content/ways-bg.png" class="ways-img-bg" />
+            <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-bg.png" class="ways-img-bg" />
             <div class="blue-bg-main-text-ways">
               <h1 class="h1-text">
                 Повышение квалификации<br />
@@ -46,7 +46,7 @@ get_header();
           <div class="ways-second-container">
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-1.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-1.png" alt="" />
               </div>
               <div class="ways-card__title">
                 Повышайте свой уровень и статус с помощью курсов
@@ -59,7 +59,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-2.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-2.png" alt="" />
               </div>
               <div class="ways-card__title">
                 Получайте знания с лучшими преподавателями
@@ -72,7 +72,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-3.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-3.png" alt="" />
               </div>
               <div class="ways-card__title">
                 Реальные знания и современный подход
@@ -85,7 +85,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-4.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-4.png" alt="" />
               </div>
               <div class="ways-card__title">Имеем государственную лицензию</div>
               <div class="ways-card__subtitle">
@@ -95,7 +95,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-5.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-5.png" alt="" />
               </div>
               <div class="ways-card__title">
                 Повышаем квалификацию с сертификацией
@@ -107,7 +107,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-6.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-6.png" alt="" />
               </div>
               <div class="ways-card__title">
                 Проводим лекции, семинары, мастер-классы, тренинги
@@ -120,7 +120,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-7.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-7.png" alt="" />
               </div>
               <div class="ways-card__title">Организуем конференции</div>
               <div class="ways-card__subtitle">
@@ -131,7 +131,7 @@ get_header();
             </div>
             <div class="ways-second-card">
               <div class="ways-card__img">
-                <img src="./assets/content/ways-second-icon-8.png" alt="" />
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-8.png" alt="" />
               </div>
               <div class="ways-card__title">
                 Сертифицируем сертификатами гос. образца
@@ -468,7 +468,7 @@ get_header();
         <div class="white-way-block">
           <img
             class="white-way-block__image-way"
-            src="./assets/content/ways-bottom-easy-photo.png"
+            src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-bottom-easy-photo.png"
             alt=""
           />
           <div class="white-way-block__info ways-align-left">
@@ -726,12 +726,12 @@ get_header();
         </div>
         <img
           class="fos-fly-1"
-          src="./assets/content/fos-fly-art-1.png"
+          src="<?php echo bloginfo('template_url'); ?>/assets/content/fos-fly-art-1.png"
           alt=""
         />
         <img
           class="fos-fly-2"
-          src="./assets/content/fos-fly-art-2.png"
+          src="<?php echo bloginfo('template_url'); ?>/assets/content/fos-fly-art-2.png"
           alt=""
         />
       </section>
@@ -778,42 +778,42 @@ get_header();
             <div class="partners-way-card">
               <img
                 class="partners-way-image"
-                src="./assets/content/partners-1.png"
+                src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-1.png"
                 alt=""
               />
             </div>
             <div class="partners-way-card">
               <img
                 class="partners-way-image"
-                src="./assets/content/partners-2.png"
+                src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-2.png"
                 alt=""
               />
             </div>
             <div class="partners-way-card">
               <img
                 class="partners-way-image"
-                src="./assets/content/partners-3.png"
+                src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-3.png"
                 alt=""
               />
             </div>
             <div class="partners-way-card">
               <img
                 class="partners-way-image"
-                src="./assets/content/partners-4.png"
+                src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-4.png"
                 alt=""
               />
             </div>
             <div class="partners-way-card">
               <img
                 class="partners-way-image"
-                src="./assets/content/partners-5.png"
+                src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-5.png"
                 alt=""
               />
             </div>
             <div class="partners-way-card">
               <img
                 class="partners-way-image"
-                src="./assets/content/partners-6.png"
+                src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-6.png"
                 alt=""
               />
             </div>
