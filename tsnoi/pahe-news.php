@@ -22,11 +22,11 @@ get_header();
               class="fly-element preschool-img-2"
             />
             <img
-              src="<?php echo bloginfo('template_url'); ?>/assets/content/man-news-page.png"
+              src="<?php the_field('blue_absolut'); ?>"
               class="ways-img-bg news-absolut"
             />
             <div class="blue-bg-courses-text-ways">
-              <h1 class="h1-text">Новости и статьи</h1>
+              <h1 class="h1-text"><?php the_field('main_title'); ?></h1>
               <p class="h1-subtext ways-first-discription"></p>
             </div>
           </div>
