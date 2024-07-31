@@ -259,54 +259,77 @@ get_header();
             </div>
         </div>
 
-        <div class="white-way-block">
-            <div class="white-way-block__info ways-align-left">
-                <h2 class="white-way-block__title">
-                    Государственные сертификаты, внесение сведений в ФИС ФРДО
-                </h2>
-                <div class="white-way-block__subtitle">
-                    <ul class="ways-tabs__list">
-                        <li>Удостоверение о повышении квалификации</li>
-                        <li>
-                            Диплом о профессиональной переподготовке  (на право ведения
-                            нового вида деятельности)
-                        </li>
-                        <li>
-                            Диплом о профессиональной переподготовке (с присвоением
-                            квалификации)
-                        </li>
-                    </ul>
-                </div>
-                <a href="">
-                    <div class="white-way-block__button">
-                        Подробнее
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.5 12.9216L19.5 12.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M13.5 6.92163L19.5 12.9216L13.5 18.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+        <section class="white-way-blocks-with-slider">
+            <?php if (have_rows('white_way_blocks_with_slider')) : ?>
+                <?php while (have_rows('white_way_blocks_with_slider')) : the_row();
+                    $title = get_sub_field('title');
+                    $button_text = get_sub_field('button_text');
+                    $button_link = get_sub_field('button_link');
+                ?>
+                    <div class="white-way-block">
+                        <div class="white-way-block__info ways-align-left">
+                            <?php if ($title) : ?>
+                                <h2 class="white-way-block__title"><?php echo nl2br(esc_html($title)); ?></h2>
+                            <?php endif; ?>
+
+                            <div class="white-way-block__subtitle">
+                                <ul class="ways-tabs__list">
+                                    <?php if (have_rows('subtitle')) : ?>
+                                        <?php while (have_rows('subtitle')) : the_row();
+                                            $list_item = get_sub_field('list_item');
+                                        ?>
+                                            <?php if ($list_item) : ?>
+                                                <li><?php echo esc_html($list_item); ?></li>
+                                            <?php endif; ?>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+
+                            <?php if ($button_link && $button_text) : ?>
+                                <a href="<?php echo esc_url($button_link); ?>">
+                                    <div class="white-way-block__button">
+                                        <?php echo esc_html($button_text); ?>
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.5 12.9216L19.5 12.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M13.5 6.92163L19.5 12.9216L13.5 18.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="white-way-block__slider">
+                            <div class="white-way-block__slider_arrow-prew">
+                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.1025 19.5903L8.10254 12.5903L15.1025 5.59033" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="white-way-block__slider_arrow-next">
+                                <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.10254 1.59033L8.10254 8.59033L1.10254 15.5903" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="white-way-block__slider__overflow-zone">
+                                <div class="white-way-block__slider__images-container">
+                                    <?php if (have_rows('slider_images')) : ?>
+                                        <?php while (have_rows('slider_images')) : the_row();
+                                            $slider_image = get_sub_field('slider_image');
+                                        ?>
+                                            <?php if ($slider_image) : ?>
+                                                <div class="white-way-block__slider__img" style="background-image: url(<?php echo esc_url($slider_image['url']); ?>);">
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="white-way-block__slider">
-                <div class="white-way-block__slider_arrow-prew">
-                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.1025 19.5903L8.10254 12.5903L15.1025 5.59033" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <div class="white-way-block__slider_arrow-next">
-                    <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.10254 1.59033L8.10254 8.59033L1.10254 15.5903" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <div class="white-way-block__slider__overflow-zone">
-                    <div class="white-way-block__slider__images-container">
-                        <div class="white-way-block__slider__img-1"></div>
-                        <div class="white-way-block__slider__img-2"></div>
-                        <div class="white-way-block__slider__img-3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </section>
+
         <script>
             const sliderContainer = document.querySelector(
                 ".white-way-block__slider__images-container"
