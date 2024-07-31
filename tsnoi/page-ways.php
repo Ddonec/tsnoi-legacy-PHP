@@ -207,35 +207,58 @@ get_header();
     </section>
     <section class="white-blocks-section-ways">
         <div class="white-way-block">
-            <img class="white-way-block__image-way" src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-bottom-easy-photo.png" alt="" />
+            <?php
+            $image = get_field('image');
+            $grey_tab = get_field('grey_tab');
+            $title = get_field('title');
+            $subtitle = get_field('subtitle');
+            $button_text = get_field('button_text');
+            $button_link = get_field('button_link');
+            ?>
+
+            <?php if ($image) : ?>
+                <img class="white-way-block__image-way" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+            <?php endif; ?>
+
             <div class="white-way-block__info ways-align-left">
-                <div class="ways-tabs__grey-tab">Возможность пройти онлайн</div>
-                <h2 class="white-way-block__title">
-                    Очный и заочный<br />
-                    форматы обучения
-                </h2>
-                <p class="white-way-block__subtitle">
-                    Часть программ можно пройти дистанционно:
-                </p>
-                <div class="ways-tabs-block">
-                    <div class="ways-tabs__tab ways-tabs__tab-f-u">Видео</div>
-                    <div class="ways-tabs__tab ways-tabs__tab-f-u">Приложения</div>
-                    <div class="ways-tabs__tab ways-tabs__tab-f-u">Статьи</div>
-                    <div class="ways-tabs__tab ways-tabs__tab-f-u">
-                        Уроки и лекции по видеосвязи
+                <?php if ($grey_tab) : ?>
+                    <div class="ways-tabs__grey-tab"><?php echo esc_html($grey_tab); ?></div>
+                <?php endif; ?>
+
+                <?php if ($title) : ?>
+                    <h2 class="white-way-block__title"><?php echo nl2br(esc_html($title)); ?></h2>
+                <?php endif; ?>
+
+                <?php if ($subtitle) : ?>
+                    <p class="white-way-block__subtitle"><?php echo esc_html($subtitle); ?></p>
+                <?php endif; ?>
+
+                <?php if (have_rows('tabs')) : ?>
+                    <div class="ways-tabs-block">
+                        <?php while (have_rows('tabs')) : the_row();
+                            $tab_text = get_sub_field('tab_text');
+                        ?>
+                            <?php if ($tab_text) : ?>
+                                <div class="ways-tabs__tab ways-tabs__tab-f-u"><?php echo esc_html($tab_text); ?></div>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
                     </div>
-                </div>
-                <a href="">
-                    <div class="white-way-block__button">
-                        Подробнее
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.5 12.9216L19.5 12.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M13.5 6.92163L19.5 12.9216L13.5 18.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </a>
+                <?php endif; ?>
+
+                <?php if ($button_link && $button_text) : ?>
+                    <a href="<?php echo esc_url($button_link); ?>">
+                        <div class="white-way-block__button">
+                            <?php echo esc_html($button_text); ?>
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.5 12.9216L19.5 12.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13.5 6.92163L19.5 12.9216L13.5 18.9216" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
+
         <div class="white-way-block">
             <div class="white-way-block__info ways-align-left">
                 <h2 class="white-way-block__title">
