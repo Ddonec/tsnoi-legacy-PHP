@@ -184,14 +184,14 @@ get_header();
     <section>
         <div class="middle-section-ways">
             <h3 class="middle-section-ways__title">
-                Обучение — платное, количество мест — не ограничено
+                <?php the_field('third_title'); ?>
             </h3>
             <div class="middle-section-ways__button-container">
                 <div class="middle-section-ways__title-button">
-                    График обучения 2024&nbsp;г.
+                    <?php the_field('btn_left_text'); ?>
                 </div>
                 <div class="middle-section-ways__button">
-                    Забронировать место сейчас
+                    <?php the_field('btn_right_text'); ?>
                 </div>
             </div>
             <!-- <script>
