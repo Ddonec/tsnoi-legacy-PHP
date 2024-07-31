@@ -422,7 +422,7 @@ get_header();
         <img class="fos-fly-2" src="<?php echo bloginfo('template_url'); ?>/assets/content/fos-fly-art-2.png" alt="" />
     </section>
     <section class="partners-section-way">
-        <h2 class="standart_title">Организаторы и партнеры</h2>
+        <h2 class="standart_title"><?php the_field('last_title'); ?></h2>
         <div class="partners-ways-arrows">
             <div class="partners-ways-arrows__prew">
                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -437,50 +437,34 @@ get_header();
         </div>
         <div class="partners-way-overflow-box">
             <div class="partners-way-box">
-                <div class="partners-way-card">
-                    <img class="partners-way-image" src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-1.png" alt="" />
-                </div>
-                <div class="partners-way-card">
-                    <img class="partners-way-image" src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-2.png" alt="" />
-                </div>
-                <div class="partners-way-card">
-                    <img class="partners-way-image" src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-3.png" alt="" />
-                </div>
-                <div class="partners-way-card">
-                    <img class="partners-way-image" src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-4.png" alt="" />
-                </div>
-                <div class="partners-way-card">
-                    <img class="partners-way-image" src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-5.png" alt="" />
-                </div>
-                <div class="partners-way-card">
-                    <img class="partners-way-image" src="<?php echo bloginfo('template_url'); ?>/assets/content/partners-6.png" alt="" />
-                </div>
+                <?php if (have_rows('partners')) : ?>
+                    <?php while (have_rows('partners')) : the_row();
+                        $partner_image = get_sub_field('partner_image');
+                    ?>
+                        <div class="partners-way-card">
+                            <?php if ($partner_image) : ?>
+                                <img class="partners-way-image" src="<?php echo esc_url($partner_image['url']); ?>" alt="<?php echo esc_attr($partner_image['alt']); ?>" />
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
         <script>
-            const overflowBox = document.querySelector(
-                ".partners-way-overflow-box"
-            );
-            const prevButton = document.querySelector(
-                ".partners-ways-arrows__prew"
-            );
-            const nextButton = document.querySelector(
-                ".partners-ways-arrows__next"
-            );
+            const overflowBox = document.querySelector(".partners-way-overflow-box");
+            const prevButton = document.querySelector(".partners-ways-arrows__prew");
+            const nextButton = document.querySelector(".partners-ways-arrows__next");
 
-            // Function to calculate scroll amount
             const calculateScrollAmount = () => {
                 return window.innerWidth - 30;
             };
 
-            const scrollAmount = calculateScrollAmount();
+            let scrollAmount = calculateScrollAmount();
 
-            // Event listener for resizing the window
-            // window.addEventListener("resize", () => {
-            //   scrollAmount = calculateScrollAmount();
-            // });
+            window.addEventListener("resize", () => {
+                scrollAmount = calculateScrollAmount();
+            });
 
-            // Scroll left or right by the calculated amount
             const scrollContent = (direction) => {
                 overflowBox.scrollBy({
                     left: direction * scrollAmount,
@@ -492,6 +476,7 @@ get_header();
             nextButton.addEventListener("click", () => scrollContent(1));
         </script>
     </section>
+
 </main>
 
 
