@@ -19,8 +19,6 @@ get_header();
                 <img src="<?php the_field('blue_absolut_img'); ?>" class="ways-img-bg" />
                 <div class="blue-bg-main-text-ways">
                     <h1 class="h1-text">
-                        Повышение квалификации<br />
-                        и переподготовка
                         <?php the_field('blue_title'); ?>
                     </h1>
                     <p class="h1-subtext ways-first-discription">
