@@ -32,104 +32,27 @@ get_header();
     <section class="second section-ways">
         <div class="ways-second-overflow-container">
             <div class="ways-second-container">
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-1.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">
-                        Повышайте свой уровень и статус с помощью курсов
-                    </div>
-                    <div class="ways-card__subtitle">
-                        Съезд — это профессиональная площадка лидеров современного
-                        образования для обмена опытом и мнениями, где обсуждаются
-                        концептуальные вопросы развития образования как в регионах
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-2.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">
-                        Получайте знания с лучшими преподавателями
-                    </div>
-                    <div class="ways-card__subtitle">
-                        Съезд — это профессиональная площадка лидеров современного
-                        образования для обмена опытом и мнениями, где обсуждаются
-                        концептуальные вопросы развития образования как в регионах
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-3.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">
-                        Реальные знания и современный подход
-                    </div>
-                    <div class="ways-card__subtitle">
-                        Съезд — это профессиональная площадка лидеров современного
-                        образования для обмена опытом и мнениями, где обсуждаются
-                        концептуальные вопросы развития образования как в регионах
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-4.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">Имеем государственную лицензию</div>
-                    <div class="ways-card__subtitle">
-                        Лицензия на осуществление образовательной деятельности  (серия
-                        78Л02 № 0001408 рег. № 2462, выдана 07 декабря 2016 г.)
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-5.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">
-                        Повышаем квалификацию с сертификацией
-                    </div>
-                    <div class="ways-card__subtitle">
-                        Лицензия на осуществление образовательной деятельности  (серия
-                        78Л02 № 0001408 рег. № 2462, выдана 07 декабря 2016 г.)
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-6.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">
-                        Проводим лекции, семинары, мастер-классы, тренинги
-                    </div>
-                    <div class="ways-card__subtitle">
-                        Съезд — это профессиональная площадка лидеров современного
-                        образования для обмена опытом и мнениями, где обсуждаются
-                        концептуальные вопросы развития образования как в регионах
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-7.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">Организуем конференции</div>
-                    <div class="ways-card__subtitle">
-                        Съезд — это профессиональная площадка лидеров современного
-                        образования для обмена опытом и мнениями, где обсуждаются
-                        концептуальные вопросы развития образования как в регионах
-                    </div>
-                </div>
-                <div class="ways-second-card">
-                    <div class="ways-card__img">
-                        <img src="<?php echo bloginfo('template_url'); ?>/assets/content/ways-second-icon-8.png" alt="" />
-                    </div>
-                    <div class="ways-card__title">
-                        Сертифицируем сертификатами гос. образца
-                    </div>
-                    <div class="ways-card__subtitle">
-                        Съезд — это профессиональная площадка лидеров современного
-                        образования для обмена опытом и мнениями, где обсуждаются
-                        концептуальные вопросы развития образования как в регионах
-                    </div>
-                </div>
+                <?php if (have_rows('ways_cards')) : ?>
+                    <?php while (have_rows('ways_cards')) : the_row();
+                        $image = get_sub_field('image');
+                        $title = get_sub_field('title_ways');
+                        $subtitle = get_sub_field('subtitle_ways');
+                    ?>
+                        <div class="ways-second-card">
+                            <div class="ways-card__img">
+                                <?php if ($image) : ?>
+                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                <?php endif; ?>
+                            </div>
+                            <div class="ways-card__title">
+                                <?php echo esc_html($title); ?>
+                            </div>
+                            <div class="ways-card__subtitle">
+                                <?php echo nl2br(esc_html($subtitle)); ?>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
         <div class="arrows-for-ways-second-container">
@@ -145,9 +68,7 @@ get_header();
             </div>
         </div>
         <script>
-            const container = document.querySelector(
-                ".ways-second-overflow-container"
-            );
+            const container = document.querySelector(".ways-second-overflow-container");
             const leftArrow = document.querySelector(".arrows-for-ways__left");
             const rightArrow = document.querySelector(".arrows-for-ways__right");
 
@@ -187,6 +108,7 @@ get_header();
             }
         </script>
     </section>
+
     <section class="section-standart-100 gap30-section">
         <h2 class="standart_title">Направления обучения</h2>
         <div class="way-of-learning-container">
