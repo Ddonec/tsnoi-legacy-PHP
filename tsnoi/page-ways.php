@@ -110,59 +110,48 @@ get_header();
     </section>
 
     <section class="section-standart-100 gap30-section">
-        <h2 class="standart_title">Направления обучения</h2>
+        <h2 class="standart_title"><?php the_field('second_title'); ?></h2>
         <div class="way-of-learning-container">
-            <div class="way-of-learning__big-card">
-                <p class="learning-big-card__grey">Более 200 программ</p>
-                <h3 class="learning-big-card__title">
-                    Программы профессиональной переподготовки
-                </h3>
-                <p class="learning-big-card__subtitle">
-                    Минимальное время подготовки — от 250 часов
-                </p>
-                <div class="learning-big-card__tabs">
-                    <div class="learning-big-card__tab">Дошк. образование</div>
-                    <div class="learning-big-card__tab">Культура</div>
-                    <div class="learning-big-card__tab">Общее образование</div>
-                    <div class="learning-big-card__tab">HR</div>
-                    <div class="learning-big-card__tab">Бух. учет</div>
-                    <div class="learning-big-card__tab">Доп. образование</div>
-                    <div class="learning-big-card__tab">Гос. закупки</div>
-                </div>
-                <div class="learning-big-card__button">
-                    Подробнее
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-            </div>
-            <div class="way-of-learning__big-card">
-                <p class="learning-big-card__grey">Более 200 программ</p>
-                <h3 class="learning-big-card__title">
-                    Программы профессиональной переподготовки
-                </h3>
-                <p class="learning-big-card__subtitle">
-                    Минимальное время подготовки — от 250 часов
-                </p>
-                <div class="learning-big-card__tabs">
-                    <div class="learning-big-card__tab">Менеджмент</div>
-                    <div class="learning-big-card__tab">Дошк. образование</div>
-                    <div class="learning-big-card__tab">Общее образование</div>
-                    <div class="learning-big-card__tab">Психология</div>
-                    <div class="learning-big-card__tab">
-                        Доп. образование детей и взрослых
+            <?php if (have_rows('learning_programs')) : ?>
+                <?php while (have_rows('learning_programs')) : the_row();
+                    $grey_text = get_sub_field('grey_text');
+                    $title = get_sub_field('title');
+                    $subtitle = get_sub_field('subtitle');
+                    $button_text = get_sub_field('button_text');
+                ?>
+                    <div class="way-of-learning__big-card">
+                        <?php if ($grey_text) : ?>
+                            <p class="learning-big-card__grey"><?php echo esc_html($grey_text); ?></p>
+                        <?php endif; ?>
+                        <?php if ($title) : ?>
+                            <h3 class="learning-big-card__title"><?php echo esc_html($title); ?></h3>
+                        <?php endif; ?>
+                        <?php if ($subtitle) : ?>
+                            <p class="learning-big-card__subtitle"><?php echo esc_html($subtitle); ?></p>
+                        <?php endif; ?>
+                        <div class="learning-big-card__tabs">
+                            <?php if (have_rows('tabs')) : ?>
+                                <?php while (have_rows('tabs')) : the_row();
+                                    $tab = get_sub_field('tab');
+                                ?>
+                                    <div class="learning-big-card__tab"><?php echo esc_html($tab); ?></div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                        </div>
+                        <?php if ($button_text) : ?>
+                            <div class="learning-big-card__button">
+                                <?php echo esc_html($button_text); ?>
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="learning-big-card__button">
-                    Подробнее
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-            </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
+
         <div class="way-of-learnong-small-comtainer">
             <div class="way-of-learning__small-card">
                 <h3 class="way-of-learning__small_title">Мероприятия</h3>
