@@ -61,15 +61,16 @@ get_header();
 
 
     <section class="last-vebinars-section">
-        <h2 class="standart_title">Новости и статьи</h2>
+        <h2 class="standart_title"><?php the_field('section_title'); ?></h2>
         <div class="tabs-last-vebinars-overflow">
             <div class="tabs-last-vebinars">
-                <div class="tab-last-vebinar active">Все</div>
-                <div class="tab-last-vebinar">Дошкольное образование</div>
-                <div class="tab-last-vebinar">Общее образование</div>
-                <div class="tab-last-vebinar">
-                    Среднее профессиональное образование
-                </div>
+                <?php if (have_rows('tabs')) : ?>
+                    <?php $first = true; ?>
+                    <?php while (have_rows('tabs')) : the_row(); ?>
+                        <div class="tab-last-vebinar <?php echo $first ? 'active' : ''; ?>"><?php the_sub_field('tab_title'); ?></div>
+                        <?php $first = false; ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -80,50 +81,36 @@ get_header();
                 tab.addEventListener("click", function() {
                     tabs.forEach((t) => t.classList.remove("active"));
                     this.classList.add("active");
+                    filterNews(this.innerText);
                 });
             });
+
+            function filterNews(category) {
+                const newsItems = document.querySelectorAll(".news-container__block");
+                newsItems.forEach(item => {
+                    if (category === 'Все' || item.dataset.category.includes(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
         </script>
 
         <div class="news-page-news-container">
-            <div class="news-container__1 news-container__big-block news-container__block">
-                <div class="news-container__white-text">Новость</div>
-            </div>
-            <div class="news-container__2 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Вебинар</div>
-            </div>
-            <div class="news-container__3 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Событие</div>
-            </div>
-            <div class="news-container__4 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Вебинар</div>
-            </div>
-            <div class="news-container__5 news-container__big-block news-container__block">
-                <div class="news-container__white-text">Новость</div>
-            </div>
-            <div class="news-container__6 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Событие</div>
-            </div>
-            <div class="news-container__7 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Вебинар</div>
-            </div>
-            <div class="news-container__8 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Событие</div>
-            </div>
-            <div class="news-container__9 news-container__big-block news-container__block">
-                <div class="news-container__white-text">Новость</div>
-            </div>
-            <div class="news-container__10 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Вебинар</div>
-            </div>
-            <div class="news-container__11 news-container__big-block news-container__block">
-                <div class="news-container__white-text">Новость</div>
-            </div>
-            <div class="news-container__12 news-container__small-block news-container__block">
-                <div class="news-container__white-text">Событие</div>
-            </div>
+            <?php if (have_rows('news_items')) : ?>
+                <?php $i = 1; ?>
+                <?php while (have_rows('news_items')) : the_row(); ?>
+                    <div class="news-container__<?php echo $i; ?> news-container__<?php the_sub_field('block_type'); ?> news-container__block" data-category="<?php the_sub_field('category'); ?>" style="background-image: url(<?php the_sub_field('img'); ?>);">
+                        <div class="news-container__white-text"><?php the_sub_field('news_content'); ?></div>
+                    </div>
+                    <?php $i++; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
         <div class="show-more-mobile-btn">Показать еще</div>
     </section>
+
 </main>
 
 
