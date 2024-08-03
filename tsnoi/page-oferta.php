@@ -18,7 +18,7 @@ get_header();
         <div class="text-page-text-block">
             <h2 class="text-page__offtitle"><?php the_field('second_title'); ?></h2>
             <p class="text-page__main-text">
-            <?php the_field('second_text'); ?>
+                <?php the_field('second_text'); ?>
             </p>
         </div>
         <div class="text-page-text-block">
