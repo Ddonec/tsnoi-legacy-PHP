@@ -116,9 +116,9 @@ get_header();
                     $price = get_sub_field('price');
                     $preview_image = get_sub_field('preview_image');
                     $category = sanitize_title(get_sub_field('category')); // Категория
-                    $modal_content = get_sub_field('modal_content'); // Контент для модального окна
                     $image_url = $preview_image['url'];
                     $btn = get_sub_field('btn-text');
+
                 ?>
                     <div class="last-vebinar-preview-card" data-category="<?php echo esc_attr($category); ?>" data-modal-content="<?php echo esc_attr($modal_content); ?>">
                         <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
@@ -130,7 +130,7 @@ get_header();
                         </div>
                         <p class="last-vebinar-preview-card__text"><?php echo esc_html($preview_text); ?></p>
                         <div class="last-vebinar-preview-card__btn-area">
-                            <div class="preview-card__btn-area_btn" onclick="activateModal('<?php echo esc_js($modal_content); ?>')">
+                            <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
                                 <?php echo esc_html($btn); ?>
                             </div>
                             <div class="preview-card__btn-area_price"><?php echo esc_html($price); ?> ₽</div>
