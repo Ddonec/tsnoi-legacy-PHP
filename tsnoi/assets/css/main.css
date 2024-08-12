@@ -2461,6 +2461,7 @@ footer {
   width: fit-content;
   margin-left: auto;
   margin-top: auto;
+  text-decoration: none;
 }
 .vebinar-card__vhite-btn:hover {
   cursor: pointer;

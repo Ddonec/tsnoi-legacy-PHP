@@ -48,11 +48,14 @@ get_header();
                         $date = get_sub_field('date');
                         $title = get_sub_field('title');
                         $image = get_sub_field('image');
+                        $link = get_sub_field('link'); 
                     ?>
                         <div class="vebinar-card">
                             <div class="vebinar-card__date"><?php echo esc_html($date); ?></div>
                             <div class="vebinar-card__title"><?php echo esc_html($title); ?></div>
-                            <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
+                            <a class="vebinar-card__vhite-btn" href="<?php echo esc_url($link); ?>">
+                                <div class="vebinar-tab-131">Вебинар</div>
+                            </a>
                             <img class="vebinar-card__absolute-img" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                         </div>
                     <?php endwhile; ?>
