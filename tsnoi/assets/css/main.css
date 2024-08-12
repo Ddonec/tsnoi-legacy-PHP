@@ -326,6 +326,8 @@ footer {
   line-height: 120%;
   letter-spacing: -0.04em;
   color: #fff;
+  position: relative;
+  z-index: 1;
 }
 .big-blue-card__button {
   border-radius: 100px;
