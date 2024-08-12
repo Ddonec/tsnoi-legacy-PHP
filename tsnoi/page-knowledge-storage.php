@@ -118,16 +118,19 @@ get_header();
                     $category = sanitize_title(get_sub_field('category')); // Категория
                     $image_url = $preview_image['url'];
                     $btn = get_sub_field('btn-text');
+                    $video_link = get_sub_field('video_link');
 
                 ?>
                     <div class="last-vebinar-preview-card" data-category="<?php echo esc_attr($category); ?>" data-modal-content="<?php echo esc_attr($modal_content); ?>">
-                        <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
-                            <div class="last-vebinar-preview-card__play-btn">
-                                <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                                </svg>
+                        <a href="<?php echo esc_url($video_link); ?>" target="_blank">
+                            <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
+                                <div class="last-vebinar-preview-card__play-btn">
+                                    <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                         <p class="last-vebinar-preview-card__text"><?php echo esc_html($preview_text); ?></p>
                         <div class="last-vebinar-preview-card__btn-area">
                             <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
