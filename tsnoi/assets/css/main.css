@@ -625,6 +625,7 @@ footer {
   display: flex;
   gap: 30px;
   margin-left: auto;
+  flex-wrap: wrap;
 }
 
 .dottet__text {
@@ -632,6 +633,7 @@ footer {
   font-weight: 400;
   font-size: 12px;
   line-height: 130%;
+  flex-shrink: 0;
 }
 .dottet__text a {
   text-decoration: none;
