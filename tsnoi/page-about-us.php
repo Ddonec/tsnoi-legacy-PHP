@@ -258,18 +258,16 @@ get_header();
         </script>
     </section>
 
-
     <section class="standart-margin-section team-section">
         <h2 class="standart_title"><?php the_field('about-us-subtitle-five'); ?></h2>
+
+        <!-- Tabs -->
         <div class="tabs-last-vebinars-overflow">
             <div class="tabs-last-vebinars">
+                <div class="tab-last-vebinar active" data-category="all">Все сотрудники</div> <!-- Добавляем таб "Все" -->
                 <?php if (have_rows('tabs')) : ?>
-                    <?php $first = true; ?>
                     <?php while (have_rows('tabs')) : the_row(); ?>
-                        <div class="tab-last-vebinar <?php if ($first) {
-                                                            echo 'active';
-                                                            $first = false;
-                                                        } ?>">
+                        <div class="tab-last-vebinar" data-category="<?php echo esc_attr(sanitize_title(get_sub_field('tab_name'))); ?>">
                             <?php the_sub_field('tab_name'); ?>
                         </div>
                     <?php endwhile; ?>
@@ -277,27 +275,15 @@ get_header();
             </div>
         </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const tabs = document.querySelectorAll(".tab-last-vebinar");
-
-                tabs.forEach((tab) => {
-                    tab.addEventListener("click", function() {
-                        tabs.forEach((t) => t.classList.remove("active"));
-                        this.classList.add("active");
-                    });
-                });
-            });
-        </script>
-
         <div class="team-container-owerflow">
             <div class="team-container">
                 <?php if (have_rows('team_members')) : ?>
                     <?php while (have_rows('team_members')) : the_row();
                         $avatar = get_sub_field('avatar');
                         $name = get_sub_field('name');
+                        $category = sanitize_title(get_sub_field('category')); // Получаем категорию карточки
                     ?>
-                        <div class="team-card">
+                        <div class="team-card" data-category="<?php echo esc_attr($category); ?>">
                             <div class="team__avatar">
                                 <img src="<?php echo esc_url($avatar['url']); ?>" alt="<?php echo esc_attr($avatar['alt']); ?>" />
                             </div>
@@ -315,6 +301,7 @@ get_header();
             </div>
         </div>
 
+        <!-- Arrow navigation -->
         <div class="sertificates-arrows">
             <div class="sertificates-arrows__prew team_prew_team">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -327,6 +314,33 @@ get_header();
                 </svg>
             </div>
         </div>
+
+        <!-- JS для фильтрации -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const tabs = document.querySelectorAll(".tab-last-vebinar");
+                const cards = document.querySelectorAll(".team-card");
+
+                tabs.forEach((tab) => {
+                    tab.addEventListener("click", function() {
+                        const category = this.getAttribute("data-category");
+
+                        tabs.forEach((t) => t.classList.remove("active"));
+                        this.classList.add("active");
+
+                        cards.forEach((card) => {
+                            if (category === "all" || card.getAttribute("data-category") === category) {
+                                card.style.display = "flex";
+                            } else {
+                                card.style.display = "none";
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+        <!-- JS для навигации по стрелкам -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const overflowContainer = document.querySelector(".team-container-owerflow");
@@ -355,6 +369,7 @@ get_header();
             });
         </script>
     </section>
+
 
 
 

@@ -3282,7 +3282,7 @@ footer {
 .team-container {
   display: flex;
   gap: 30px;
-  width: fit-content;
+  /* width: fit-content; */
 }
 .team-card {
   display: flex;
