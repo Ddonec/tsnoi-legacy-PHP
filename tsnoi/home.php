@@ -26,14 +26,11 @@ get_header();
   <section class="standart-margin-section second-section-home">
     <div class="why-choise-box">
       <?php
-      // Получаем данные из ACF поля группы
       $section_2_group = get_field('section_2_group');
-
-      // Проверяем, что данные успешно получены и содержат необходимое поле
       if ($section_2_group && isset($section_2_group['section-2-title'])) {
         $section_2_title = $section_2_group['section-2-title'];
       } else {
-        $section_2_title = ''; // Значение по умолчанию, если поле не найдено или пусто
+        $section_2_title = ''; 
       }
       ?>
 
