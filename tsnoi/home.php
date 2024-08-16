@@ -161,15 +161,22 @@ get_header();
     </div>
     <div class="articles-prewiew-box">
       <div class="articles-prewiew-box__article-1 articles-prewiew-box__article">
-        <div class="article-preview__text"><?php the_field('article-bg-text-1') ?></div>
+        <a class="link-default w-h-max" href="<?php echo get_field('link_1'); ?>">
+          <div class="article-preview__text"><?php the_field('article-bg-text-1') ?></div>
+        </a>
       </div>
       <div class="articles-prewiew-box__article-2 articles-prewiew-box__article">
-        <div class="article-preview__text"><?php the_field('article-bg-text-2') ?></div>
+        <a class="link-default w-h-max" href="<?php echo get_field('link_2'); ?>">
+          <div class="article-preview__text"><?php the_field('article-bg-text-2') ?></div>
+        </a>
       </div>
       <div class="articles-prewiew-box__article-3 articles-prewiew-box__article">
-        <div class="article-preview__text"><?php the_field('article-bg-text-3') ?></div>
+        <a class="link-default w-h-max" href="<?php echo get_field('link_3'); ?>">
+          <div class="article-preview__text"><?php the_field('article-bg-text-3') ?></div>
+        </a>
       </div>
     </div>
+
   </section>
 </main>
 
