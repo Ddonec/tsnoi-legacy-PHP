@@ -48,13 +48,12 @@ get_header();
       <div class="article-avtar-container">
         <?php if (have_rows('article_avatar_repeater')) : ?>
           <?php
-          $index = 0; // Счетчик для отслеживания индекса
+          $index = 0;
           while (have_rows('article_avatar_repeater')) : the_row();
             $article_image = get_sub_field('article_image');
             $article_link_text = get_sub_field('article_link_text');
             $article_link_url = get_sub_field('article_link_url');
 
-            // Определение класса на основе индекса
             $box_class = $index % 2 === 0 ? 'article-avtar__box_1' : 'article-avtar__box_2';
             $index++;
           ?>
@@ -62,7 +61,7 @@ get_header();
               <div class="article-avtar__photo" style="background-image: url(<?php echo esc_url($article_image['url']); ?>);"></div>
               <div class="article-avtar__link-box">
                 <a class="article-avtar__link" href="<?php echo esc_url($article_link_url); ?>">
-                  <?php echo esc_html($article_link_text); ?>
+                  <?php echo wp_kses_post($article_link_text); ?>
                 </a>
               </div>
             </div>
