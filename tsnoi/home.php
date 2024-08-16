@@ -78,8 +78,9 @@ get_header();
           $card_button_text = get_sub_field('card_button_text');
           $card_image = get_sub_field('card_image');
           $card_class = get_sub_field('card_class');
+          $url = get_sub_field('link');
         ?>
-          <div class="advantages__<?php echo esc_attr($card_class); ?>">
+          <a href="<?php echo esc_url($url); ?>" class="advantages__<?php echo esc_attr($card_class); ?>">
             <h4 class="<?php echo esc_attr($card_class); ?>__title">
               <?php echo wp_kses_post($card_title); ?>
             </h4>
@@ -89,7 +90,7 @@ get_header();
             <?php if ($card_image) : ?>
               <img class="<?php echo esc_attr($card_class); ?>__image" src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
             <?php endif; ?>
-          </div>
+            </a>
         <?php endwhile; ?>
       <?php endif; ?>
 
