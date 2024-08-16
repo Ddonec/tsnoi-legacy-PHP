@@ -81,7 +81,7 @@ get_header();
           $url = get_sub_field('link');
         ?>
           <div class="advantages__<?php echo esc_attr($card_class); ?>">
-            <a href="<?php echo esc_url($url); ?>" target="_blank">
+            <a class="link-default" href="<?php echo esc_url($url); ?>" target="_blank">
               <h4 class="<?php echo esc_attr($card_class); ?>__title">
                 <?php echo wp_kses_post($card_title); ?>
               </h4>

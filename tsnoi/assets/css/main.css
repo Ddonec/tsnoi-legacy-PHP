@@ -32,6 +32,8 @@ footer {
 .header-main {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .nav-list {
   display: flex;
@@ -3422,4 +3424,8 @@ footer {
   display: none;
   align-items: center;
   justify-content: center;
+}
+.link-default {
+  text-decoration: none;
+  color: unset;
 }
