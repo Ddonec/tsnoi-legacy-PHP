@@ -37,8 +37,6 @@ get_header();
             </div>
         </div>
     </section>
-
-    <!-- claim  -->
     <section class="second section-ways">
         <h2 class="standart_title">
             <?php the_field('about-us-second-title') ?>
@@ -83,8 +81,8 @@ get_header();
             const leftScrollButton = document.querySelector(".arrows-for-ways__left");
             const rightScrollButton = document.querySelector(".arrows-for-ways__right");
 
-            let defaultCardWidth = 458; // ширина карточки
-            let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
+            let defaultCardWidth = 458;
+            let smallScreenOffset = window.innerWidth - 70;
 
             window.addEventListener("resize", updateOffset);
 
@@ -155,7 +153,44 @@ get_header();
                 <div class="blue-line"></div>
             </div>
         </div>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const slider = document.querySelector(".grow-overflow-container");
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                slider.addEventListener("mousedown", (e) => {
+                    isDown = true;
+                    slider.classList.add("active");
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+
+                slider.addEventListener("mouseleave", () => {
+                    isDown = false;
+                    slider.classList.remove("active");
+                });
+
+                slider.addEventListener("mouseup", () => {
+                    isDown = false;
+                    slider.classList.remove("active");
+                });
+
+                slider.addEventListener("mousemove", (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX);
+                    slider.scrollLeft = scrollLeft - walk;
+                });
+            });
+        </script>
     </section>
+
+
 
 
 
@@ -258,18 +293,16 @@ get_header();
         </script>
     </section>
 
-
     <section class="standart-margin-section team-section">
         <h2 class="standart_title"><?php the_field('about-us-subtitle-five'); ?></h2>
+
+        <!-- Tabs -->
         <div class="tabs-last-vebinars-overflow">
             <div class="tabs-last-vebinars">
+                <div class="tab-last-vebinar active" data-category="all">Все сотрудники</div> <!-- Добавляем таб "Все" -->
                 <?php if (have_rows('tabs')) : ?>
-                    <?php $first = true; ?>
                     <?php while (have_rows('tabs')) : the_row(); ?>
-                        <div class="tab-last-vebinar <?php if ($first) {
-                                                            echo 'active';
-                                                            $first = false;
-                                                        } ?>">
+                        <div class="tab-last-vebinar" data-category="<?php echo esc_attr(sanitize_title(get_sub_field('tab_name'))); ?>">
                             <?php the_sub_field('tab_name'); ?>
                         </div>
                     <?php endwhile; ?>
@@ -277,27 +310,15 @@ get_header();
             </div>
         </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const tabs = document.querySelectorAll(".tab-last-vebinar");
-
-                tabs.forEach((tab) => {
-                    tab.addEventListener("click", function() {
-                        tabs.forEach((t) => t.classList.remove("active"));
-                        this.classList.add("active");
-                    });
-                });
-            });
-        </script>
-
         <div class="team-container-owerflow">
             <div class="team-container">
                 <?php if (have_rows('team_members')) : ?>
                     <?php while (have_rows('team_members')) : the_row();
                         $avatar = get_sub_field('avatar');
                         $name = get_sub_field('name');
+                        $category = sanitize_title(get_sub_field('category')); // Получаем категорию карточки
                     ?>
-                        <div class="team-card">
+                        <div class="team-card" data-category="<?php echo esc_attr($category); ?>">
                             <div class="team__avatar">
                                 <img src="<?php echo esc_url($avatar['url']); ?>" alt="<?php echo esc_attr($avatar['alt']); ?>" />
                             </div>
@@ -315,6 +336,7 @@ get_header();
             </div>
         </div>
 
+        <!-- Arrow navigation -->
         <div class="sertificates-arrows">
             <div class="sertificates-arrows__prew team_prew_team">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -327,6 +349,33 @@ get_header();
                 </svg>
             </div>
         </div>
+
+        <!-- JS для фильтрации -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const tabs = document.querySelectorAll(".tab-last-vebinar");
+                const cards = document.querySelectorAll(".team-card");
+
+                tabs.forEach((tab) => {
+                    tab.addEventListener("click", function() {
+                        const category = this.getAttribute("data-category");
+
+                        tabs.forEach((t) => t.classList.remove("active"));
+                        this.classList.add("active");
+
+                        cards.forEach((card) => {
+                            if (category === "all" || card.getAttribute("data-category") === category) {
+                                card.style.display = "flex";
+                            } else {
+                                card.style.display = "none";
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+        <!-- JS для навигации по стрелкам -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const overflowContainer = document.querySelector(".team-container-owerflow");
@@ -354,7 +403,10 @@ get_header();
                 });
             });
         </script>
+
+
     </section>
+
 
 
 
@@ -370,14 +422,14 @@ get_header();
                         $video_prev = get_sub_field('video_prev');
 
                 ?>
-                        <div class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
+                        <a href="<?php echo esc_url($video_url); ?>" class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
                             <div class="review-card__play-btn">
                                 <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
                                 </svg>
                             </div>
                             <div class="review-card__white-bottom"><?php echo esc_html($name); ?></div>
-                        </div>
+                        </a>
                     <?php } else {
                         $job_title = get_sub_field('job_title');
                         $review_text = get_sub_field('review_text');

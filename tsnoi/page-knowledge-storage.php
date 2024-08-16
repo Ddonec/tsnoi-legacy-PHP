@@ -48,11 +48,14 @@ get_header();
                         $date = get_sub_field('date');
                         $title = get_sub_field('title');
                         $image = get_sub_field('image');
+                        $link = get_sub_field('link'); 
                     ?>
                         <div class="vebinar-card">
                             <div class="vebinar-card__date"><?php echo esc_html($date); ?></div>
                             <div class="vebinar-card__title"><?php echo esc_html($title); ?></div>
-                            <div class="vebinar-card__vhite-btn vebinar-tab-131">Вебинар</div>
+                            <a class="vebinar-card__vhite-btn" href="<?php echo esc_url($link); ?>">
+                                <div class="vebinar-tab-131">Вебинар</div>
+                            </a>
                             <img class="vebinar-card__absolute-img" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                         </div>
                     <?php endwhile; ?>
@@ -95,16 +98,17 @@ get_header();
         <h2 class="standart_title"><?php the_field('third-title') ?></h2>
         <div class="tabs-last-vebinars-overflow">
             <div class="tabs-last-vebinars">
-                <?php if (have_rows('tabs_last_vebinars')) : $tab_index = 0; ?>
+                <div class="tab-last-vebinar active" data-category="all">Все</div>
+                <?php if (have_rows('tabs_last_vebinars')) : ?>
                     <?php while (have_rows('tabs_last_vebinars')) : the_row();
                         $tab_name = get_sub_field('tab_name');
-                        $active_class = ($tab_index == 0) ? 'active' : '';
+                        $category = sanitize_title($tab_name); // Приведение названия категории к slug
                     ?>
-                        <div class="tab-last-vebinar <?php echo esc_attr($active_class); ?>"><?php echo esc_html($tab_name); ?></div>
-                        <?php $tab_index++; ?>
+                        <div class="tab-last-vebinar" data-category="<?php echo esc_attr($category); ?>"><?php echo esc_html($tab_name); ?></div>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
+
 
 
         </div>
@@ -114,44 +118,60 @@ get_header();
                     $preview_text = get_sub_field('preview_text');
                     $price = get_sub_field('price');
                     $preview_image = get_sub_field('preview_image');
+                    $category = sanitize_title(get_sub_field('category')); // Категория
                     $image_url = $preview_image['url'];
                     $btn = get_sub_field('btn-text');
+                    $video_link = get_sub_field('video_link');
+
                 ?>
-                    <div class="last-vebinar-preview-card">
-                        <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
-                            <div class="last-vebinar-preview-card__play-btn">
-                                <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                                </svg>
+                    <div class="last-vebinar-preview-card" data-category="<?php echo esc_attr($category); ?>" data-modal-content="<?php echo esc_attr($modal_content); ?>">
+                        <a href="<?php echo esc_url($video_link); ?>" target="_blank">
+                            <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
+                                <div class="last-vebinar-preview-card__play-btn">
+                                    <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                        <p class="last-vebinar-preview-card__text">
-                            <?php echo esc_html($preview_text); ?>
-                        </p>
+                        </a>
+                        <p class="last-vebinar-preview-card__text"><?php echo esc_html($preview_text); ?></p>
                         <div class="last-vebinar-preview-card__btn-area">
                             <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
                                 <?php echo esc_html($btn); ?>
                             </div>
-                            <div class="preview-card__btn-area_price">
-                                <?php echo esc_html($price); ?> ₽
-                            </div>
+                            <div class="preview-card__btn-area_price"><?php echo esc_html($price); ?> ₽</div>
                         </div>
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
 
+
         <div class="show-more-mobile-btn download-more-mobile-btn">
             Загрузить еще
         </div>
 
         <script>
-            const tabs = document.querySelectorAll(".tab-last-vebinar");
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabs = document.querySelectorAll('.tab-last-vebinar');
+                const cards = document.querySelectorAll('.last-vebinar-preview-card');
 
-            tabs.forEach((tab) => {
-                tab.addEventListener("click", function() {
-                    tabs.forEach((t) => t.classList.remove("active"));
-                    this.classList.add("active");
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const category = this.getAttribute('data-category');
+
+                        tabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+
+                        cards.forEach(card => {
+                            const cardCategory = card.getAttribute('data-category');
+                            if (category === 'all' || cardCategory === category) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
                 });
             });
         </script>
@@ -229,7 +249,6 @@ get_header();
             </div>
         </div>
     </section>
-
 </main>
 
 <script>

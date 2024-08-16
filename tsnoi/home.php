@@ -26,14 +26,11 @@ get_header();
   <section class="standart-margin-section second-section-home">
     <div class="why-choise-box">
       <?php
-      // Получаем данные из ACF поля группы
       $section_2_group = get_field('section_2_group');
-
-      // Проверяем, что данные успешно получены и содержат необходимое поле
       if ($section_2_group && isset($section_2_group['section-2-title'])) {
         $section_2_title = $section_2_group['section-2-title'];
       } else {
-        $section_2_title = ''; // Значение по умолчанию, если поле не найдено или пусто
+        $section_2_title = '';
       }
       ?>
 
@@ -81,17 +78,20 @@ get_header();
           $card_button_text = get_sub_field('card_button_text');
           $card_image = get_sub_field('card_image');
           $card_class = get_sub_field('card_class');
+          $url = get_sub_field('link');
         ?>
           <div class="advantages__<?php echo esc_attr($card_class); ?>">
-            <h4 class="<?php echo esc_attr($card_class); ?>__title">
-              <?php echo wp_kses_post($card_title); ?>
-            </h4>
-            <div class="<?php echo esc_attr($card_class); ?>__button">
-              <?php echo esc_html($card_button_text); ?>
-            </div>
-            <?php if ($card_image) : ?>
-              <img class="<?php echo esc_attr($card_class); ?>__image" src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
-            <?php endif; ?>
+            <a class="link-default" href="<?php echo esc_url($url); ?>" target="_blank">
+              <h4 class="<?php echo esc_attr($card_class); ?>__title">
+                <?php echo wp_kses_post($card_title); ?>
+              </h4>
+              <div class="<?php echo esc_attr($card_class); ?>__button">
+                <?php echo esc_html($card_button_text); ?>
+              </div>
+              <?php if ($card_image) : ?>
+                <img class="<?php echo esc_attr($card_class); ?>__image" src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
+              <?php endif; ?>
+            </a>
           </div>
         <?php endwhile; ?>
       <?php endif; ?>
@@ -161,15 +161,22 @@ get_header();
     </div>
     <div class="articles-prewiew-box">
       <div class="articles-prewiew-box__article-1 articles-prewiew-box__article">
-        <div class="article-preview__text"><?php the_field('article-bg-text-1') ?></div>
+        <a class="link-default w-h-max" href="<?php echo get_field('link_1'); ?>">
+          <div class="article-preview__text"><?php the_field('article-bg-text-1') ?></div>
+        </a>
       </div>
       <div class="articles-prewiew-box__article-2 articles-prewiew-box__article">
-        <div class="article-preview__text"><?php the_field('article-bg-text-2') ?></div>
+        <a class="link-default w-h-max" href="<?php echo get_field('link_2'); ?>">
+          <div class="article-preview__text"><?php the_field('article-bg-text-2') ?></div>
+        </a>
       </div>
       <div class="articles-prewiew-box__article-3 articles-prewiew-box__article">
-        <div class="article-preview__text"><?php the_field('article-bg-text-3') ?></div>
+        <a class="link-default w-h-max" href="<?php echo get_field('link_3'); ?>">
+          <div class="article-preview__text"><?php the_field('article-bg-text-3') ?></div>
+        </a>
       </div>
     </div>
+
   </section>
 </main>
 
