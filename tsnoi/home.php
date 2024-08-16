@@ -30,7 +30,7 @@ get_header();
       if ($section_2_group && isset($section_2_group['section-2-title'])) {
         $section_2_title = $section_2_group['section-2-title'];
       } else {
-        $section_2_title = ''; 
+        $section_2_title = '';
       }
       ?>
 
@@ -80,17 +80,19 @@ get_header();
           $card_class = get_sub_field('card_class');
           $url = get_sub_field('link');
         ?>
-          <a href="<?php echo esc_url($url); ?>" class="advantages__<?php echo esc_attr($card_class); ?>">
-            <h4 class="<?php echo esc_attr($card_class); ?>__title">
-              <?php echo wp_kses_post($card_title); ?>
-            </h4>
-            <div class="<?php echo esc_attr($card_class); ?>__button">
-              <?php echo esc_html($card_button_text); ?>
-            </div>
-            <?php if ($card_image) : ?>
-              <img class="<?php echo esc_attr($card_class); ?>__image" src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
-            <?php endif; ?>
+          <div class="advantages__<?php echo esc_attr($card_class); ?>">
+            <a href="<?php echo esc_url($url); ?>" target="_blank">
+              <h4 class="<?php echo esc_attr($card_class); ?>__title">
+                <?php echo wp_kses_post($card_title); ?>
+              </h4>
+              <div class="<?php echo esc_attr($card_class); ?>__button">
+                <?php echo esc_html($card_button_text); ?>
+              </div>
+              <?php if ($card_image) : ?>
+                <img class="<?php echo esc_attr($card_class); ?>__image" src="<?php echo esc_url($card_image['url']); ?>" alt="<?php echo esc_attr($card_image['alt']); ?>" />
+              <?php endif; ?>
             </a>
+          </div>
         <?php endwhile; ?>
       <?php endif; ?>
 
