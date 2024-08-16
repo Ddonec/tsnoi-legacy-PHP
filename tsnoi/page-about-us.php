@@ -81,8 +81,8 @@ get_header();
             const leftScrollButton = document.querySelector(".arrows-for-ways__left");
             const rightScrollButton = document.querySelector(".arrows-for-ways__right");
 
-            let defaultCardWidth = 458; 
-            let smallScreenOffset = window.innerWidth - 70; 
+            let defaultCardWidth = 458;
+            let smallScreenOffset = window.innerWidth - 70;
 
             window.addEventListener("resize", updateOffset);
 
@@ -180,7 +180,7 @@ get_header();
                 });
 
                 slider.addEventListener("mousemove", (e) => {
-                    if (!isDown) return; 
+                    if (!isDown) return;
                     e.preventDefault();
                     const x = e.pageX - slider.offsetLeft;
                     const walk = (x - startX);
@@ -422,14 +422,14 @@ get_header();
                         $video_prev = get_sub_field('video_prev');
 
                 ?>
-                        <div class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
+                        <a href="<?php echo esc_url($video_url); ?>" class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
                             <div class="review-card__play-btn">
                                 <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
                                 </svg>
                             </div>
                             <div class="review-card__white-bottom"><?php echo esc_html($name); ?></div>
-                        </div>
+                        </a>
                     <?php } else {
                         $job_title = get_sub_field('job_title');
                         $review_text = get_sub_field('review_text');
