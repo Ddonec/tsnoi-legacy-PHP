@@ -1071,6 +1071,7 @@ footer {
 .ways-second-overflow-container {
   width: 100%;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 .ways-second-container {
   display: flex;
