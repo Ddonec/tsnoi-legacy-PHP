@@ -37,8 +37,6 @@ get_header();
             </div>
         </div>
     </section>
-
-    <!-- claim  -->
     <section class="second section-ways">
         <h2 class="standart_title">
             <?php the_field('about-us-second-title') ?>
@@ -83,8 +81,8 @@ get_header();
             const leftScrollButton = document.querySelector(".arrows-for-ways__left");
             const rightScrollButton = document.querySelector(".arrows-for-ways__right");
 
-            let defaultCardWidth = 458; // ширина карточки
-            let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
+            let defaultCardWidth = 458; 
+            let smallScreenOffset = window.innerWidth - 70; 
 
             window.addEventListener("resize", updateOffset);
 
@@ -182,7 +180,7 @@ get_header();
                 });
 
                 slider.addEventListener("mousemove", (e) => {
-                    if (!isDown) return; // останавливаем выполнение, если мышь не зажата
+                    if (!isDown) return; 
                     e.preventDefault();
                     const x = e.pageX - slider.offsetLeft;
                     const walk = (x - startX);
