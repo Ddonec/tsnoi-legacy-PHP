@@ -1389,6 +1389,7 @@ footer {
   flex-direction: column;
   gap: 130px;
   margin-top: 130px;
+  margin-bottom: 100px;
 }
 .white-way-block__slider {
   width: 50%;
