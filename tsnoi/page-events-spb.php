@@ -7,8 +7,6 @@ Template Name: event spb page
 get_header();
 ?>
 
-
-
 <main>
     <section class="standart-margin-section first-section-home">
         <div class="first-block-blue-bg first-block-blue-bg-shop">
@@ -22,29 +20,21 @@ get_header();
             </div>
         </div>
     </section>
+
     <section class="shop-second-section">
+        <!-- Tabs -->
         <div class="tabs-shop">
+            <div class="tab-shop active" data-category="all">Все направления</div>
             <?php if (have_rows('tabs')) : ?>
-                <?php $first = true; ?>
-                <?php while (have_rows('tabs')) : the_row();
-                    $tab_title = get_sub_field('tab_title');
-                    $class = $first ? 'tab-shop active' : 'tab-shop';
-                    $first = false;
-                ?>
-                    <div class="<?php echo esc_attr($class); ?>"><?php echo esc_html($tab_title); ?></div>
+                <?php while (have_rows('tabs')) : the_row(); ?>
+                    <div class="tab-shop" data-category="<?php the_sub_field('tab_title'); ?>">
+                        <?php the_sub_field('tab_title'); ?>
+                    </div>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
-        <script>
-            const tabs = document.querySelectorAll(".tab-shop");
 
-            tabs.forEach((tab) => {
-                tab.addEventListener("click", function() {
-                    tabs.forEach((t) => t.classList.remove("active"));
-                    tab.classList.add("active");
-                });
-            });
-        </script>
+        <!-- Cards -->
         <section class="white-cards-section">
             <div class="white-cards-shop">
                 <?php if (have_rows('white_cards')) : ?>
@@ -53,8 +43,10 @@ get_header();
                         $subtitle = get_sub_field('subtitle');
                         $price = get_sub_field('price');
                         $is_new = get_sub_field('new');
+                        $categories = get_sub_field('category'); // Теперь это может быть список категорий через запятую
+                        $categories_array = explode(',', $categories); // Разделение категорий в массив
                     ?>
-                        <div class="white-card-shop">
+                        <div class="white-card-shop" data-category="<?php echo esc_attr(implode(' ', array_map('trim', $categories_array))); ?>">
                             <?php if ($is_new) : ?>
                                 <div class="shop-new-absolute">Новинка</div>
                             <?php endif; ?>
@@ -70,11 +62,35 @@ get_header();
                 <?php endif; ?>
             </div>
         </section>
-
     </section>
 </main>
 
+<!-- JS Script to handle tabs and filtering -->
+<script>
+    const tabs = document.querySelectorAll('.tab-shop');
+    const cards = document.querySelectorAll('.white-card-shop');
 
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove 'active' class from all tabs and add to the clicked tab
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Get category from the clicked tab
+            const category = tab.getAttribute('data-category');
+
+            // Show or hide cards based on category
+            cards.forEach(card => {
+                const cardCategories = card.getAttribute('data-category').split(' '); // Разделение категорий карточки
+                if (category === 'all' || cardCategories.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 
 <?php
 get_footer();
