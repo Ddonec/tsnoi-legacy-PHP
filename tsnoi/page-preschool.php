@@ -34,41 +34,30 @@ get_header();
 
     <section class="courses-cards-section">
         <div class="tabs-overflow">
-            <?php if (have_rows('tabs')) :
-            ?>
-                <div class="tabs-shop">
-                    <?php
-                    $first = true;
-                    while (have_rows('tabs')) : the_row();
+            <!-- Tabs -->
+            <div class="tabs-shop">
+                <div class="tab-shop active" data-category="all">Все направления</div>
+                <?php if (have_rows('tabs')) : ?>
+                    <?php while (have_rows('tabs')) : the_row();
                         $tab_name = get_sub_field('tab_name');
                     ?>
-                        <div class="tab-shop <?php echo $first ? 'active' : ''; ?>">
+                        <div class="tab-shop" data-category="<?php echo esc_attr($tab_name); ?>">
                             <?php echo esc_html($tab_name); ?>
                         </div>
-                        <?php $first = false;
-                        ?>
                     <?php endwhile; ?>
-                </div>
-            <?php endif; ?>
-
+                <?php endif; ?>
+            </div>
         </div>
-        <script>
-            const tabs = document.querySelectorAll(".tab-shop");
 
-            tabs.forEach((tab) => {
-                tab.addEventListener("click", function() {
-                    tabs.forEach((t) => t.classList.remove("active"));
-                    tab.classList.add("active");
-                });
-            });
-        </script>
-        <?php if (have_rows('courses')) : ?>
-            <div class="courses-cards-container">
+        <!-- Cards -->
+        <div class="courses-cards-container">
+            <?php if (have_rows('courses')) : ?>
                 <?php while (have_rows('courses')) : the_row();
                     $top_grey = get_sub_field('top_grey');
                     $title = get_sub_field('title');
                     $subtitle = get_sub_field('subtitle');
-                    $tabs = get_sub_field('tabs');
+                    $categories = get_sub_field('categories'); // Поле категорий
+                    $categories_array = explode(',', $categories); // Разделение категорий в массив
                     $first_gray_text = get_sub_field('first_gray_text');
                     $second_gray_text = get_sub_field('second_gray_text');
                     $price = get_sub_field('price');
@@ -76,7 +65,7 @@ get_header();
                     $btn_order_text = get_sub_field('btn_order_text');
                     $is_new = get_sub_field('is_new');
                 ?>
-                    <div class="courses-card-preschool">
+                    <div class="courses-card-preschool" data-category="<?php echo esc_attr(implode(' ', array_map('trim', $categories_array))); ?>">
                         <?php if ($is_new) : ?>
                             <div class="new-absolute">Новинка</div>
                         <?php endif; ?>
@@ -84,9 +73,9 @@ get_header();
                         <h3 class="courses-card-preschool__title"><?php echo esc_html($title); ?></h3>
                         <p class="courses-card-preschool__subtitle"><?php echo esc_html($subtitle); ?></p>
                         <div class="courses-card-preschool__tabs">
-                            <?php if ($tabs) : ?>
-                                <?php foreach ($tabs as $tab) : ?>
-                                    <div class="courses-card-preschool__tabs_tab"><?php echo esc_html($tab['tab_text']); ?></div>
+                            <?php if ($categories) : ?>
+                                <?php foreach ($categories_array as $category) : ?>
+                                    <div class="courses-card-preschool__tabs_tab"><?php echo esc_html(trim($category)); ?></div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
@@ -100,13 +89,36 @@ get_header();
                         </div>
                     </div>
                 <?php endwhile; ?>
-            </div>
-        <?php endif; ?>
-
-        <div class="preschool__go-to-all-courses-btn">
-            <?php the_field('go_to_all_courses_btn'); ?>
+            <?php endif; ?>
         </div>
     </section>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-shop');
+        const cards = document.querySelectorAll('.courses-card-preschool');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Удаление класса 'active' у всех табов и добавление его к текущему
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Получение категории из нажатого таба
+                const category = tab.getAttribute('data-category');
+
+                // Показ или скрытие карточек в зависимости от категории
+                cards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category').split(' '); // Разделение категорий карточки
+                    if (category === 'all' || cardCategories.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
 
     <section class="reviews-of-students-section">
         <h2 class="standart_title">Отзывы учеников</h2>
@@ -120,14 +132,14 @@ get_header();
                         $video_prev = get_sub_field('video_prev');
 
                 ?>
-                        <div class="review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
+                        <a href="<?php echo esc_url($video_url); ?>" class="link-default review-card video" style="background-image: url('<?php echo esc_html($video_prev); ?>')">
                             <div class="review-card__play-btn">
                                 <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M25.25 13.998L0.25 27.998L0.250001 -0.00195312L25.25 13.998Z" fill="black" />
                                 </svg>
                             </div>
                             <div class="review-card__white-bottom"><?php echo esc_html($name); ?></div>
-                        </div>
+                        </a>
                     <?php } else {
                         $job_title = get_sub_field('job_title');
                         $review_text = get_sub_field('review_text');
@@ -151,7 +163,7 @@ get_header();
                                 <?php echo esc_html($review_text); ?>
                             </div>
                             <div class="review-card__bottom-link">
-                                <a href="#">Читать полностью</a>
+                                <a href="<?php echo esc_url($video_url); ?>">Читать полностью</a>
                             </div>
                         </div>
                     <?php } ?>
