@@ -72,7 +72,7 @@ get_header();
                 <p class="programm-info__text">
                     <?php the_field('info-description') ?>
                 </p>
-                <a class="programm-info__link" href="#">
+                <a class="programm-info__link" href="<?php echo esc_url(get_field('programm_btn_url')); ?>">
                     <div class="programm-info__btn"><?php the_field('programm-btn') ?></div>
                 </a>
             </div>
@@ -80,8 +80,8 @@ get_header();
         </div>
     </section>
     <section class="sertificates-section">
-        <h2 class="standart_title">Выдаем государственные сертификаты</h2>
-        <p class="sertificates__subtitle">И вносим сведения в ФИС ФРДО</p>
+        <h2 class="standart_title"><?php the_field('certificates-title') ?></h2>
+        <p class="sertificates__subtitle"><?php the_field('certificates-subtitle') ?></p>
         <div class="sertificates-overflow-container">
             <div class="sertificates-container">
                 <?php if (have_rows('sertificates')) : ?>
