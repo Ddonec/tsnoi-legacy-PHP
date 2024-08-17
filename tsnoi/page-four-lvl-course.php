@@ -28,9 +28,9 @@ get_header();
                         <?php the_field('page-subtitle') ?>
                     </p>
                     <div class="blue-cont-four-btns-box">
-                        <a href="<?php echo esc_url(get_field('left_btn_link')); ?>" class="blue-cont-four-btns-box__sign-up">
+                        <a href="<?php echo esc_url(get_field('left_btn_link')); ?>" class="link-default blue-cont-four-btns-box__sign-up">
                             <?php the_field('left-btn') ?></a>
-                        <a href="<?php echo esc_url(get_field('right_btn_link')); ?>" class="blue-cont-four-btns-box__get-trial">
+                        <a href="<?php echo esc_url(get_field('right_btn_link')); ?>" class="link-default blue-cont-four-btns-box__get-trial">
                             <?php the_field('right-btn') ?>
                         </a>
                         <div class="blue-cont-four-btns-box__price">
