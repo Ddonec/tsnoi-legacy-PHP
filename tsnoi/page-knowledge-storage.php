@@ -123,6 +123,7 @@ get_header();
                     $btn = get_sub_field('btn-text');
                     $video_link = get_sub_field('video_link');
 
+
                     // Добавляем данные для модального окна
                     $modal_title = get_sub_field('modal_title');
                     $modal_heading_1 = get_sub_field('modal_heading_1');
@@ -134,6 +135,7 @@ get_header();
                     $modal_text_2 = get_sub_field('modal_text_2');
                     $modal_image_1 = get_sub_field('modal_image_1')['url'];
                     $modal_image_2 = get_sub_field('modal_image_2')['url'];
+                    $link_btn_modal = get_sub_field('link_btn_modal');
 
                 ?>
                     <div class="last-vebinar-preview-card"
@@ -145,6 +147,7 @@ get_header();
                         data-modal-price="<?php echo esc_attr($modal_price); ?>"
                         data-modal-bg="<?php echo esc_url($modal_bg); ?>"
                         data-video-link="<?php echo esc_url($video_link); ?>"
+                        data-link-btn-modal="<?php echo esc_url($link_btn_modal); ?>"
                         data-modal-text-1="<?php echo esc_attr($modal_text_1); ?>"
                         data-modal-text-2="<?php echo esc_attr($modal_text_2); ?>"
                         data-modal-image-1="<?php echo esc_url($modal_image_1); ?>"
@@ -229,7 +232,7 @@ get_header();
                 <?php the_field('modal_subtitle'); ?>
             </p>
             <div class="modal-btns-box">
-                <div class="modal-buy-btn">Получить сертификат</div>
+                <a class="modal-buy-btn link-default">Получить сертификат</a>
                 <p class="modal-price"><?php the_field('modal_price'); ?> ₽</p>
             </div>
             <div class="modal-white-box">
@@ -259,7 +262,7 @@ get_header();
                 </div>
             </div>
             <div class="modal-btns-box">
-                <div class="modal-buy-btn">Получить сертификат</div>
+                <a class="modal-buy-btn link-default">Получить сертификат</a>
                 <p class="modal-price"><?php the_field('modal_price'); ?> ₽</p>
             </div>
         </div>
@@ -286,6 +289,7 @@ get_header();
             const modalImage1 = card.getAttribute('data-modal-image-1');
             const modalImage2 = card.getAttribute('data-modal-image-2');
             const videoLink = card.getAttribute('data-video-link');
+            const linkBtb = card.getAttribute('data-link-btn-modal');
 
 
 
@@ -297,6 +301,9 @@ get_header();
             modalSection.querySelector('.modal-subtitle').textContent = modalSubtitle;
             modalSection.querySelectorAll('.modal-price').forEach(element => {
                 element.textContent = `${modalPrice} ₽`;
+            });
+            modalSection.querySelectorAll('.modal-buy-btn').forEach(element => {
+                element.href = linkBtb;
             });
             modalSection.querySelector('.modal-preview').style.backgroundImage = `url(${modalBg})`;
             modalSection.querySelector('.modal-white__discription_1').textContent = modalText1;
