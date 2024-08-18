@@ -125,11 +125,16 @@ get_header();
 
                     // Добавляем данные для модального окна
                     $modal_title = get_sub_field('modal_title');
-                    $modal_title = get_sub_field('modal_heading_1');
-                    $modal_title = get_sub_field('modal_heading_2');
+                    $modal_heading_1 = get_sub_field('modal_heading_1');
+                    $modal_heading_2 = get_sub_field('modal_heading_2');
                     $modal_subtitle = get_sub_field('modal_subtitle');
                     $modal_price = get_sub_field('price');
                     $modal_bg = get_sub_field('preview_image')['url'];
+                    $modal_text_1 = get_sub_field('modal_text_1');
+                    $modal_text_2 = get_sub_field('modal_text_2');
+                    $modal_image_1 = get_sub_field('modal_image_1')['url'];
+                    $modal_image_2 = get_sub_field('modal_image_2')['url'];
+
                 ?>
                     <div class="last-vebinar-preview-card"
                         data-category="<?php echo esc_attr($category); ?>"
@@ -138,7 +143,13 @@ get_header();
                         data-modal-title-3="<?php echo esc_attr($modal_heading_2); ?>"
                         data-modal-subtitle="<?php echo esc_attr($modal_subtitle); ?>"
                         data-modal-price="<?php echo esc_attr($modal_price); ?>"
-                        data-modal-bg="<?php echo esc_url($modal_bg); ?>">
+                        data-modal-bg="<?php echo esc_url($modal_bg); ?>"
+                        data-modal-text-1="<?php echo esc_attr($modal_text_1); ?>"
+                        data-modal-text-2="<?php echo esc_attr($modal_text_2); ?>"
+                        data-modal-image-1="<?php echo esc_url($modal_image_1); ?>"
+                        data-modal-image-2="<?php echo esc_url($modal_image_2); ?>">
+
+
                         <!-- Контент карточки -->
                         <a href="<?php echo esc_url($video_link); ?>" target="_blank">
                             <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
@@ -220,7 +231,7 @@ get_header();
             <div class="modal-white-box">
                 <?php $certificate_1_image = get_field('certificate_image_1'); ?>
                 <?php if ($certificate_1_image) : ?>
-                    <div class="modal-sertificate" style="background-image: url('<?php echo esc_url($certificate_1_image['url']); ?>');"></div>
+                    <div class="modal-sertificate modal-sertificate_1" style="background-image: url('<?php echo esc_url($certificate_1_image['url']); ?>');"></div>
                 <?php endif; ?>
                 <div class="modal-white__right">
                     <h4 class="modal-white__title modal-white__title_1">Как выглядит сертификат</h4>
@@ -232,7 +243,7 @@ get_header();
             <div class="modal-white-box">
                 <?php $certificate_2_image = get_field('certificate_image_2'); ?>
                 <?php if ($certificate_2_image) : ?>
-                    <div class="modal-sertificate" style="background-image: url('<?php echo esc_url($certificate_2_image['url']); ?>');"></div>
+                    <div class="modal-sertificate modal-sertificate_2" style="background-image: url('<?php echo esc_url($certificate_2_image['url']); ?>');"></div>
                 <?php endif; ?>
                 <div class="modal-white__right">
                     <h4 class="modal-white__title modal-white__title_2">
@@ -249,9 +260,15 @@ get_header();
             </div>
         </div>
     </section>
+
     <script>
         function activateModalAndBackground(btn) {
             const card = btn.closest('.last-vebinar-preview-card');
+
+            if (!card) {
+                console.error('Element with class .last-vebinar-preview-card not found');
+                return;
+            }
 
             // Извлечение данных из атрибутов
             const modalTitle = card.getAttribute('data-modal-title');
@@ -260,6 +277,10 @@ get_header();
             const modalSubtitle = card.getAttribute('data-modal-subtitle');
             const modalPrice = card.getAttribute('data-modal-price');
             const modalBg = card.getAttribute('data-modal-bg');
+            const modalText1 = card.getAttribute('data-modal-text-1');
+            const modalText2 = card.getAttribute('data-modal-text-2');
+            const modalImage1 = card.getAttribute('data-modal-image-1');
+            const modalImage2 = card.getAttribute('data-modal-image-2');
 
             // Вставка данных в модальное окно
             const modalSection = document.querySelector('.modal-vebinar-section');
@@ -271,6 +292,10 @@ get_header();
                 element.textContent = `${modalPrice} ₽`;
             });
             modalSection.querySelector('.modal-preview').style.backgroundImage = `url(${modalBg})`;
+            modalSection.querySelector('.modal-white__discription_1').textContent = modalText1;
+            modalSection.querySelector('.modal-white__discription_2').textContent = modalText2;
+            modalSection.querySelector('.modal-sertificate_1').style.backgroundImage = `url(${modalImage1})`;
+            modalSection.querySelector('.modal-sertificate_2').style.backgroundImage = `url(${modalImage2})`;
 
             // Показать модальное окно и фон
             modalSection.classList.add('active');
@@ -286,6 +311,8 @@ get_header();
             document.body.style.overflow = 'hidden';
             greyBg.addEventListener('click', deactivateModalAndBackground);
         }
+
+
 
         document.querySelectorAll('.preview-card__btn-area_btn').forEach(btn => {
             btn.addEventListener('click', activateModalAndBackground);
