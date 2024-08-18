@@ -28,10 +28,11 @@ get_header();
                         <?php the_field('page-subtitle') ?>
                     </p>
                     <div class="blue-cont-four-btns-box">
-                        <div class="blue-cont-four-btns-box__sign-up"><?php the_field('left-btn') ?></div>
-                        <div class="blue-cont-four-btns-box__get-trial">
+                        <a href="<?php echo esc_url(get_field('left_btn_link')); ?>" class="link-default blue-cont-four-btns-box__sign-up">
+                            <?php the_field('left-btn') ?></a>
+                        <a href="<?php echo esc_url(get_field('right_btn_link')); ?>" class="link-default blue-cont-four-btns-box__get-trial">
                             <?php the_field('right-btn') ?>
-                        </div>
+                        </a>
                         <div class="blue-cont-four-btns-box__price">
                             <?php the_field('price') ?>
                         </div>
@@ -71,7 +72,7 @@ get_header();
                 <p class="programm-info__text">
                     <?php the_field('info-description') ?>
                 </p>
-                <a class="programm-info__link" href="#">
+                <a class="programm-info__link" href="<?php echo esc_url(get_field('programm_btn_url')); ?>">
                     <div class="programm-info__btn"><?php the_field('programm-btn') ?></div>
                 </a>
             </div>
@@ -79,8 +80,8 @@ get_header();
         </div>
     </section>
     <section class="sertificates-section">
-        <h2 class="standart_title">Выдаем государственные сертификаты</h2>
-        <p class="sertificates__subtitle">И вносим сведения в ФИС ФРДО</p>
+        <h2 class="standart_title"><?php the_field('certificates-title') ?></h2>
+        <p class="sertificates__subtitle"><?php the_field('certificates-subtitle') ?></p>
         <div class="sertificates-overflow-container">
             <div class="sertificates-container">
                 <?php if (have_rows('sertificates')) : ?>

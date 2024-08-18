@@ -1071,6 +1071,7 @@ footer {
 .ways-second-overflow-container {
   width: 100%;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 .ways-second-container {
   display: flex;
@@ -1388,6 +1389,7 @@ footer {
   flex-direction: column;
   gap: 130px;
   margin-top: 130px;
+  margin-bottom: 100px;
 }
 .white-way-block__slider {
   width: 50%;
@@ -3427,7 +3429,6 @@ footer {
 }
 .link-default {
   text-decoration: none;
-  color: unset;
 }
 .w-h-max {
   display: block;

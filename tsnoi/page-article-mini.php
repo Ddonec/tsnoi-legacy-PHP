@@ -38,7 +38,7 @@ get_header();
       <div class="article-container__white-box">
         <?php the_field('text-on-white-bg-article-mini-page') ?>
       </div>
-      <div class="article-container__blue-btn"><?php the_field('button-article-mini-page') ?></div>
+      <a class="article-container__blue-btn link-default" href="<?php echo get_field('link'); ?>"><?php the_field('button-article-mini-page') ?></a>
     </div>
   </section>
 </main>

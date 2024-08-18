@@ -65,45 +65,48 @@ get_header();
       </div>
     </div>
     <script>
-      const overflowContainerLVL = document.querySelector(".ways-second-overflow-container");
-      const leftScrollButton = document.querySelector(".arrows-for-ways__left");
-      const rightScrollButton = document.querySelector(".arrows-for-ways__right");
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('.ways-second-container');
 
-      let defaultCardWidth = 458; // ширина карточки
-      let smallScreenOffset = window.innerWidth - 70; // смещение для экранов шириной менее 500 пикселей
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
 
-      window.addEventListener("resize", updateOffset);
+        // Функция для начала прокрутки
+        function startScroll(e) {
+          isDragging = true;
+          startX = e.pageX - container.offsetLeft;
+          scrollLeft = container.scrollLeft;
+          container.style.cursor = 'grabbing'; // Устанавливаем курсор, когда перетаскиваем
+          console.log("get")
+        }
 
-      leftScrollButton.addEventListener("click", function() {
-        scrollLeft();
+        // Функция для прокрутки
+        function scrolling(e) {
+          if (!isDragging) return;
+          e.preventDefault();
+          const x = e.pageX - container.offsetLeft;
+          const walk = (x - startX) * 2; // Скорость прокрутки
+          container.scrollLeft = scrollLeft - walk;
+          console.log(walk)
+        }
+
+        // Функция для завершения прокрутки
+        function endScroll() {
+          isDragging = false;
+          container.style.cursor = 'grab'; // Возвращаем курсор в исходное состояние
+          console.log('push')
+        }
+
+        // Добавляем обработчики событий
+        container.addEventListener('mousedown', startScroll);
+        container.addEventListener('mousemove', scrolling);
+        container.addEventListener('mouseup', endScroll);
+        container.addEventListener('mouseleave', endScroll); // Для случая, когда мышь уходит за пределы контейнера
       });
-
-      rightScrollButton.addEventListener("click", function() {
-        scrollRight();
-      });
-
-      function updateOffset() {
-        smallScreenOffset = window.innerWidth - 10;
-      }
-
-      function calculateOffset() {
-        return window.innerWidth < 500 ? smallScreenOffset : defaultCardWidth;
-      }
-
-      function scrollLeft() {
-        overflowContainerLVL.scrollBy({
-          left: -calculateOffset(),
-          behavior: "smooth",
-        });
-      }
-
-      function scrollRight() {
-        overflowContainerLVL.scrollBy({
-          left: calculateOffset(),
-          behavior: "smooth",
-        });
-      }
     </script>
+
+
   </section>
 
   <section class="section-standart-100 gap30-section">
