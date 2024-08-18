@@ -144,10 +144,12 @@ get_header();
                         data-modal-subtitle="<?php echo esc_attr($modal_subtitle); ?>"
                         data-modal-price="<?php echo esc_attr($modal_price); ?>"
                         data-modal-bg="<?php echo esc_url($modal_bg); ?>"
+                        data-video-link="<?php echo esc_url($video_link); ?>"
                         data-modal-text-1="<?php echo esc_attr($modal_text_1); ?>"
                         data-modal-text-2="<?php echo esc_attr($modal_text_2); ?>"
                         data-modal-image-1="<?php echo esc_url($modal_image_1); ?>"
                         data-modal-image-2="<?php echo esc_url($modal_image_2); ?>">
+
 
 
                         <!-- Контент карточки -->
@@ -211,13 +213,15 @@ get_header();
                     <path d="M5 5L12 12L5 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            <div class="modal-preview " style="background-image:url(<?php the_field('bg-modal-prewiev'); ?>)">
-                <div class="last-vebinar-preview-card__play-btn">
-                    <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                    </svg>
+            <a href="" class="modal-video-link">
+                <div class="modal-preview " style="background-image:url(<?php the_field('bg-modal-prewiev'); ?>)">
+                    <div class="last-vebinar-preview-card__play-btn">
+                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
+            </a>
             <h2 class="modal-title">
                 <?php the_field('modal_title'); ?>
             </h2>
@@ -281,6 +285,9 @@ get_header();
             const modalText2 = card.getAttribute('data-modal-text-2');
             const modalImage1 = card.getAttribute('data-modal-image-1');
             const modalImage2 = card.getAttribute('data-modal-image-2');
+            const videoLink = card.getAttribute('data-video-link');
+
+
 
             // Вставка данных в модальное окно
             const modalSection = document.querySelector('.modal-vebinar-section');
@@ -296,6 +303,10 @@ get_header();
             modalSection.querySelector('.modal-white__discription_2').textContent = modalText2;
             modalSection.querySelector('.modal-sertificate_1').style.backgroundImage = `url(${modalImage1})`;
             modalSection.querySelector('.modal-sertificate_2').style.backgroundImage = `url(${modalImage2})`;
+
+            const modalLink = modalSection.querySelector('.modal-video-link');
+            modalLink.href = videoLink;
+
 
             // Показать модальное окно и фон
             modalSection.classList.add('active');
