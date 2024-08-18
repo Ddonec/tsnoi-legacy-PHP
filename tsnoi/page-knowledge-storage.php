@@ -48,7 +48,7 @@ get_header();
                         $date = get_sub_field('date');
                         $title = get_sub_field('title');
                         $image = get_sub_field('image');
-                        $link = get_sub_field('link'); 
+                        $link = get_sub_field('link');
                     ?>
                         <div class="vebinar-card">
                             <div class="vebinar-card__date"><?php echo esc_html($date); ?></div>
@@ -118,13 +118,28 @@ get_header();
                     $preview_text = get_sub_field('preview_text');
                     $price = get_sub_field('price');
                     $preview_image = get_sub_field('preview_image');
-                    $category = sanitize_title(get_sub_field('category')); // Категория
+                    $category = sanitize_title(get_sub_field('category'));
                     $image_url = $preview_image['url'];
                     $btn = get_sub_field('btn-text');
                     $video_link = get_sub_field('video_link');
 
+                    // Добавляем данные для модального окна
+                    $modal_title = get_sub_field('modal_title');
+                    $modal_title = get_sub_field('modal_heading_1');
+                    $modal_title = get_sub_field('modal_heading_2');
+                    $modal_subtitle = get_sub_field('modal_subtitle');
+                    $modal_price = get_sub_field('price');
+                    $modal_bg = get_sub_field('preview_image')['url'];
                 ?>
-                    <div class="last-vebinar-preview-card" data-category="<?php echo esc_attr($category); ?>" data-modal-content="<?php echo esc_attr($modal_content); ?>">
+                    <div class="last-vebinar-preview-card"
+                        data-category="<?php echo esc_attr($category); ?>"
+                        data-modal-title="<?php echo esc_attr($modal_title); ?>"
+                        data-modal-title-2="<?php echo esc_attr($modal_heading_1); ?>"
+                        data-modal-title-3="<?php echo esc_attr($modal_heading_2); ?>"
+                        data-modal-subtitle="<?php echo esc_attr($modal_subtitle); ?>"
+                        data-modal-price="<?php echo esc_attr($modal_price); ?>"
+                        data-modal-bg="<?php echo esc_url($modal_bg); ?>">
+                        <!-- Контент карточки -->
                         <a href="<?php echo esc_url($video_link); ?>" target="_blank">
                             <div class="last-vebinar-preview-card__preview" style="background-image: url('<?php echo esc_url($image_url); ?>');">
                                 <div class="last-vebinar-preview-card__play-btn">
@@ -136,7 +151,7 @@ get_header();
                         </a>
                         <p class="last-vebinar-preview-card__text"><?php echo esc_html($preview_text); ?></p>
                         <div class="last-vebinar-preview-card__btn-area">
-                            <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground()">
+                            <div class="preview-card__btn-area_btn" onclick="activateModalAndBackground(this)">
                                 <?php echo esc_html($btn); ?>
                             </div>
                             <div class="preview-card__btn-area_price"><?php echo esc_html($price); ?> ₽</div>
@@ -144,6 +159,7 @@ get_header();
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
+
         </div>
 
 
@@ -176,22 +192,6 @@ get_header();
             });
         </script>
     </section>
-    <section class="youtube-section-knowledge">
-        <div class="youtube-left">
-            <h3 class="youtube-title">
-                <?php the_field('youtube-title') ?>
-            </h3>
-            <a class="yiotube-link-btn" target="_blank" href="<?php the_field('youtube-link') ?>">Перейти <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12.5L19 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M13 6.5L19 12.5L13 18.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg></a>
-        </div>
-        <div class="youtube-right" style="background-image: url(<?php the_field('youtube-bg-img') ?>);">
-            <a href="<?php the_field('youtube-link') ?>">
-                <img class="youtube-logo-absolute" src="<?php echo bloginfo('template_url'); ?>/assets/content/youtube-logo.png" alt="" />
-            </a>
-        </div>
-    </section>
     <section class="modal-vebinar-section">
         <div class="modal-vebinar-scroll-box">
             <div class="close-btn">
@@ -223,8 +223,8 @@ get_header();
                     <div class="modal-sertificate" style="background-image: url('<?php echo esc_url($certificate_1_image['url']); ?>');"></div>
                 <?php endif; ?>
                 <div class="modal-white__right">
-                    <h4 class="modal-white__title">Как выглядит сертификат</h4>
-                    <p class="modal-white__discription">
+                    <h4 class="modal-white__title modal-white__title_1">Как выглядит сертификат</h4>
+                    <p class="modal-white__discription modal-white__discription_1">
                         <?php the_field('certificate_description_1'); ?>
                     </p>
                 </div>
@@ -235,10 +235,10 @@ get_header();
                     <div class="modal-sertificate" style="background-image: url('<?php echo esc_url($certificate_2_image['url']); ?>');"></div>
                 <?php endif; ?>
                 <div class="modal-white__right">
-                    <h4 class="modal-white__title">
+                    <h4 class="modal-white__title modal-white__title_2">
                         Что входит в методические материалы
                     </h4>
-                    <p class="modal-white__discription">
+                    <p class="modal-white__discription modal-white__discription_2">
                         <?php the_field('certificate_description_2'); ?>
                     </p>
                 </div>
@@ -249,45 +249,84 @@ get_header();
             </div>
         </div>
     </section>
+    <script>
+        function activateModalAndBackground(btn) {
+            const card = btn.closest('.last-vebinar-preview-card');
+
+            // Извлечение данных из атрибутов
+            const modalTitle = card.getAttribute('data-modal-title');
+            const modalTitleF = card.getAttribute('data-modal-title-2');
+            const modalTitleS = card.getAttribute('data-modal-title-3');
+            const modalSubtitle = card.getAttribute('data-modal-subtitle');
+            const modalPrice = card.getAttribute('data-modal-price');
+            const modalBg = card.getAttribute('data-modal-bg');
+
+            // Вставка данных в модальное окно
+            const modalSection = document.querySelector('.modal-vebinar-section');
+            modalSection.querySelector('.modal-title').textContent = modalTitle;
+            modalSection.querySelector('.modal-white__title_1').textContent = modalTitleF;
+            modalSection.querySelector('.modal-white__title_2').textContent = modalTitleS;
+            modalSection.querySelector('.modal-subtitle').textContent = modalSubtitle;
+            modalSection.querySelectorAll('.modal-price').forEach(element => {
+                element.textContent = `${modalPrice} ₽`;
+            });
+            modalSection.querySelector('.modal-preview').style.backgroundImage = `url(${modalBg})`;
+
+            // Показать модальное окно и фон
+            modalSection.classList.add('active');
+            const greyBg = document.querySelector('.grey-bg');
+            if (greyBg) greyBg.classList.add('active');
+
+            // Закрытие модального окна
+            const closeButton = modalSection.querySelector('.close-btn');
+            if (closeButton) {
+                closeButton.addEventListener('click', deactivateModalAndBackground);
+            }
+
+            document.body.style.overflow = 'hidden';
+            greyBg.addEventListener('click', deactivateModalAndBackground);
+        }
+
+        document.querySelectorAll('.preview-card__btn-area_btn').forEach(btn => {
+            btn.addEventListener('click', activateModalAndBackground);
+        });
+
+        function deactivateModalAndBackground() {
+            const modalSection = document.querySelector(".modal-vebinar-section");
+            const greyBg = document.querySelector(".grey-bg");
+
+            if (modalSection) {
+                modalSection.classList.remove("active");
+            }
+
+            if (greyBg) {
+                greyBg.classList.remove("active");
+            }
+
+            document.body.style.overflow = "";
+        }
+    </script>
+
+    <section class="youtube-section-knowledge">
+        <div class="youtube-left">
+            <h3 class="youtube-title">
+                <?php the_field('youtube-title') ?>
+            </h3>
+            <a class="yiotube-link-btn" target="_blank" href="<?php the_field('youtube-link') ?>">Перейти <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12.5L19 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13 6.5L19 12.5L13 18.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></a>
+        </div>
+        <div class="youtube-right" style="background-image: url(<?php the_field('youtube-bg-img') ?>);">
+            <a href="<?php the_field('youtube-link') ?>">
+                <img class="youtube-logo-absolute" src="<?php echo bloginfo('template_url'); ?>/assets/content/youtube-logo.png" alt="" />
+            </a>
+        </div>
+    </section>
+
 </main>
 
-<script>
-    function activateModalAndBackground() {
-        const modalSection = document.querySelector(".modal-vebinar-section");
-        const greyBg = document.querySelector(".grey-bg");
 
-        if (modalSection) {
-            modalSection.classList.add("active");
-        }
-
-        if (greyBg) {
-            greyBg.classList.add("active");
-        }
-
-        const closeButton = modalSection.querySelector(".close-btn");
-        if (closeButton) {
-            closeButton.addEventListener("click", deactivateModalAndBackground);
-        }
-
-        document.body.style.overflow = "hidden";
-        greyBg.addEventListener("click", deactivateModalAndBackground);
-    }
-
-    function deactivateModalAndBackground() {
-        const modalSection = document.querySelector(".modal-vebinar-section");
-        const greyBg = document.querySelector(".grey-bg");
-
-        if (modalSection) {
-            modalSection.classList.remove("active");
-        }
-
-        if (greyBg) {
-            greyBg.classList.remove("active");
-        }
-
-        document.body.style.overflow = "";
-    }
-</script>
 
 
 
