@@ -118,6 +118,7 @@ get_header();
                     $title = get_sub_field('title');
                     $subtitle = get_sub_field('subtitle');
                     $button_text = get_sub_field('button_text');
+                    $button_link = get_sub_field('button_link');
                 ?>
                     <div class="way-of-learning__big-card">
                         <?php if ($grey_text) : ?>
@@ -139,13 +140,15 @@ get_header();
                             <?php endif; ?>
                         </div>
                         <?php if ($button_text) : ?>
-                            <div class="learning-big-card__button">
-                                <?php echo esc_html($button_text); ?>
-                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
+                            <a class="link-default" href="<?php echo esc_url($button_link); ?>">
+                                <div class="learning-big-card__button">
+                                    <?php echo esc_html($button_text); ?>
+                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </a>
                         <?php endif; ?>
                     </div>
                 <?php endwhile; ?>
@@ -157,7 +160,8 @@ get_header();
                 <?php while (have_rows('small_learning_cards')) : the_row();
                     $title = get_sub_field('title');
                     $subtitle = get_sub_field('subtitle');
-                    $button_text = get_sub_field('button_text');
+                    $button_text = get_sub_field('button_text');   
+                    $button_link = get_sub_field('button_link');                
                 ?>
                     <div class="way-of-learning__small-card">
                         <?php if ($title) : ?>
@@ -167,13 +171,15 @@ get_header();
                             <p class="way-of-learning__small_subtitle"><?php echo esc_html($subtitle); ?></p>
                         <?php endif; ?>
                         <?php if ($button_text) : ?>
-                            <div class="learning-big-card__button">
-                                <?php echo esc_html($button_text); ?>
-                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
+                            <a class="link-default" href="<?php echo esc_url($button_link); ?>">
+                                <div class="learning-big-card__button">
+                                    <?php echo esc_html($button_text); ?>
+                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 12.8406H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M13 6.84058L19 12.8406L13 18.8406" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </a>
                         <?php endif; ?>
                     </div>
                 <?php endwhile; ?>
