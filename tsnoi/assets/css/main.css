@@ -334,7 +334,8 @@ footer {
   z-index: 1;
 }
 .advantages__big-blue-card:hover,
-.course-ways__card:hover {
+.course-ways__card:hover,
+.news-container__block:hover {
   filter: brightness(1.2);
 }
 .advantages__big-white-card:hover {
