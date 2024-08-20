@@ -64,10 +64,12 @@ get_header();
         <h2 class="standart_title"><?php the_field('section_title'); ?></h2>
         <div class="tabs-last-vebinars-overflow">
             <div class="tabs-last-vebinars">
+                <div class="tab-last-vebinar active">Все</div>
+
                 <?php if (have_rows('tabs')) : ?>
                     <?php $first = true; ?>
                     <?php while (have_rows('tabs')) : the_row(); ?>
-                        <div class="tab-last-vebinar <?php echo $first ? 'active' : ''; ?>"><?php the_sub_field('tab_title'); ?></div>
+                        <div class="tab-last-vebinar <?php echo $first ? '' : ''; ?>"><?php the_sub_field('tab_title'); ?></div>
                         <?php $first = false; ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
@@ -75,39 +77,47 @@ get_header();
         </div>
 
         <script>
-            const tabs = document.querySelectorAll(".tab-last-vebinar");
+            document.addEventListener("DOMContentLoaded", function() {
+                const tabs = document.querySelectorAll(".tab-last-vebinar");
 
-            tabs.forEach((tab) => {
-                tab.addEventListener("click", function() {
-                    tabs.forEach((t) => t.classList.remove("active"));
-                    this.classList.add("active");
-                    filterNews(this.innerText);
+                tabs.forEach((tab) => {
+                    tab.addEventListener("click", function() {
+                        tabs.forEach((t) => t.classList.remove("active"));
+                        this.classList.add("active");
+                        filterNews(this.innerText.trim());
+                    });
                 });
+
+                function filterNews(category) {
+                    const newsItems = document.querySelectorAll(".news-link");
+                    newsItems.forEach(item => {
+                        if (category === 'Все' || item.dataset.category.includes(category)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
             });
-
-            function filterNews(category) {
-                const newsItems = document.querySelectorAll(".news-container__block");
-                newsItems.forEach(item => {
-                    if (category === 'Все' || item.dataset.category.includes(category)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            }
         </script>
 
         <div class="news-page-news-container">
             <?php if (have_rows('news_items')) : ?>
                 <?php $i = 1; ?>
-                <?php while (have_rows('news_items')) : the_row(); ?>
-                    <div class="news-container__<?php echo $i; ?> news-container__<?php the_sub_field('block_type'); ?> news-container__block" data-category="<?php the_sub_field('category'); ?>" style="background-image: url(<?php the_sub_field('img'); ?>);">
-                        <div class="news-container__white-text"><?php the_sub_field('news_content'); ?></div>
-                    </div>
+                <?php while (have_rows('news_items')) : the_row();
+                    $news_link = get_sub_field('news_link');
+                ?>
+                    <a href="<?php echo esc_url($news_link); ?>" class="link-default news-link news-container__<?php the_sub_field('block_type'); ?> news-container__<?php echo $i; ?>" data-category="<?php the_sub_field('category'); ?>">
+                        <div class="  news-container__block" style="background-image: url(<?php the_sub_field('img'); ?>);">
+                            <div class="news-container__white-text"><?php the_sub_field('news_content'); ?></div>
+                        </div>
+                        <p class="news-container-bottom-text"><?php the_sub_field('bottom_text'); ?></p>
+                    </a>
                     <?php $i++; ?>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
+
         <div class="show-more-mobile-btn">Показать еще</div>
     </section>
 
