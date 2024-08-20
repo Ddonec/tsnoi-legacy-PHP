@@ -114,8 +114,9 @@ get_header();
           $course_size = get_sub_field('course_size');
           $background_image = get_sub_field('background_image');
           $absolute_image = get_sub_field('absolute_image');
+          $button_link = get_sub_field('button_link');
         ?>
-          <div class="course-ways__card <?php echo esc_attr($course_size); ?> course-ways__card-<?php echo $card_index; ?>" style="background-image: url(<?php echo esc_url($background_image); ?>);">
+          <a href="<?php echo esc_url($button_link); ?>" class="course-ways__card link-default <?php echo esc_attr($course_size); ?> course-ways__card-<?php echo $card_index; ?>" style="background-image: url(<?php echo esc_url($background_image); ?>);">
             <?php if ($absolute_image) : ?>
               <img class="course-ways__card-<?php echo $card_index; ?>-img-absolute" src="<?php echo esc_url($absolute_image['url']); ?>" alt="<?php echo esc_attr($absolute_image['alt']); ?>" />
             <?php endif; ?>
@@ -130,14 +131,14 @@ get_header();
                 <?php endwhile; ?>
               <?php endif; ?>
             </div>
-          </div>
+          </a>
           <?php $card_index++; // Increment index 
           ?>
         <?php endwhile; ?>
       <?php endif; ?>
-      <div class="course-ways__card big course-ways__card-11">
-        еще 345 курсов →
-      </div>
+      <a href="<?php the_field('cards_show_more_link') ?>" class="link-default course-ways__card big course-ways__card-11">
+        <?php the_field('cards_show_more') ?>
+      </a>
     </div>
   </section>
 
