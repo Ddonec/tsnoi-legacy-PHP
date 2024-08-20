@@ -300,8 +300,8 @@ footer {
   flex-wrap: wrap;
   gap: 30px;
   display: flex;
-  flex-direction: column;
-  height: 2210px;
+  /* flex-direction: column;
+  height: 2210px; */
 }
 .advantages-cards-container > div {
   width: calc((100% / 3) - 20px);

@@ -1034,6 +1034,7 @@
   .show-more-btn-home {
     display: flex;
     gap: 10px;
+    width: 100%;
   }
   .advantages-cards-container > div:nth-child(n + 6) {
     display: none;
