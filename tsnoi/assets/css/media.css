@@ -744,8 +744,11 @@
   .news-page-news-container > .news-container__block:not(:nth-child(-n + 5)) {
     display: none;
   }
-  .news-container__big-block {
+  .news_bg__big-block {
     height: 200px;
+  }
+  .news-container-bottom-text {
+    font-size: 18px;
   }
   .blue-line {
     top: 91px;

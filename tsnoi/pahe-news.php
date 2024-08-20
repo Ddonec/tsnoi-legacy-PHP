@@ -108,7 +108,7 @@ get_header();
                     $news_link = get_sub_field('news_link');
                 ?>
                     <a href="<?php echo esc_url($news_link); ?>" class="link-default news-link news-container__<?php the_sub_field('block_type'); ?> news-container__<?php echo $i; ?>" data-category="<?php the_sub_field('category'); ?>">
-                        <div class="  news-container__block" style="background-image: url(<?php the_sub_field('img'); ?>);">
+                        <div class="news_bg__<?php the_sub_field('block_type'); ?> news-container__block" style="background-image: url(<?php the_sub_field('img'); ?>);">
                             <div class="news-container__white-text"><?php the_sub_field('news_content'); ?></div>
                         </div>
                         <p class="news-container-bottom-text"><?php the_sub_field('bottom_text'); ?></p>
