@@ -33,7 +33,7 @@ wp_head()
 
 <body>
   <header class="header-main">
-    <img class="logo-header" src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" />
+    <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" /></a>
     <div class="burger-menu-main" id="burger-menu-main">
       <nav>
         <ul class="nav-list">
