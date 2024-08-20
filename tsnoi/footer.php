@@ -60,29 +60,23 @@
   <div class="footer-column footer-column-1">
     <ul class="footer-link-list">
       <li class="footer-link-list__title">Основные направления</li>
-      <li class="footer-link-list__link">
-        <a href="">Повышение квалификации и переподготовка</a>
-      </li>
-      <li class="footer-link-list__link">
-        <a href="">Инновационные площадки</a>
-      </li>
-      <li class="footer-link-list__link">
-        <a href="">Студия создания видео-контента</a>
-      </li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/courses-lvl-page">Повышение квалификации и переподготовка</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/">Инновационные площадки</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/">Студия создания видео-контента</a></li>
       <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/">Выездные школы</a></li>
       <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/">Стажировка</a></li>
       <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/knowledge-storage">База знаний</a></li>
-      <li class="footer-link-list__link"><a href="">Вебинары</a></li>
-      <li class="footer-link-list__link"><a href="">Онлайн-магазин</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/">Вебинары</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/event-spb-page/">Онлайн-магазин</a></li>
     </ul>
   </div>
   <div class="footer-column footer-column-2">
     <ul class="footer-link-list">
       <li class="footer-link-list__title">Главные события года</li>
-      <li class="footer-link-list__link"><a href="">Все наши мероприятия </a></li>
-      <li class="footer-link-list__link"><a href="">«Невская Образовательная Ассамблея»</a></li>
-      <li class="footer-link-list__link"><a href="">Съезд «Моя страна»</a></li>
-      <li class="footer-link-list__link"><a href="">Фестиваль дошкольного образования</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/way-template">Все наши мероприятия </a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/way-template">«Невская Образовательная Ассамблея»</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/way-template">Съезд «Моя страна»</a></li>
+      <li class="footer-link-list__link"><a href="<?php echo home_url(); ?>/preschool">Фестиваль дошкольного образования</a></li>
     </ul>
   </div>
   <div class="footer-column footer-column-3">
@@ -94,14 +88,14 @@
           <path d="M12.9574 11.6638C14.062 11.6638 14.9574 10.7684 14.9574 9.66382C14.9574 8.55925 14.062 7.66382 12.9574 7.66382C11.8528 7.66382 10.9574 8.55925 10.9574 9.66382C10.9574 10.7684 11.8528 11.6638 12.9574 11.6638Z" stroke="#003ACB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M12.9574 21.6638C12.9574 21.6638 19.9574 16.8177 19.9574 10.5869C19.9574 8.75078 19.2199 6.98987 17.9071 5.69154C16.5944 4.39321 14.8139 3.66382 12.9574 3.66382C11.1009 3.66382 9.3204 4.39321 8.00765 5.69154C6.6949 6.98987 5.9574 8.75078 5.9574 10.5869C5.9574 16.8177 12.9574 21.6638 12.9574 21.6638Z" stroke="#003ACB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <a href="">Санкт-Петербург, ул. Харченко, 18 (метро «Лесная»)</a>
+        <a href="https://yandex.ru/maps/2/saint-petersburg/house/ulitsa_kharchenko_18/Z0kYdQNnTkwDQFtjfXV5eX1mbA==/?ll=30.347338%2C59.988202&z=18">Санкт-Петербург, ул. Харченко, 18 (метро «Лесная»)</a>
       </li>
       <li class="footer-link-list__link">
         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.9574 11.6638C14.062 11.6638 14.9574 10.7684 14.9574 9.66382C14.9574 8.55925 14.062 7.66382 12.9574 7.66382C11.8528 7.66382 10.9574 8.55925 10.9574 9.66382C10.9574 10.7684 11.8528 11.6638 12.9574 11.6638Z" stroke="#003ACB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M12.9574 21.6638C12.9574 21.6638 19.9574 16.8177 19.9574 10.5869C19.9574 8.75078 19.2199 6.98987 17.9071 5.69154C16.5944 4.39321 14.8139 3.66382 12.9574 3.66382C11.1009 3.66382 9.3204 4.39321 8.00765 5.69154C6.6949 6.98987 5.9574 8.75078 5.9574 10.5869C5.9574 16.8177 12.9574 21.6638 12.9574 21.6638Z" stroke="#003ACB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <a href="">Санкт-Петербург, пр-т Большой Сампсониевский, 85 к.1 (метро
+        <a href="https://yandex.ru/maps/2/saint-petersburg/house/bolshoy_sampsoniyevskiy_prospekt_85k1/Z0kYdQRjTE0EQFtjfXV5eHRqYQ==/?indoorLevel=1&ll=30.333583%2C59.989896&z=17">Санкт-Петербург, пр-т Большой Сампсониевский, 85 к.1 (метро
           «Лесная»)</a>
       </li>
       <li class="footer-link-list__link">
@@ -109,7 +103,7 @@
           <path d="M12.9574 11.6638C14.062 11.6638 14.9574 10.7684 14.9574 9.66382C14.9574 8.55925 14.062 7.66382 12.9574 7.66382C11.8528 7.66382 10.9574 8.55925 10.9574 9.66382C10.9574 10.7684 11.8528 11.6638 12.9574 11.6638Z" stroke="#003ACB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M12.9574 21.6638C12.9574 21.6638 19.9574 16.8177 19.9574 10.5869C19.9574 8.75078 19.2199 6.98987 17.9071 5.69154C16.5944 4.39321 14.8139 3.66382 12.9574 3.66382C11.1009 3.66382 9.3204 4.39321 8.00765 5.69154C6.6949 6.98987 5.9574 8.75078 5.9574 10.5869C5.9574 16.8177 12.9574 21.6638 12.9574 21.6638Z" stroke="#003ACB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <a href="">Волгоград, ул. Командира Рудь, 1А</a>
+        <a href="https://yandex.ru/maps/38/volgograd/house/ulitsa_komandira_rud_1a/YE0Ycw9jS0UPQFpifXlxc3VhYQ==/?ll=44.583208%2C48.502925&z=17">Волгоград, ул. Командира Рудь, 1А</a>
       </li>
     </ul>
   </div>
@@ -119,21 +113,15 @@
   </div>
 
   <ul class="dottet-list-footer">
-    <li class="dottet__text"><a href="">Сведения об организации</a></li>
+    <li class="dottet__text"><a href="<?php echo home_url(); ?>/">Сведения об организации</a></li>
     <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
-    <li class="dottet__text">
-      <a href="">Пользовательское соглашение </a>
-    </li>
+    <li class="dottet__text"><a href="<?php echo home_url(); ?>/oferta">Пользовательское соглашение </a></li>
     <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
-    <li class="dottet__text">
-      <a href="">Политика обработки персональных данных </a>
-    </li>
+    <li class="dottet__text"><a href="<?php echo home_url(); ?>/privacy">Политика обработки персональных данных </a></li>
     <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
-    <li class="dottet__text">
-      <a href="">Описание возврата товара или услуги</a>
-    </li>
+    <li class="dottet__text"><a href="<?php echo home_url(); ?>/">Описание возврата товара или услуги</a></li>
     <li class="dottet__dot"><img src="<?php echo bloginfo('template_url'); ?>/assets/icon/dot.svg" alt="" /></li>
-    <li class="dottet__text"><a href="">Онлайн оплата</a></li>
+    <li class="dottet__text"><a href="<?php echo home_url(); ?>/">Онлайн оплата</a></li>
   </ul>
 </footer>
 <div class="grey-bg"></div>

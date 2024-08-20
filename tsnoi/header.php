@@ -37,10 +37,10 @@ wp_head()
     <div class="burger-menu-main" id="burger-menu-main">
       <nav>
         <ul class="nav-list">
-          <li class="shrink"><a href="">Направления деятельности</a></li>
-          <li class="shrink"><a href="">О компании</a></li>
-          <li class="shrink"><a href="">Новости и статьи</a></li>
-          <li class="shrink"><a href="">Оплата</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/">Направления деятельности</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/about-us">О компании</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/news">Новости и статьи</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/">Оплата</a></li>
           <li class="shrink search-nav-btn">
             <img src="<?php echo bloginfo('template_url'); ?>/assets/icon/user-icon.svg" alt="" /><a href="">Поиск</a>
           </li>
