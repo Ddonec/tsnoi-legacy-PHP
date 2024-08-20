@@ -333,7 +333,8 @@ footer {
   position: relative;
   z-index: 1;
 }
-.advantages__big-blue-card:hover {
+.advantages__big-blue-card:hover,
+.course-ways__card:hover {
   filter: brightness(1.2);
 }
 .advantages__big-white-card:hover {
