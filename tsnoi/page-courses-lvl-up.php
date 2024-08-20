@@ -128,14 +128,15 @@ get_header();
               <?php if (have_rows('course_bot_whites')) : ?>
                 <?php while (have_rows('course_bot_whites')) : the_row();
                   $bot_white = get_sub_field('course_bot_white');
-                  $bot_white_class = get_sub_field('course_bot_white_class');
+                  $is_blue = get_sub_field('is_blue');
+                  $bot_white_class = $is_blue ? 'course-ways-bot-white blue' : 'course-ways-bot-white';
                 ?>
-                  <div class="course-ways-bot-white <?php echo esc_attr($bot_white_class); ?>"><?php echo esc_html($bot_white); ?></div>
+                  <div class="<?php echo esc_attr($bot_white_class); ?>"><?php echo esc_html($bot_white); ?></div>
                 <?php endwhile; ?>
               <?php endif; ?>
-
             </div>
           </a>
+
         <?php endwhile; ?>
       <?php endif; ?>
       <a href="<?php the_field('cards_show_more_link') ?>" class="course-ways__card link-default lvl-up-card small course-lvl-up-card-12">

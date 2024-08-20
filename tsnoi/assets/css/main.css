@@ -1875,12 +1875,14 @@ footer {
 .lvl-up-card.small {
   width: calc(25% - 22.5px);
 }
-.course-lvl-white-comtainer > div:nth-last-child(1) {
-  background: #003acb;
-  color: #fff;
+.course-lvl-white-comtainer > div {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.course-ways-bot-white.blue {
+  background: #003acb;
+  color: #fff;
 }
 .course-lvl-up-card-1 {
   background-image: url(../assets/content/couse-way-cards-bg-1.png);

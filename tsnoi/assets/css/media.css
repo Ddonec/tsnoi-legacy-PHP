@@ -669,7 +669,11 @@
   .view-all-reviews-btn {
     font-size: 18px;
   }
-  .lvl-up-tab-mobile-hide {
+  /* .lvl-up-tab-mobile-hide {
+    display: none;
+  } */
+  .course-ways__bot-white-container
+    > .course-ways-bot-white:not(:first-child):not(:last-child) {
     display: none;
   }
   .courses-card-preschool__btns-area {
