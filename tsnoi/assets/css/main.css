@@ -517,6 +517,9 @@ footer {
   background-position: center;
   background-size: cover;
 }
+.articles-prewiew-box__article:hover {
+  filter: brightness(1.2);
+}
 .articles-prewiew-box__article-1 {
   width: calc(50% - 20px);
   position: relative;
