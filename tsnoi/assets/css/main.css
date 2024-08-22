@@ -2746,6 +2746,7 @@ footer {
   background-position: center;
   background-size: cover;
   border-radius: 30px;
+  overflow: hidden;
 }
 
 .modal-subtitle,

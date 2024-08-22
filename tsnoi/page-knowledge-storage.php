@@ -217,12 +217,7 @@ get_header();
                 </svg>
             </div>
             <a href="" class="modal-video-link">
-                <div class="modal-preview " style="background-image:url(<?php the_field('bg-modal-prewiev'); ?>)">
-                    <div class="last-vebinar-preview-card__play-btn">
-                        <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 14L0 28L1.26184e-06 0L25 14Z" fill="white" />
-                        </svg>
-                    </div>
+                <div class="modal-preview">
                 </div>
             </a>
             <h2 class="modal-title">
@@ -291,8 +286,6 @@ get_header();
             const videoLink = card.getAttribute('data-video-link');
             const linkBtb = card.getAttribute('data-link-btn-modal');
 
-
-
             // Вставка данных в модальное окно
             const modalSection = document.querySelector('.modal-vebinar-section');
             modalSection.querySelector('.modal-title').textContent = modalTitle;
@@ -311,9 +304,22 @@ get_header();
             modalSection.querySelector('.modal-sertificate_1').style.backgroundImage = `url(${modalImage1})`;
             modalSection.querySelector('.modal-sertificate_2').style.backgroundImage = `url(${modalImage2})`;
 
-            const modalLink = modalSection.querySelector('.modal-video-link');
-            modalLink.href = videoLink;
+            // Создание и вставка iframe с видео
+            const modalPreview = modalSection.querySelector('.modal-preview');
+            const iframe = document.createElement('iframe');
 
+            // Удаляем autoplay из видео ссылки, если он там есть
+            const videoUrl = new URL(videoLink);
+            videoUrl.searchParams.delete('autoplay'); // удаляем параметр autoplay
+
+            iframe.src = videoUrl.toString();
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;';
+            iframe.frameBorder = '0';
+            iframe.allowFullscreen = true;
+
+            modalPreview.appendChild(iframe);
 
             // Показать модальное окно и фон
             modalSection.classList.add('active');
@@ -323,20 +329,14 @@ get_header();
             // Закрытие модального окна
             const closeButton = modalSection.querySelector('.close-btn');
             if (closeButton) {
-                closeButton.addEventListener('click', deactivateModalAndBackground);
+                closeButton.addEventListener('click', () => deactivateModalAndBackground(iframe));
             }
 
             document.body.style.overflow = 'hidden';
-            greyBg.addEventListener('click', deactivateModalAndBackground);
+            greyBg.addEventListener('click', () => deactivateModalAndBackground(iframe));
         }
 
-
-
-        document.querySelectorAll('.preview-card__btn-area_btn').forEach(btn => {
-            btn.addEventListener('click', activateModalAndBackground);
-        });
-
-        function deactivateModalAndBackground() {
+        function deactivateModalAndBackground(iframe) {
             const modalSection = document.querySelector(".modal-vebinar-section");
             const greyBg = document.querySelector(".grey-bg");
 
@@ -348,9 +348,19 @@ get_header();
                 greyBg.classList.remove("active");
             }
 
+            // Удаляем iframe из DOM
+            if (iframe && iframe.parentNode) {
+                iframe.parentNode.removeChild(iframe);
+            }
+
             document.body.style.overflow = "";
         }
+
+        document.querySelectorAll('.preview-card__btn-area_btn').forEach(btn => {
+            btn.addEventListener('click', activateModalAndBackground);
+        });
     </script>
+
 
     <section class="youtube-section-knowledge">
         <div class="youtube-left">
