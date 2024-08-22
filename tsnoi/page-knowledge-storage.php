@@ -304,13 +304,11 @@ get_header();
             modalSection.querySelector('.modal-sertificate_1').style.backgroundImage = `url(${modalImage1})`;
             modalSection.querySelector('.modal-sertificate_2').style.backgroundImage = `url(${modalImage2})`;
 
-            // Создание и вставка iframe с видео
             const modalPreview = modalSection.querySelector('.modal-preview');
             const iframe = document.createElement('iframe');
 
-            // Удаляем autoplay из видео ссылки, если он там есть
             const videoUrl = new URL(videoLink);
-            videoUrl.searchParams.delete('autoplay'); // удаляем параметр autoplay
+            videoUrl.searchParams.delete('autoplay');
 
             iframe.src = videoUrl.toString();
             iframe.width = '100%';
@@ -321,12 +319,10 @@ get_header();
 
             modalPreview.appendChild(iframe);
 
-            // Показать модальное окно и фон
             modalSection.classList.add('active');
             const greyBg = document.querySelector('.grey-bg');
             if (greyBg) greyBg.classList.add('active');
 
-            // Закрытие модального окна
             const closeButton = modalSection.querySelector('.close-btn');
             if (closeButton) {
                 closeButton.addEventListener('click', () => deactivateModalAndBackground(iframe));
