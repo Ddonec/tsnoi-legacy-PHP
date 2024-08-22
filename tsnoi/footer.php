@@ -1,6 +1,6 @@
 <footer>
   <div class="footer-column logo-and-s-w-footer">
-    <img src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" />
+    <a href="<?php echo home_url(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" /></a>
     <div class="social-webs-footer">
       <a href="https://telegram.org">
         <div class="social-webs-footer__square">
