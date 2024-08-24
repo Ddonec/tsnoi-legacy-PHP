@@ -118,26 +118,30 @@ get_header();
           $bot_white_repeater = get_sub_field('course_bot_whites');
           $course_size = get_sub_field('course_size');
           $bg_photo = get_sub_field('bg_photo');
+          $button_link = get_sub_field('button_link');
+          $show_more_link = get_sub_field('show_more_link');
 
         ?>
-          <div class="course-ways__card lvl-up-card <?php echo esc_attr($course_size); ?>" style="background-image: url(<?php echo esc_url($bg_photo); ?>);">
+          <a href="<?php echo esc_url($button_link); ?>" class="course-ways__card link-default lvl-up-card <?php echo esc_attr($course_size); ?>" style="background-image: url(<?php echo esc_url($bg_photo); ?>);">
             <div class="course-ways__top-black"><?php echo esc_html($top_black); ?></div>
             <div class="course-ways__bot-white-container course-lvl-white-comtainer">
               <?php if (have_rows('course_bot_whites')) : ?>
                 <?php while (have_rows('course_bot_whites')) : the_row();
                   $bot_white = get_sub_field('course_bot_white');
-                  $bot_white_class = get_sub_field('course_bot_white_class');
+                  $is_blue = get_sub_field('is_blue');
+                  $bot_white_class = $is_blue ? 'course-ways-bot-white blue' : 'course-ways-bot-white';
                 ?>
-                  <div class="course-ways-bot-white <?php echo esc_attr($bot_white_class); ?>"><?php echo esc_html($bot_white); ?></div>
+                  <div class="<?php echo esc_attr($bot_white_class); ?>"><?php echo esc_html($bot_white); ?></div>
                 <?php endwhile; ?>
               <?php endif; ?>
             </div>
-          </div>
+          </a>
+
         <?php endwhile; ?>
       <?php endif; ?>
-      <div class="course-ways__card lvl-up-card small course-lvl-up-card-12">
+      <a href="<?php the_field('cards_show_more_link') ?>" class="course-ways__card link-default lvl-up-card small course-lvl-up-card-12">
         <?php the_field('lvl-up_cards_show_more') ?>
-      </div>
+      </a>
     </div>
   </section>
 

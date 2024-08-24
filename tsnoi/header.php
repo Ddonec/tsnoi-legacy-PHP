@@ -33,14 +33,14 @@ wp_head()
 
 <body>
   <header class="header-main">
-    <img class="logo-header" src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" />
+    <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php echo bloginfo('template_url'); ?>/assets/content/logo-tsnoi.png" alt="" /></a>
     <div class="burger-menu-main" id="burger-menu-main">
       <nav>
         <ul class="nav-list">
-          <li class="shrink"><a href="">Направления деятельности</a></li>
-          <li class="shrink"><a href="">О компании</a></li>
-          <li class="shrink"><a href="">Новости и статьи</a></li>
-          <li class="shrink"><a href="">Оплата</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/">Направления деятельности</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/about-us">О компании</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/news">Новости и статьи</a></li>
+          <li class="shrink"><a href="<?php echo home_url(); ?>/">Оплата</a></li>
           <li class="shrink search-nav-btn">
             <img src="<?php echo bloginfo('template_url'); ?>/assets/icon/user-icon.svg" alt="" /><a href="">Поиск</a>
           </li>

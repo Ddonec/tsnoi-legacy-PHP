@@ -300,15 +300,15 @@ footer {
   flex-wrap: wrap;
   gap: 30px;
   display: flex;
-  flex-direction: column;
-  height: 2210px;
+  /* flex-direction: column;
+  height: 2210px; */
 }
 .advantages-cards-container > div {
   width: calc((100% / 3) - 20px);
 }
-.advantages-cards-container > div:nth-child(5) {
+/* .advantages-cards-container > div:nth-child(5) {
   margin-top: 120px;
-}
+} */
 
 .advantages__big-blue-card {
   background: linear-gradient(321deg, #087dff 0%, #060c47 100%);
@@ -333,7 +333,9 @@ footer {
   position: relative;
   z-index: 1;
 }
-.advantages__big-blue-card:hover {
+.advantages__big-blue-card:hover,
+.course-ways__card:hover,
+.news-container__block:hover {
   filter: brightness(1.2);
 }
 .advantages__big-white-card:hover {
@@ -516,6 +518,9 @@ footer {
   border-radius: 30px;
   background-position: center;
   background-size: cover;
+}
+.articles-prewiew-box__article:hover {
+  filter: brightness(1.2);
 }
 .articles-prewiew-box__article-1 {
   width: calc(50% - 20px);
@@ -1871,12 +1876,14 @@ footer {
 .lvl-up-card.small {
   width: calc(25% - 22.5px);
 }
-.course-lvl-white-comtainer > div:nth-last-child(1) {
-  background: #003acb;
-  color: #fff;
+.course-lvl-white-comtainer > div {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.course-ways-bot-white.blue {
+  background: #003acb;
+  color: #fff;
 }
 .course-lvl-up-card-1 {
   background-image: url(../assets/content/couse-way-cards-bg-1.png);
@@ -2739,6 +2746,7 @@ footer {
   background-position: center;
   background-size: cover;
   border-radius: 30px;
+  overflow: hidden;
 }
 
 .modal-subtitle,
@@ -2861,6 +2869,14 @@ footer {
   line-height: 140%;
   text-align: center;
   color: #000;
+}
+.news-container-bottom-text {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  color: #40444e;
+  margin-top: 24px;
 }
 .news-container__1 {
   background-image: url(../assets/content/news-container_1.png);

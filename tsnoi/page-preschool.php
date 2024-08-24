@@ -64,6 +64,9 @@ get_header();
                     $btn_info_text = get_sub_field('btn_info_text');
                     $btn_order_text = get_sub_field('btn_order_text');
                     $is_new = get_sub_field('is_new');
+                    $info_link = get_sub_field('info_link');
+                    $order_link = get_sub_field('order_link');
+
                 ?>
                     <div class="courses-card-preschool" data-category="<?php echo esc_attr(implode(' ', array_map('trim', $categories_array))); ?>">
                         <?php if ($is_new) : ?>
@@ -84,8 +87,12 @@ get_header();
                         <p class="courses-card-preschool__second-gray-text"><?php echo esc_html($second_gray_text); ?></p>
                         <div class="courses-card-preschool__price"><?php echo esc_html($price); ?></div>
                         <div class="courses-card-preschool__btns-area">
-                            <div class="courses-card-preschool__btn-info"><?php echo esc_html($btn_info_text); ?></div>
-                            <div class="courses-card-preschool__btn-order"><?php echo esc_html($btn_order_text); ?></div>
+                            <a class="link-default" href="<?php echo esc_url($info_link); ?>">
+                                <div class="courses-card-preschool__btn-info "><?php echo esc_html($btn_info_text); ?></div>
+                            </a>
+                            <a class="link-default" href="<?php echo esc_url($order_link); ?>">
+                                <div class="courses-card-preschool__btn-order "><?php echo esc_html($btn_order_text); ?></div>
+                            </a>
                         </div>
                     </div>
                 <?php endwhile; ?>

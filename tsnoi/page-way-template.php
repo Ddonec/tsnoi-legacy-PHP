@@ -7,8 +7,6 @@ Template Name: way template page
 get_header();
 ?>
 
-
-
 <main>
     <section class="first-section-way">
         <div class="default-block-blue-bg default-block-blue-bg-way way-template-banner">
@@ -32,13 +30,15 @@ get_header();
                 $button_link = get_sub_field('button_link');
                 $button_text = get_sub_field('button_text');
                 $reverse_order = get_sub_field('reverse_order');
+                $show_button = get_sub_field('show_button');
             ?>
                 <div class="white-way-block">
                     <?php if ($reverse_order) : ?>
                         <div class="white-way-block__info">
                             <h2 class="white-way-block__title"><?php echo esc_html($title); ?></h2>
                             <p class="white-way-block__subtitle"><?php echo wp_kses_post(nl2br($subtitle)); ?></p>
-                            <?php if ($button_link) : ?>
+                            <?php if ($show_button && $button_link) :
+                            ?>
                                 <a href="<?php echo esc_url($button_link['url']); ?>" target="<?php echo esc_attr($button_link['target'] ?: '_self'); ?>">
                                     <div class="white-way-block__button">
                                         <?php echo esc_html($button_text); ?>
@@ -60,7 +60,8 @@ get_header();
                         <div class="white-way-block__info">
                             <h2 class="white-way-block__title"><?php echo esc_html($title); ?></h2>
                             <p class="white-way-block__subtitle"><?php echo wp_kses_post(nl2br($subtitle)); ?></p>
-                            <?php if ($button_link) : ?>
+                            <?php if ($show_button && $button_link) :
+                            ?>
                                 <a href="<?php echo esc_url($button_link['url']); ?>" target="<?php echo esc_attr($button_link['target'] ?: '_self'); ?>">
                                     <div class="white-way-block__button">
                                         <?php echo esc_html($button_text); ?>
@@ -80,8 +81,6 @@ get_header();
     <?php endif; ?>
 
 </main>
-
-
 
 <?php
 get_footer();

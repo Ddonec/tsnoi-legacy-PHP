@@ -7,6 +7,15 @@
     right: 0;
   }
 }
+@media (max-width: 1800px) {
+  .nav-list {
+    gap: 20px;
+    margin-left: 20px;
+  }
+  .header-main {
+    z-index: 2;
+  }
+}
 @media (max-width: 1700px) {
   .burger-menu {
     display: inline-block;
@@ -22,7 +31,7 @@
     transform: translateX(100%);
     transition: 0.6s ease;
     top: 0;
-    padding: 40px 20px;
+    padding: 60px 20px;
     z-index: 3;
   }
   .burger-menu-main.show {
@@ -235,9 +244,9 @@
   .advantages-cards-container {
     height: unset;
   }
-  .advantages-cards-container > div:nth-child(5) {
+  /* .advantages-cards-container > div:nth-child(5) {
     margin: 0;
-  }
+  } */
   .footer-column-1,
   .footer-column-2,
   .footer-column-3 {
@@ -669,7 +678,11 @@
   .view-all-reviews-btn {
     font-size: 18px;
   }
-  .lvl-up-tab-mobile-hide {
+  /* .lvl-up-tab-mobile-hide {
+    display: none;
+  } */
+  .course-ways__bot-white-container
+    > .course-ways-bot-white:not(:first-child):not(:last-child) {
     display: none;
   }
   .courses-card-preschool__btns-area {
@@ -740,8 +753,11 @@
   .news-page-news-container > .news-container__block:not(:nth-child(-n + 5)) {
     display: none;
   }
-  .news-container__big-block {
+  .news_bg__big-block {
     height: 200px;
+  }
+  .news-container-bottom-text {
+    font-size: 18px;
   }
   .blue-line {
     top: 91px;
@@ -1034,6 +1050,7 @@
   .show-more-btn-home {
     display: flex;
     gap: 10px;
+    width: 100%;
   }
   .advantages-cards-container > div:nth-child(n + 6) {
     display: none;
