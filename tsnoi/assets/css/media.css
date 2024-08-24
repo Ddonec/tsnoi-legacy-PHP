@@ -244,9 +244,9 @@
   .advantages-cards-container {
     height: unset;
   }
-  .advantages-cards-container > div:nth-child(5) {
+  /* .advantages-cards-container > div:nth-child(5) {
     margin: 0;
-  }
+  } */
   .footer-column-1,
   .footer-column-2,
   .footer-column-3 {
