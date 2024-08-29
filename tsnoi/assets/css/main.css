@@ -300,15 +300,10 @@ footer {
   flex-wrap: wrap;
   gap: 30px;
   display: flex;
-  /* flex-direction: column;
-  height: 2210px; */
 }
 .advantages-cards-container > div {
   width: calc((100% / 3) - 20px);
 }
-/* .advantages-cards-container > div:nth-child(5) {
-  margin-top: 120px;
-} */
 
 .advantages__big-blue-card {
   background: linear-gradient(321deg, #087dff 0%, #060c47 100%);
